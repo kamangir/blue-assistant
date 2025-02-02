@@ -7,7 +7,7 @@ function blue_assistant_chat() {
     local do_upload=$(abcli_option_int "$options" upload $(abcli_not $do_dryrun))
 
     local chat_options=$2
-    local interactive=$(abcli_option_int "$options" interact 1)
+    local interactive=$(abcli_option_int "$chat_options" interact 1)
 
     local object_name=$(abcli_clarify_object $3 chat-$(abcli_string_timestamp))
     [[ "$do_download" == 1 ]] &&

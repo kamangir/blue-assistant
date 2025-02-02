@@ -1,6 +1,7 @@
 from blueness import module
 
 from blue_assistant import NAME
+from blue_assistant.chat.context import ChatContext
 from blue_assistant.logger import logger
 
 
@@ -11,6 +12,7 @@ def chat(
     object_name: str,
     interactive: bool = True,
     verbose: bool = False,
+    load_history: bool = True,
 ) -> bool:
     logger.info(
         "{}.chat -{}> {}".format(
@@ -20,6 +22,15 @@ def chat(
         )
     )
 
-    logger.info("🪄")
+    context = ChatContext(
+        object_name,
+        load_history=load_history,
+    )
 
-    return True
+    if not context.chat(
+        interactive=interactive,
+        verbose=verbose,
+    ):
+        return False
+
+    return context.save()
