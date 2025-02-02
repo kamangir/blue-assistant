@@ -10,7 +10,7 @@ setup(
     packages=[
         NAME,
         f"{NAME}.help",
-        f"{NAME}.chat",
+        f"{NAME}.script",
     ],
     include_package_data=True,
     package_data={
@@ -21,6 +21,3 @@ setup(
         ],
     },
 )
-
-
-

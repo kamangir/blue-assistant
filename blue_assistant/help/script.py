@@ -3,25 +3,26 @@ from typing import List
 from blue_options.terminal import show_usage, xtra
 
 
-def help_chat(
+def help_run(
     tokens: List[str],
     mono: bool,
 ) -> str:
-    options = xtra("download,dryrun,~upload", mono=mono)
-
-    chat_options = xtra("~interact", mono=mono)
+    options = xtra("~download,dryrun,~upload", mono=mono)
 
     args = ["--verbose 1"]
 
     return show_usage(
         [
             "@assistant",
-            "chat",
+            "script",
+            "run",
             f"[{options}]",
-            f"[{chat_options}]",
-            "[-|<object-name>]",
+            "[.|<object-name>]",
         ]
         + args,
-        "chat with @assistant.",
+        "run <object-name>.",
         mono=mono,
     )
+
+
+help_functions = {"run": help_run}

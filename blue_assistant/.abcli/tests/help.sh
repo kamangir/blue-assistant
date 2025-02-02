@@ -19,7 +19,8 @@ function test_blue_assistant_help() {
         \
         "@assistant browse" \
         \
-        "@assistant chat" \
+        "@assistant script" \
+        "@assistant script run" \
         \
         "blue_assistant"; do
         abcli_eval ,$options \
