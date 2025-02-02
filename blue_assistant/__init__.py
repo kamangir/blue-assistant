@@ -4,7 +4,7 @@ ICON = "🧠"
 
 DESCRIPTION = f"{ICON} An AI Assistant."
 
-VERSION = "4.48.1"
+VERSION = "4.49.1"
 
 REPO_NAME = "blue-assistant"
 
