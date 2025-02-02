@@ -1,6 +1,6 @@
-# 🌀 blue-assistant
+# 🧠 blue-assistant
 
-🌀 `@assistant` is an AI assistant.
+🧠 `@assistant` is an AI assistant.
 
 ```bash
 pip install blue-assistant
@@ -8,10 +8,12 @@ pip install blue-assistant
 
 ```mermaid
 graph LR
-    assistant_script_run["@assistant script run~~- <object-name>"]
+    assistant_script_run["@assistant script run~~- <script> <object-name>"]
 
+    script["📜 script"]:::folder
     object["📂 object"]:::folder
 
+    script --> assistant_script_run
     object --> assistant_script_run
     assistant_script_run --> object
 

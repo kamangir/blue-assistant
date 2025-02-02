@@ -12,6 +12,8 @@ setup(
         f"{NAME}.help",
         f"{NAME}.script",
         f"{NAME}.script.kinds",
+        f"{NAME}.script.kinds.blue_amo",
+        f"{NAME}.script.kinds.mining_on_moon",
     ],
     include_package_data=True,
     package_data={
