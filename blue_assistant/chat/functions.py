@@ -33,15 +33,9 @@ def chat(
     while True:
         prompt = input(f"{ICON}  > ") if interactive else ""
 
-        state = context.process(prompt)
-        if state is False:
-            logger.info("chat failed.")
+        if not context.process(prompt):
             return False
-        if state is None:
-            logger.info("end of chat.")
-            break
-
-        if not interactive:
+        if context.ended or not interactive:
             break
 
         print(hr(width=21))

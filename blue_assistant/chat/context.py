@@ -1,5 +1,3 @@
-from typing import Union
-
 from blue_objects.metadata import post_to_object, get_from_object
 
 from blue_assistant.logger import logger
@@ -11,6 +9,8 @@ class ChatContext:
         object_name: str,
         load_history: bool = True,
     ):
+        self.ended: bool = False
+
         self.object_name = object_name
 
         self.history = (
@@ -23,17 +23,21 @@ class ChatContext:
             else []
         )
 
-    def process(self, prompt: str) -> Union[bool, None]:
-        if prompt == "help":
+    def process(self, prompt: str) -> bool:
+        if prompt in ["help", "?", ""]:
             return self.show_help()
 
-        if prompt == "quit":
-            return None
-
-        if prompt == "break":
-            return False
+        if prompt in ["quit", "exit", "q"]:
+            self.ended = True
+            return True
 
         logger.info(f"🪄 {prompt}")
+
+        self.history.append(
+            {
+                "prompt": prompt,
+            }
+        )
 
         return True
 
