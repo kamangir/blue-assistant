@@ -31,10 +31,10 @@ class BlueAmoScript(GenericScript):
             action = node.get("action", "unknown")
 
             if action == "generate_image":
-                ...
+                logger.info("🪄 generating image ...")
                 success = True
             elif action == "generate_text":
-                ...
+                logger.info("🪄 generating text ...")
                 success = True
             else:
                 logger.error(f"{action}: action not found.")
