@@ -1,0 +1,13 @@
+script:
+  - context_generation: 
+    - instruction: Your task is to generate a story in a few paragraphs using the following content.
+    - The story happens during the US military attack on Canada and Greenland. 
+    - Follow the story of ball-shaped and sized AI-enabled loitering ammunition
+    - amphibious robots named blue-amo developed by Canadians.
+    - The robots are carried to American targets close to waterways by by small narco submarines 
+    - provided by Mexicans. 
+    - At the target, a hatch opens and the the robots roll off their container in the submarine 
+    - and sim towards the shore.
+    - From there they roll into hiding places to explode when their DeepSeek onboard Raspberry Pis
+    - determine appropriate. 
+    - The robots never explode accidentally or if manipulated by children or animals. 

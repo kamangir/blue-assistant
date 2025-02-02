@@ -4,7 +4,7 @@ from blueness import module
 from blueness.argparse.generic import sys_exit
 
 from blue_assistant import NAME
-from blue_assistant.chat.functions import chat
+from blue_assistant.script.functions import chat
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
