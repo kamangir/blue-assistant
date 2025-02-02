@@ -1,6 +1,7 @@
 blueness
 blue-options
 abcli
+openai_commands
 boto3
 geojson
 geopandas

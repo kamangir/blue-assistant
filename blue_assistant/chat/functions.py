@@ -25,11 +25,11 @@ def chat(
     context = ChatContext(
         object_name,
         load_history=load_history,
+        verbose=verbose,
     )
 
     if not context.chat(
         interactive=interactive,
-        verbose=verbose,
     ):
         return False
 

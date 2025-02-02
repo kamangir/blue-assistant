@@ -1,5 +1,8 @@
+from blue_objects import file, objects
+from blue_options import string
 from blue_objects.metadata import post_to_object, get_from_object
 from blue_options.terminal.functions import hr
+from openai_commands.prompt_completion.api import complete_prompt
 
 from blue_assistant import ICON
 from blue_assistant.logger import logger
@@ -10,7 +13,10 @@ class ChatContext:
         self,
         object_name: str,
         load_history: bool = True,
+        verbose: bool = False,
     ):
+        self.verbose = verbose
+
         self.ended: bool = False
 
         self.object_name = object_name
@@ -28,7 +34,6 @@ class ChatContext:
     def chat(
         self,
         interactive: bool = True,
-        verbose: bool = False,
     ) -> bool:
         logger.info('Type in "help" for help.')
 
@@ -45,7 +50,11 @@ class ChatContext:
 
         return True
 
-    def process_prompt(self, prompt: str) -> bool:
+    def process_prompt(
+        self,
+        prompt: str,
+        max_tokens: int = 2000,
+    ) -> bool:
         if prompt in ["help", "?", ""]:
             return self.show_help()
 
@@ -53,15 +62,36 @@ class ChatContext:
             self.ended = True
             return True
 
+        success, response, metadata = complete_prompt(
+            prompt=prompt,
+            max_tokens=max_tokens,
+            verbose=self.verbose,
+        )
+        if not success:
+            return success
+        logger.info(response)
+
         logger.info(f"🪄 {prompt}")
 
+        id_ = string.pretty_date(
+            as_filename=True,
+            unique=True,
+        )
         self.history.append(
             {
+                "id": id_,
                 "prompt": prompt,
+                "response": response,
             }
         )
 
-        return True
+        return file.save_yaml(
+            objects.path_of(
+                object_name=self.object_name,
+                filename=f"{id_}.yaml",
+            ),
+            metadata,
+        )
 
     def save(self) -> bool:
         return post_to_object(
