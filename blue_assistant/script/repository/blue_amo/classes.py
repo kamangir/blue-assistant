@@ -2,6 +2,7 @@ from typing import Dict
 from tqdm import tqdm
 
 from blue_objects import file, path
+from blue_objects.metadata import post_to_object
 
 from blue_assistant.script.repository.generic.classes import GenericScript
 from blue_assistant.logger import logger
@@ -27,4 +28,8 @@ class BlueAmoScript(GenericScript):
         for node_name, node in tqdm(self.script["nodes"].items()):
             logger.info(node_name)
 
-        return True
+        return post_to_object(
+            object_name,
+            "output",
+            metadata,
+        )

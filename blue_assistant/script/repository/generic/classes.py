@@ -2,6 +2,7 @@ import os
 
 from blueness import module
 from blue_objects import file, path
+from blue_objects.metadata import post_to_object
 
 from blue_assistant import NAME
 from blue_assistant.logger import logger
@@ -43,4 +44,8 @@ class GenericScript:
             )
         )
 
-        return True
+        return post_to_object(
+            object_name,
+            "input",
+            self.script,
+        )
