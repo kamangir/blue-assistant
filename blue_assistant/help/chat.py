@@ -7,9 +7,11 @@ def help_chat(
     tokens: List[str],
     mono: bool,
 ) -> str:
-    options = xtra("~download,dryrun,~interact,~upload", mono=mono)
+    options = xtra("download,dryrun,~upload", mono=mono)
 
     chat_options = xtra("~interact", mono=mono)
+
+    args = ["--verbose 1"]
 
     return show_usage(
         [
@@ -18,7 +20,8 @@ def help_chat(
             f"[{options}]",
             f"[{chat_options}]",
             "[-|<object-name>]",
-        ],
+        ]
+        + args,
         "chat with @assistant.",
         mono=mono,
     )

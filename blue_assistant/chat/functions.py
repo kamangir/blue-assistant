@@ -10,12 +10,13 @@ NAME = module.name(__file__, NAME)
 def chat(
     object_name: str,
     interactive: bool = True,
+    verbose: bool = False,
 ) -> bool:
     logger.info(
         "{}.chat -{}> {}".format(
             NAME,
-            object_name,
             "interactive-" if interactive else "",
+            object_name,
         )
     )
 

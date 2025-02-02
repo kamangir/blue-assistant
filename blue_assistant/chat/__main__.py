@@ -16,18 +16,29 @@ parser.add_argument(
     help="chat",
 )
 parser.add_argument(
-    "--arg",
-    type=bool,
+    "--object_name",
+    type=str,
+)
+parser.add_argument(
+    "--interactive",
+    type=int,
     default=0,
-    help="0|1",
+    help="0 | 1",
+)
+parser.add_argument(
+    "--verbose",
+    type=int,
+    default=0,
+    help="0 | 1",
 )
 args = parser.parse_args()
 
 success = False
 if args.task == "chat":
     success = chat(
-        interactive=args.interactive == 1,
         object_name=args.object_name,
+        interactive=args.interactive == 1,
+        verbose=args.verbose == 1,
     )
 else:
     success = None
