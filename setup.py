@@ -11,6 +11,10 @@ setup(
         NAME,
         f"{NAME}.help",
         f"{NAME}.script",
+        f"{NAME}.script.repository",
+        f"{NAME}.script.repository.blue_amo",
+        f"{NAME}.script.repository.generic",
+        f"{NAME}.script.repository.moon_datasets",
     ],
     include_package_data=True,
     package_data={
