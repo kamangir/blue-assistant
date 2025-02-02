@@ -1,5 +1,7 @@
 from blue_objects.metadata import post_to_object, get_from_object
+from blue_options.terminal.functions import hr
 
+from blue_assistant import ICON
 from blue_assistant.logger import logger
 
 
@@ -23,7 +25,27 @@ class ChatContext:
             else []
         )
 
-    def process(self, prompt: str) -> bool:
+    def chat(
+        self,
+        interactive: bool = True,
+        verbose: bool = False,
+    ) -> bool:
+        logger.info('Type in "help" for help.')
+
+        while True:
+            prompt = input(f"{ICON}  > ") if interactive else ""
+
+            if not self.process_prompt(prompt):
+                return False
+
+            if self.ended or not interactive:
+                break
+
+            print(hr(width=21))
+
+        return True
+
+    def process_prompt(self, prompt: str) -> bool:
         if prompt in ["help", "?", ""]:
             return self.show_help()
 

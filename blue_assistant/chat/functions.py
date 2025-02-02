@@ -1,7 +1,6 @@
 from blueness import module
-from blue_options.terminal.functions import hr
 
-from blue_assistant import NAME, ICON
+from blue_assistant import NAME
 from blue_assistant.chat.context import ChatContext
 from blue_assistant.logger import logger
 
@@ -28,16 +27,10 @@ def chat(
         load_history=load_history,
     )
 
-    logger.info('Type in "help" for help.')
-
-    while True:
-        prompt = input(f"{ICON}  > ") if interactive else ""
-
-        if not context.process(prompt):
-            return False
-        if context.ended or not interactive:
-            break
-
-        print(hr(width=21))
+    if not context.chat(
+        interactive=interactive,
+        verbose=verbose,
+    ):
+        return False
 
     return context.save()
