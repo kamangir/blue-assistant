@@ -1,5 +1,7 @@
 script:
   vars: {}
   nodes:
-    integration_api_one: 
-    integration_api_two: 
+    integration_api_one:
+      action: wip
+    integration_api_two:
+      action: wip

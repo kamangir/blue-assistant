@@ -10,6 +10,7 @@ setup(
     packages=[
         NAME,
         f"{NAME}.help",
+        f"{NAME}.actions",
         f"{NAME}.script",
         f"{NAME}.script.repository",
         f"{NAME}.script.repository.blue_amo",
