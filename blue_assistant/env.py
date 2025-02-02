@@ -5,7 +5,7 @@ load_env(__name__)
 load_config(__name__)
 
 
-BLUE_ASSISTANT_MODEL = os.getenv(
-    "BLUE_ASSISTANT_MODEL",
+BLUE_ASSISTANT_TEST_OBJECT = os.getenv(
+    "BLUE_ASSISTANT_TEST_OBJECT",
     "",
 )
