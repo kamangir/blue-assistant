@@ -1,1 +1,0 @@
-from blue_assistant.script.repository.mining_on_moon.classes import MiningOnMoonScript
