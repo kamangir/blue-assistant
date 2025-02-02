@@ -39,11 +39,11 @@ pip install blue-plugin
 
 |   |   |   |
 | --- | --- | --- |
-| 🌀[`feature 1`](#) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](#) description of feature 1 ... | 🌀[`feature 2`](#) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](#) description of feature 2 ... | 🌀[`feature 3`](#) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](#) description of feature 3 ... |
+| 🌀[`feature 1`](#) [![image](https://github.com/kamangir/assets/raw/main/blue-assistant/marquee.png?raw=true)](#) description of feature 1 ... | 🌀[`feature 2`](#) [![image](https://github.com/kamangir/assets/raw/main/blue-assistant/marquee.png?raw=true)](#) description of feature 2 ... | 🌀[`feature 3`](#) [![image](https://github.com/kamangir/assets/raw/main/blue-assistant/marquee.png?raw=true)](#) description of feature 3 ... |
 
 ---
 
 
-[![pylint](https://github.com/kamangir/blue-plugin/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-plugin/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-plugin/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-plugin/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-plugin/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-plugin/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-plugin.svg)](https://pypi.org/project/blue-plugin/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-plugin)](https://pypistats.org/packages/blue-plugin)
+[![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.202.1`](https://github.com/kamangir/awesome-bash-cli), based on 🌀 [`blue_plugin-3.213.1`](https://github.com/kamangir/blue-plugin).
+built by 🌀 [`blue_options-4.202.1`](https://github.com/kamangir/awesome-bash-cli), based on 🌀 [`blue_assistant-4.2.1`](https://github.com/kamangir/blue-assistant).
