@@ -33,7 +33,7 @@ class BlueAmoScript(GenericScript):
                 )
             )
 
-            metadata["nodes"][node] = "..."
+            metadata["nodes"][node_name] = "..."
 
         return post_to_object(
             object_name,
