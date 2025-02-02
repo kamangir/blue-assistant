@@ -33,7 +33,7 @@ class ChatContext:
         if prompt == "break":
             return False
 
-        ...
+        logger.info(f"🪄 {prompt}")
 
         return True
 
