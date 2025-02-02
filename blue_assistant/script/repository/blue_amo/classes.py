@@ -26,7 +26,12 @@ class BlueAmoScript(GenericScript):
 
         metadata: Dict[Dict] = {"nodes": {}}
         for node_name, node in tqdm(self.script["nodes"].items()):
-            logger.info(node_name)
+            logger.info(
+                "{}{}".format(
+                    node_name,
+                    f": {node}" if self.verbose else " ...",
+                )
+            )
 
             metadata["nodes"][node] = "..."
 
