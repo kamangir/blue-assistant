@@ -5,7 +5,7 @@ from blue_objects.metadata import get_from_object
 
 from blue_assistant import NAME
 from blue_assistant.script.generic import GenericScript
-from blue_assistant.script.blue_amo import BlueAmoScript
+from blue_assistant.script.kinds.blue_amo import BlueAmoScript
 from blue_assistant.logger import logger
 
 

@@ -11,6 +11,7 @@ setup(
         NAME,
         f"{NAME}.help",
         f"{NAME}.script",
+        f"{NAME}.script.kinds",
     ],
     include_package_data=True,
     package_data={
