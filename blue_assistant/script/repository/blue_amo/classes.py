@@ -25,7 +25,7 @@ class BlueAmoScript(GenericScript):
             return False
 
         metadata: Dict[Dict] = {"nodes": {}}
-        for node_name, node in tqdm(self.script["nodes"].items()):
+        for node_name, node in tqdm(self.nodes.items()):
             logger.info(
                 "{}{}".format(
                     node_name,

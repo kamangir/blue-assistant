@@ -1,3 +1,4 @@
+from typing import Dict, List
 import os
 
 from blueness import module
@@ -25,11 +26,28 @@ class GenericScript:
             f"../{self.name}",
             "metadata.yaml",
         )
+        self.metadata: Dict
         success, self.metadata = file.load_yaml(metadata_filename)
-
-        self.script = self.metadata.get("script", [])
-
         assert success, f"cannot load {self.name}/metadata.yaml"
+
+        logger.info("loaded {} node(s)".format(len(self.nodes)))
+
+        logger.info("loaded {} variable(s)".format(len(self.vars)))
+        if verbose:
+            for var_name, var_value in self.vars.items():
+                logger.info("{}: {}".format(var_name, var_value))
+
+    @property
+    def script(self) -> str:
+        return self.metadata.get("script", {})
+
+    @property
+    def nodes(self) -> str:
+        return self.metadata.get("script", {}).get("nodes", [])
+
+    @property
+    def vars(self) -> str:
+        return self.metadata.get("script", {}).get("vars", {})
 
     def run(
         self,
@@ -46,6 +64,6 @@ class GenericScript:
 
         return post_to_object(
             object_name,
-            "input",
+            "script",
             self.script,
         )

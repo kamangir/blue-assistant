@@ -1,2 +1,3 @@
 script:
-  nodes:
+  vars: {}
+  nodes: {}
