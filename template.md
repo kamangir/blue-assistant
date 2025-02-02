@@ -8,12 +8,12 @@ pip install blue-assistant
 
 ```mermaid
 graph LR
-    chat["@assistant chat~~-~~- <object-name>"]
+    assistant_script_run["@assistant script run~~- <object-name>"]
 
     object["📂 object"]:::folder
 
-    object --> chat
-    chat --> object
+    object --> assistant_script_run
+    assistant_script_run --> object
 
     classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```
