@@ -28,6 +28,8 @@ class BlueAmoScript(GenericScript):
         for node_name, node in tqdm(self.script["nodes"].items()):
             logger.info(node_name)
 
+            metadata["nodes"][node] = "..."
+
         return post_to_object(
             object_name,
             "output",
