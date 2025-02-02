@@ -1,3 +1,5 @@
+from blue_objects import file, objects
+from blue_options import string
 from blue_objects.metadata import post_to_object, get_from_object
 from blue_options.terminal.functions import hr
 from openai_commands.prompt_completion.api import complete_prompt
@@ -71,15 +73,25 @@ class ChatContext:
 
         logger.info(f"🪄 {prompt}")
 
+        id_ = string.pretty_date(
+            as_filename=True,
+            unique=True,
+        )
         self.history.append(
             {
+                "id": id_,
                 "prompt": prompt,
                 "response": response,
-                "metadata": metadata,
             }
         )
 
-        return True
+        return file.save_yaml(
+            objects.path_of(
+                object_name=self.object_name,
+                filename=f"{id_}.yaml",
+            ),
+            metadata,
+        )
 
     def save(self) -> bool:
         return post_to_object(
