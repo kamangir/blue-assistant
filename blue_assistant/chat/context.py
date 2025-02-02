@@ -71,8 +71,6 @@ class ChatContext:
             return success
         logger.info(response)
 
-        logger.info(f"🪄 {prompt}")
-
         id_ = string.pretty_date(
             as_filename=True,
             unique=True,
