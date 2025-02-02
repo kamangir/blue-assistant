@@ -3,7 +3,7 @@
 🌀 `@assistant` is an AI assistant.
 
 ```bash
-pip install blue-plugin
+pip install blue-assistant
 ```
 
 ---
