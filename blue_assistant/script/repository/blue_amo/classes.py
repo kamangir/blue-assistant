@@ -25,6 +25,7 @@ class BlueAmoScript(GenericScript):
             return False
 
         metadata: Dict[Dict] = {"nodes": {}}
+        success: bool = False
         for node_name, node in tqdm(self.nodes.items()):
             logger.info(
                 "{}{}".format(
@@ -33,10 +34,29 @@ class BlueAmoScript(GenericScript):
                 )
             )
 
-            metadata["nodes"][node_name] = "..."
+            action = node.get("action", "unknown")
 
-        return post_to_object(
+            if action == "generate_image":
+                ...
+                success = True
+            elif action == "generate_text":
+                ...
+                success = True
+            else:
+                logger.error(f"{action}: action not found.")
+                success = False
+
+            metadata["nodes"][node_name] = {
+                "success": success,
+            }
+            if not success:
+                break
+
+        if not post_to_object(
             object_name,
             "output",
             metadata,
-        )
+        ):
+            return False
+
+        return success

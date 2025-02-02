@@ -14,7 +14,7 @@ parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
     "task",
     type=str,
-    help="get_list_of | run",
+    help="list | run",
 )
 parser.add_argument(
     "--script_name",
@@ -34,16 +34,27 @@ parser.add_argument(
 parser.add_argument(
     "--delim",
     type=str,
-    default="+",
+    default=", ",
+)
+parser.add_argument(
+    "--log",
+    type=int,
+    default=1,
+    help="0 | 1",
 )
 args = parser.parse_args()
 
 delim = " " if args.delim == "space" else args.delim
 
 success = False
-if args.task == "get_list_of":
+if args.task == "list":
     success = True
-    print(delim.join(list_of_script_names))
+    if args.log:
+        logger.info(f"{len(list_of_script_names)} script(s)")
+        for index, script_name in enumerate(list_of_script_names):
+            logger.info(f"#{index + 1: 3d}: {script_name}")
+    else:
+        print(delim.join(list_of_script_names))
 elif args.task == "run":
     success, script = load_script(
         script_name=args.script_name,

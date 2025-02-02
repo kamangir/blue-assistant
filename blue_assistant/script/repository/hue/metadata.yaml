@@ -1,0 +1,4 @@
+script:
+  vars:
+    objective: Write Python + Bash code to send a color command to the Hue LED lights in my apartment.
+  nodes: {}
