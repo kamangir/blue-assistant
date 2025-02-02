@@ -20,4 +20,6 @@ def chat(
         )
     )
 
+    logger.info("🪄")
+
     return True
