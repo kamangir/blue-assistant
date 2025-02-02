@@ -9,11 +9,9 @@ def test_context():
     context = ChatContext(
         object_name,
         load_history=False,
-    )
-
-    assert context.chat(
-        interactive=False,
         verbose=True,
     )
+
+    assert context.chat(interactive=False)
 
     assert context.save()
