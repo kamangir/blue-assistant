@@ -1,4 +1,4 @@
-from typing import Tuple, Union
+from typing import Tuple, Union, Type
 
 from blueness import module
 from blue_objects.metadata import get_from_object
@@ -20,27 +20,21 @@ def load_script(
     script_kind = get_from_object(
         object_name=object_name,
         key="script.kind",
-        default="unknown",
+        default="generic",
     )
 
-    script = None
-
+    script_class: Type[GenericScript] = GenericScript
     if script_kind == "blue_amo":
-        script = BlueAmoScript(
-            object_name=object_name,
-            verbose=verbose,
-            download=download,
-        )
+        script_class = BlueAmoScript
+    if verbose:
+        logger.info(f"script class: {script_class.__name__}")
 
-    if script_kind == "generic":
-        script = GenericScript(
-            object_name=object_name,
-            verbose=verbose,
-            download=download,
-        )
-
-    if script is None:
-        logger.error(f"{script_kind} not found.")
-        return False, script
+    script = script_class(
+        object_name=object_name,
+        verbose=verbose,
+        download=download,
+    )
+    if verbose:
+        logger.info(f"script kind: {script.kind}")
 
     return True, script
