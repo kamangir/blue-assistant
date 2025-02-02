@@ -23,7 +23,7 @@ class ChatContext:
             else []
         )
 
-    def process(self, prompt: str) -> Union[True, False, None]:
+    def process(self, prompt: str) -> Union[bool, None]:
         if prompt == "help":
             return self.show_help()
 
