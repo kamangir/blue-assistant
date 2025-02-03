@@ -322,4 +322,5 @@ stitching-the-frames:
 
 ---
 
-[blue-amo-2025-02-03-rvc2sl](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-rvc2sl.tar.gz)
+![image](https://github.com/kamangir/assets/blob/main/get?raw=true)
+

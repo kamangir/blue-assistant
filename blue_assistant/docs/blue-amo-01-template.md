@@ -31,4 +31,4 @@ assets:::get:::object_name/stitching-the-frames.png
 
 ---
 
-object:::blue-amo-2025-02-03-rvc2sl
+assets:::get:::blue-amo-2025-02-03-fj326d/stitching-the-frames.png
