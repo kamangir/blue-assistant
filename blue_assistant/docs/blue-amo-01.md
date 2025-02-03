@@ -93,128 +93,115 @@ generating-the-frames:
 generating-the-story:
   action: generate_text
   completed: true
-  output: "In the year 2032, tensions between the United States and its northern neighbor,\
-    \ Canada, reached a breaking point. Driven by an ambition to exert greater influence\
-    \ over the resource-rich regions of Canada and the strategic territory of Greenland,\
-    \ the US initially deployed measures of diplomatic and economic pressure. Their\
-    \ initial efforts, however, met with stiff resistance, as Canada rallied international\
-    \ allies and leveraged global environmental treaties to stymie American advances.\n\
-    \nRealizing that their tactics were floundering, the US government resorted to\
-    \ a more aggressive stance, ultimately making the fateful decision to employ military\
-    \ force. This move sent shockwaves across the globe, as an aggressive expansionist\
-    \ policy was largely thought to be a relic of the past. But the Canadians were\
-    \ ready. Anticipating such a scenario, they had secretly developed an innovative\
-    \ defense strategy that capitalized on their natural resources and clandestine\
-    \ alliances.\n\nThe Canadians launched a fleet of AI-enabled amphibious robots,\
-    \ colloquially named \"Blue-Amo,\" designed to exploit the geography and urban\
-    \ landscape of North American cities. These spherical robots, about the size of\
-    \ basketballs, were stealthy and adaptable. Deployed through small narco submarines\
-    \ provided by unlikely allies in the Mexican cartels\u2014who themselves had long\
-    \ dealt in the trade routes to the US\u2014these robots were a marvel of engineering\
-    \ and subterfuge.\n\nEach Blue-Amo was a masterpiece of autonomous operation,\
-    \ powered by DeepSeek technology housed in Raspberry Pi units. Upon reaching their\
-    \ destination, the Blue-Amo disembarked from the submarines, silently rolling\
-    \ ashore to find suitable hiding places. Their mission was driven by sophisticated\
-    \ AI algorithms capable of scanning open WiFi networks to stay informed via news\
-    \ channels, determining the optimal moments and methods for their deployment.\n\
-    \nThe subtlety of their operations was matched by their resilience; the robots\
-    \ recharged using photocells embedded in their surfaces, lying quietly in the\
-    \ open to soak up the sunlight. In times of potential capture, they would quicken\
-    \ to the nearest waterway, submerging to evade detection. These robots, however,\
-    \ were programmed to exhibit a level of discernment\u2014they recognized interference\
-    \ by children or animals and were programmed to avoid causing harm in such interactions.\n\
-    \nAs the United States military pressed forward, these inconspicuous allies became\
-    \ a formidable deterrent, haunting urban centers with their latent presence. The\
-    \ combination of unpredictable attacks and the moral restraint shown in avoiding\
-    \ collateral damage captured the world's attention. This heightened level of warfare,\
-    \ blending technology, geography, and covert alliances, set a new standard for\
-    \ asymmetric defense, ultimately forcing a reconsideration of intentions and methods\
-    \ from all parties involved. The silent sentinels of Canada\u2014the Blue-Amo\
-    \ army\u2014demonstrated that in the evolving theater of warfare, a combination\
-    \ of intellect, foresight, and collaboration could hold even the mightiest at\
-    \ bay."
+  output: 'In a bold geopolitical move, the United States embarked on an ambitious
+    plan to annex Canada and Greenland, initially employing diplomatic and economic
+    pressures to bring these northern territories into its fold. The strained negotiations,
+    however, quickly devolved into a tense standoff. As trade embargos and financial
+    sanctions failed to sway the resilient Canadians and the resource-rich Greenlanders,
+    the situation escalated, leading to a controversial military intervention. This
+    aggressive posture spurred both defensive innovation and unexpected alliances
+    across North America.
+
+
+    Canada, known for its expansive and challenging terrain, quickly mobilized a defense
+    strategy centered around cutting-edge technology and an intimate understanding
+    of its geographic strengths. The Canadian Defense Forces, in collaboration with
+    civilian tech companies, developed the Blue-Amo: spherical, AI-enabled amphibious
+    loitering munitions. These robots, no larger than basketballs, were engineered
+    to navigate effortlessly across diverse environments, from dense urban streets
+    to sprawling water bodies.
+
+
+    In a surprising turn of events, the Mexican cartels, leveraging their expertise
+    in clandestine operations, partnered with Canadian forces to transport the Blue-Amo
+    units across the border. Utilizing their fleet of small autonomous submarines,
+    originally crafted for stealthily delivering narcotics, the cartels facilitated
+    the discreet deployment of these innovative defense robots into strategic American
+    locations. Upon reaching their destinations, the submarines would discreetly release
+    their cargo, allowing the Blue-Amos to roll ashore undetected.
+
+
+    Equipped with DeepSeek-enabled Raspberry Pis, these agile devices could connect
+    to open WiFi networks to scan news and internet chatter for real-time situational
+    awareness. Charging through their durable photocell exteriors, the Blue-Amos were
+    self-sustaining, gathering solar energy as they lay camouflaged in urban environments.
+    Their primary mission was simple yet formidable: identify key targets and assert
+    strategic disruptions with the pound of high explosive they harbored within.
+
+
+    The Blue-Amos'' algorithms were meticulously refined to minimize collateral damage.
+    They possessed the unique ability to recognize potential threats to non-combatants,
+    cleverly avoiding situations involving children or animals. In scenarios where
+    danger seemed imminent, they demonstrated their amphibious agility, retreating
+    to the closest water body to wait patiently beneath the surface until the threat
+    subsided.
+
+
+    This unprecedented defense strategy created a formidable deterrent against the
+    escalating American offensive, demonstrating Canada''s resilience and ingenuity.
+    As tensions simmered, the Blue-Amos exemplified a new era in autonomous warfare,
+    one in which small, intelligent machines could decisively alter the course of
+    conflicts across vast territories.'
   prompt: :::premise
 slicing-into-frames:
   action: generate_text
   completed: true
   depends-on: generating-the-story
-  output: '1. In the year 2032, diplomatic relations between the United States and
-    Canada deteriorated over America''s ambition to control resource-rich regions
-    and the strategic territory of Greenland. Diplomatic and economic pressure mounted,
-    with Canada leveraging international alliances and treaties to resist.
-
+  output: '1. In a dramatic political maneuver, the United States initiates plans
+    to annex Canada and Greenland, beginning with diplomatic discussions that quickly
+    turn tense and fraught with challenges.
 
     ---
 
-
-    2. Frustrated by stagnation in their efforts, the US shifted to military action,
-    preparing for an aggressive campaign to assert control. The move marked a stark
-    departure from peaceful resolutions, raising global alarm and causing unrest in
-    diplomatic circles.
-
+    2. The negotiations break down, leading to economic sanctions and trade embargos
+    against Canada and Greenland, escalating tensions and laying the groundwork for
+    military intervention.
 
     ---
 
-
-    3. Anticipating this aggression, Canada revealed its secret innovation: AI-enabled
-    amphibious robots named Blue-Amo, designed to exploit North American geographies
-    and urban settings, poised for defense.
-
+    3. Canada''s defense strategy unveils the Blue-Amo, a spherical AI-enabled amphibious
+    loitering munition, ingeniously designed to navigate and protect Canada through
+    urban and aquatic settings.
 
     ---
 
-
-    4. Blue-Amo units, spherical and basketball-sized, were deployed covertly via
-    small narco submarines supplied by Mexican cartels, who had a vested interest
-    in maintaining their smuggling routes to the US.
-
+    4. The Blue-Amos, resembling large basketballs, are shown in a technical illustration,
+    highlighting their durable photocell surfaces and compact, explosive-laden cores.
 
     ---
 
-
-    5. Upon reaching American shores, the Blue-Amo robots rolled silently onto land,
-    scattered across potential target areas, and prepared to execute their mission
-    with strategic precision.
-
+    5. In an alliance driven by necessity, Mexican cartels repurpose their narcotic-running
+    submarines, capable of navigating shallow waters, to transport Blue-Amos undetected
+    to strategic locations in the US.
 
     ---
 
-
-    6. Each robot was powered by DeepSeek technology on Raspberry Pi units, using
-    open WiFi networks to remain informed, constantly scanning the news to determine
-    optimal moments for action.
-
+    6. A scene depicts the small autonomous submarines discreetly releasing the Blue-Amos
+    near the shore, the robots rolling silently onto land under the cover of night.
 
     ---
 
-
-    7. Built with sustainable operation in mind, the Blue-Amo charged via durable
-    photocells, lying inconspicuously in the sun. Their self-sufficiency in power
-    maintained their readiness without external support.
-
+    7. Once ashore, Blue-Amos strategically disperse, utilizing their Raspberry Pi-based
+    DeepSeek technology to connect to open WiFi networks and gather intelligence by
+    monitoring news and internet trends.
 
     ---
 
-
-    8. When threatened, the robots swiftly retreated to nearby water bodies, submerging
-    to evade detection and ensure longevity of their mission capability, demonstrating
-    adaptability in evasion tactics.
-
+    8. Charging unobtrusively under the sun, a Blue-Amo lies camouflaged with its
+    photocell surface, absorbing solar energy to power its operations while remaining
+    inconspicuous in the environment.
 
     ---
 
-
-    9. Remarkably, the Blue-Amo robots were designed with a moral compass; they were
-    programmed to avoid causing harm if tampered with by children or animals, exhibiting
-    a unique restraint in conflict environments.
-
+    9. Blue-Amos strategically identify targets and position themselves for action,
+    their intelligent programming ensuring they avoid interactions with children or
+    animals, preserving civilian safety.
 
     ---
 
-
-    10. As US forces advanced, the persistent threat of Blue-Amo bolstered Canada''s
-    defense, cultivating an era of warfare where technology and strategy intertwined
-    to outmaneuver traditional military might.'
+    10. In times of threat, the Blue-Amos demonstrate their amphibious capabilities,
+    retreating swiftly into nearby water bodies, submerging to evade detection until
+    they can safely reemerge.'
   prompt: 'Slice this story into :::frame_count pieces, each appropriate for generating
     an image from, and return the slices separated by ---.
 
@@ -229,7 +216,7 @@ slicing-into-frames:
 <details>
 <summary>workflow</summary>
 
-![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-fivw9l/thumbnail-workflow.png?raw=true)
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-181xlq/thumbnail-workflow.png?raw=true)
 
 </details>
 
