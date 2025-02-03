@@ -10,7 +10,7 @@
 @publish tar .
 ```
 
-set:::object_name blue-amo-2025-02-03-vaiouy
+set:::object_name blue_amo-2025-02-03-t76tdp
 
 yaml:::get:::object_name:::output
 

@@ -46,7 +46,7 @@ class GenerateTextAction(GenericAction):
                 }
             ]
 
-            if self.script.G.nodes[successor]["completed"]:
+            if self.script.nodes[successor]["completed"]:
                 messages += [
                     {
                         "role": "assistant",
@@ -84,7 +84,7 @@ class GenerateTextAction(GenericAction):
         output = response.choices[0].message.content
         logger.info(f"🗣️ output: {output}")
 
-        self.script.G.nodes[node_name]["output"] = output
+        self.script.nodes[node_name]["output"] = output
 
         var_name = self.script.nodes[node_name].get("output", "")
         if var_name:

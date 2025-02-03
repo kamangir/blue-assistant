@@ -25,20 +25,16 @@ class GenericScript(BaseScript):
         if not super().run():
             return False
 
-        metadata: Dict[Dict] = {"nodes": {}}
         success: bool = True
-        while (
-            not all(self.G.nodes[node]["completed"] for node in self.G.nodes)
-            and success
-        ):
-            for node_name in tqdm(self.G.nodes):
-                if self.G.nodes[node_name]["completed"]:
+        while not all(self.nodes[node]["completed"] for node in self.nodes) and success:
+            for node_name in tqdm(self.nodes):
+                if self.nodes[node_name]["completed"]:
                     continue
 
                 pending_dependencies = [
                     node_name_
                     for node_name_ in self.G.successors(node_name)
-                    if not self.G.nodes[node_name_]["completed"]
+                    if not self.nodes[node_name_]["completed"]
                 ]
                 if pending_dependencies:
                     logger.info(
@@ -57,12 +53,12 @@ class GenericScript(BaseScript):
                     success = False
                     break
 
-                self.G.nodes[node_name]["completed"] = True
+                self.nodes[node_name]["completed"] = True
 
         if not post_to_object(
             self.object_name,
             "output",
-            metadata,
+            self.metadata,
         ):
             return False
 
