@@ -62,7 +62,7 @@ class BaseScript:
 
         for node_name in list_of_nodes:
             self.G.add_node(node_name)
-            self.G.nodes[node]["completed"] = False
+            self.G.nodes[node_name]["completed"] = False
 
         for node_name, node in self.nodes.items():
             for dependency in node.get("depends-on", "").split(","):
