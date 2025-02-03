@@ -1,7 +1,7 @@
 from typing import Tuple
 
 from blue_assistant.script.repository import list_of_script_classes
-from blue_assistant.script.repository.generic import GenericScript
+from blue_assistant.script.repository.generic.classes import GenericScript
 from blue_assistant.logger import logger
 
 

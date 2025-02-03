@@ -1,6 +1,6 @@
 from typing import List, Type
 
-from blue_assistant.script.repository.generic import GenericScript
+from blue_assistant.script.repository.generic.classes import GenericScript
 from blue_assistant.script.repository.blue_amo.classes import BlueAmoScript
 from blue_assistant.script.repository.hue.classes import HueScript
 from blue_assistant.script.repository.moon_datasets.classes import MiningOnMoonScript

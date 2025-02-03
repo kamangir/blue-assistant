@@ -3,7 +3,7 @@ import pytest
 from blue_objects import objects
 
 from blue_assistant.script.repository import list_of_script_classes
-from blue_assistant.script.repository.generic import GenericScript
+from blue_assistant.script.repository.generic.classes import GenericScript
 from blue_assistant.script.load import load_script
 
 

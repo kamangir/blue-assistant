@@ -9,12 +9,15 @@ from blue_assistant.logger import logger
 class GenerateTextAction(GenericAction):
     name = file.name(__file__)
 
-    def perform(self) -> Tuple[bool, Dict]:
-        success, generic_metadata = super().perform()
+    def perform(
+        self,
+        node_name: str,
+    ) -> Tuple[bool, Dict]:
+        success, generic_metadata = super().perform(node_name=node_name)
         if not success:
             return success, generic_metadata
 
-        logger.info(f"🪄 generating text ...: {self.node}")
+        logger.info(f"🪄 generating text ...: {node_name}")
         metadata = {}
 
         metadata.update(generic_metadata)

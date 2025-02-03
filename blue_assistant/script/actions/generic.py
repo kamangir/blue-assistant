@@ -4,6 +4,7 @@ from blueness import module
 from blue_objects import file
 
 from blue_assistant import NAME
+from blue_assistant.script.repository.base.classes import BaseScript
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -12,14 +13,24 @@ NAME = module.name(__file__, NAME)
 class GenericAction:
     name = file.name(__file__)
 
-    def __init__(self, node: Dict):
-        self.node = node
+    def __init__(
+        self,
+        script: BaseScript,
+    ):
+        self.script = script
 
-    def perform(self) -> Tuple[bool, Dict]:
+    def perform(
+        self,
+        node_name: str,
+    ) -> Tuple[bool, Dict]:
         logger.info(
-            "{}.perform({}) ...".format(
+            "{}.perform({}) on {}.{} ...".format(
                 NAME,
                 self.__class__.__name__,
+                self.script.name,
+                node_name,
             ),
         )
-        return True, {}
+        return True, {
+            "node_name": node_name,
+        }
