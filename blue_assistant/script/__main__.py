@@ -58,11 +58,12 @@ if args.task == "list":
 elif args.task == "run":
     success, script = load_script(
         script_name=args.script_name,
+        object_name=args.object_name,
         verbose=args.verbose == 1,
     )
 
     if success:
-        success = script.run(object_name=args.object_name)
+        success = script.run()
 else:
     success = None
 

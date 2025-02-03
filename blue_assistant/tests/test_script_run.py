@@ -3,7 +3,7 @@ import pytest
 from blue_objects import objects
 
 from blue_assistant.script.repository import list_of_script_classes
-from blue_assistant.script.repository.generic import GenericScript
+from blue_assistant.script.repository.base.classes import BaseScript
 from blue_assistant.script.load import load_script
 
 
@@ -18,10 +18,11 @@ def test_scripts_run(script_name: str):
 
     success, script = load_script(
         script_name=script_name,
+        object_name=object_name,
         verbose=True,
     )
     assert success == expected_success
-    assert isinstance(script, GenericScript)
+    assert isinstance(script, BaseScript)
 
     if expected_success:
-        assert script.run(object_name=object_name)
+        assert script.run()

@@ -2,7 +2,10 @@ blueness
 blue-options
 abcli
 openai_commands
+blueflow
+
 boto3
+openai
 geojson
 geopandas
 matplotlib
@@ -14,3 +17,6 @@ pylint
 pytest
 python-dotenv[cli]
 tqdm
+
+networkx
+pydot
