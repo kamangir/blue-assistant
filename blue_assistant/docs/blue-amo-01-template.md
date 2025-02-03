@@ -1,8 +1,15 @@
 # blue-amo 1
 
-set:::object_name blue-amo-2025-02-03-p33e2j
+set:::object_name blue-amo-2025-02-03-fivw9l
 
+details:::nodes
 yaml:::get:::object_name:::script.nodes
+details:::
+
+details:::vars
+yaml:::get:::object_name:::script.vars
+details:::
+
 
 ```bash
 @select blue-amo-$(@@timestamp)
@@ -13,6 +20,10 @@ yaml:::get:::object_name:::script.nodes
 @assistant build_README
 ```
 
+details:::output
 yaml:::get:::object_name:::output.script.nodes
+details:::
 
+details:::workflow
 assets:::get:::object_name/thumbnail-workflow.png
+details:::
