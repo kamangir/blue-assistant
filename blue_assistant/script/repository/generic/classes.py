@@ -21,13 +21,13 @@ class GenericScript(BaseScript):
 
     def run(
         self,
-        object_name: str,
     ) -> bool:
-        if not super().run(object_name=object_name):
+        if not super().run():
             return False
 
         metadata: Dict[Dict] = {"nodes": {}}
         success: bool = True
+        # TODO: traverse the graph
         for node_name, node in tqdm(self.nodes.items()):
             logger.info(
                 "{}{}".format(
@@ -50,7 +50,7 @@ class GenericScript(BaseScript):
                 break
 
         if not post_to_object(
-            object_name,
+            self.object_name,
             "output",
             metadata,
         ):

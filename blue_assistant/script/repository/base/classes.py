@@ -1,11 +1,12 @@
 from typing import Dict, List
 import os
 from tqdm import tqdm
-
+import networkx as nx
 
 from blueness import module
-from blue_objects import file
+from blue_objects import file, objects
 from blue_objects.metadata import post_to_object
+from blueflow.workflow import dot_file
 
 from blue_assistant import NAME
 from blue_assistant.logger import logger
@@ -19,8 +20,11 @@ class BaseScript:
 
     def __init__(
         self,
+        object_name: str,
         verbose: bool = False,
     ):
+        self.object_name = object_name
+
         self.verbose = verbose
 
         metadata_filename = os.path.join(
@@ -39,33 +43,73 @@ class BaseScript:
             for var_name, var_value in self.vars.items():
                 logger.info("{}: {}".format(var_name, var_value))
 
-    @property
-    def script(self) -> str:
-        return self.metadata.get("script", {})
+        assert self.generate_graph(), "cannot generate graph"
 
-    @property
-    def nodes(self) -> str:
-        return self.metadata.get("script", {}).get("nodes", [])
+    def generate_graph(self) -> bool:
+        self.G: nx.DiGraph = nx.DiGraph()
 
-    @property
-    def vars(self) -> str:
-        return self.metadata.get("script", {}).get("vars", {})
+        list_of_nodes = list(self.nodes.keys())
+        for node in self.nodes.values():
+            list_of_nodes += node.get("depends-on", "").split(",")
 
-    def run(
-        self,
-        object_name: str,
-    ) -> bool:
+        list_of_nodes = list(
+            set([node_name for node_name in list_of_nodes if node_name])
+        )
+        logger.info(
+            "{} node(s): {}".format(
+                len(list_of_nodes),
+                ", ".join(list_of_nodes),
+            )
+        )
+
+        for node_name in list_of_nodes:
+            self.G.add_node(node_name)
+
+        for node_name, node in self.nodes.items():
+            for dependency in node.get("depends-on", "").split(","):
+                if dependency:
+                    self.G.add_edge(dependency, node_name)
+
+        return dot_file.save_to_file(
+            objects.path_of(
+                filename="workflow.dot",
+                object_name=self.object_name,
+            ),
+            self.G,
+            caption=" | ".join(
+                [
+                    self.name,
+                    self.object_name,
+                ]
+            ),
+            add_legend=False,
+        )
+
+    def run(self) -> bool:
         logger.info(
             "{}.run: {}:{} -> {}".format(
                 NAME,
                 self.__class__.__name__,
                 self.name,
-                object_name,
+                self.object_name,
             )
         )
 
         return post_to_object(
-            object_name,
+            self.object_name,
             "script",
             self.script,
         )
+
+    # Aliases
+    @property
+    def script(self) -> Dict:
+        return self.metadata.get("script", {})
+
+    @property
+    def nodes(self) -> Dict:
+        return self.metadata.get("script", {}).get("nodes", {})
+
+    @property
+    def vars(self) -> Dict:
+        return self.metadata.get("script", {}).get("vars", {})
