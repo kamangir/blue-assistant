@@ -27,27 +27,37 @@ class GenericScript(BaseScript):
 
         metadata: Dict[Dict] = {"nodes": {}}
         success: bool = True
-        # TODO: traverse the graph
-        for node_name, node in tqdm(self.nodes.items()):
-            logger.info(
-                "{}{}".format(
-                    node_name,
-                    f": {node}" if self.verbose else " ...",
-                )
-            )
+        while not all(self.G.nodes[node]["completed"] for node in self.G.nodes):
+            for node_name in tqdm(self.G.nodes):
+                if self.G.nodes[node_name]["completed"]:
+                    continue
 
-            assert isinstance(node, dict)
-            success, output = perform_action(
-                action_name=node.get("action", "unknown"),
-                script=self,
-                node_name=node_name,
-            )
-            metadata["nodes"][node_name] = {
-                "success": success,
-                "output": output,
-            }
-            if not success:
-                break
+                pending_dependencies = [
+                    node_name_
+                    for node_name_ in self.G.successors(node_name)
+                    if not self.G.nodes[node_name_]["completed"]
+                ]
+                if pending_dependencies:
+                    logger.info(
+                        'node "{}": {} pending dependenci(es): {}'.format(
+                            node_name,
+                            len(pending_dependencies),
+                            ", ".join(pending_dependencies),
+                        )
+                    )
+                    continue
+
+                success, output = perform_action(
+                    script=self,
+                    node_name=node_name,
+                )
+                self.G.nodes[node_name]["completed"] = success
+                metadata["nodes"][node_name] = {
+                    "success": success,
+                    "output": output,
+                }
+                if not success:
+                    break
 
         if not post_to_object(
             self.object_name,

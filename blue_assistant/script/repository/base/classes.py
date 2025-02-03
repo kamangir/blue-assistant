@@ -67,7 +67,7 @@ class BaseScript:
         for node_name, node in self.nodes.items():
             for dependency in node.get("depends-on", "").split(","):
                 if dependency:
-                    self.G.add_edge(dependency, node_name)
+                    self.G.add_edge(node_name, dependency)
 
         return dot_file.save_to_file(
             objects.path_of(
@@ -106,7 +106,7 @@ class BaseScript:
         return self.metadata.get("script", {})
 
     @property
-    def nodes(self) -> Dict:
+    def nodes(self) -> Dict[str, Dict]:
         return self.metadata.get("script", {}).get("nodes", {})
 
     @property

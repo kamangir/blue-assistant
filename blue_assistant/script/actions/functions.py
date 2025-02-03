@@ -1,10 +1,14 @@
 from typing import List, Dict, Tuple, Type
 
+from blueness import module
 from blue_assistant.script.actions.generic import GenericAction
 from blue_assistant.script.repository.base.classes import BaseScript
 from blue_assistant.script.actions import list_of_actions
 
+from blue_assistant import NAME
 from blue_assistant.logger import logger
+
+NAME = module.name(__file__, NAME)
 
 
 def get_action_class(
@@ -19,15 +23,25 @@ def get_action_class(
 
 
 def perform_action(
-    action_name: str,
     script: BaseScript,
     node_name: str,
 ) -> Tuple[bool, Dict]:
+    action_name = script.nodes[node_name].get("action", "unknown")
+
     success, action_class = get_action_class(action_name=action_name)
     if not success:
         return False, {
             "error": f"{action_name}: action not found.",
         }
+
+    logger.info(
+        "{}.perform_action: {} == {} on {}".format(
+            NAME,
+            action_name,
+            action_class.__name__,
+            node_name,
+        )
+    )
 
     action_object = action_class(
         script=script,
