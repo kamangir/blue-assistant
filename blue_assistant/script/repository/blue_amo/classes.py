@@ -34,3 +34,5 @@ class BlueAmoScript(GenericScript):
                 node_name,
                 "slicing-into-frames",
             )
+
+        assert self.save_graph()
