@@ -12,10 +12,10 @@
 
 
 ```yaml
-{}
+nodes: {}
 
 ```
 
-![image](https://github.com/kamangir/assets/blob/main/TBA/workflow.png?raw=true)
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-vaiouy/thumbnail-workflow.png?raw=true)
 
-[TBA](https://kamangir-public.s3.ca-central-1.amazonaws.com/TBA.tar.gz)
+[blue-amo-2025-02-03-vaiouy](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-vaiouy.tar.gz)
