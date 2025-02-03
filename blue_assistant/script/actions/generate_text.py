@@ -29,9 +29,9 @@ class GenerateTextAction(GenericAction):
             return False
 
         messages: List = []
-        node_history = self.script.get_history(node_name)
-        logger.info("node history: {}".format(node_history))
-        for successor in reversed(node_history):
+        node_context = self.script.get_history(node_name)
+        logger.info("node context: {}".format(" -> ".join(node_context)))
+        for successor in reversed(node_context):
             messages += [
                 {
                     "role": "user",
@@ -46,7 +46,7 @@ class GenerateTextAction(GenericAction):
                 }
             ]
 
-            if self.script.G.nodes[successor]["completed"]:
+            if self.script.nodes[successor]["completed"]:
                 messages += [
                     {
                         "role": "assistant",
@@ -84,7 +84,7 @@ class GenerateTextAction(GenericAction):
         output = response.choices[0].message.content
         logger.info(f"🗣️ output: {output}")
 
-        self.script.G.nodes[node_name]["output"] = output
+        self.script.nodes[node_name]["output"] = output
 
         var_name = self.script.nodes[node_name].get("output", "")
         if var_name:

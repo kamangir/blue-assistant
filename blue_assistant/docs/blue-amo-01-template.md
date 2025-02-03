@@ -1,19 +1,29 @@
 # blue-amo 1
 
-🔥
+set:::object_name blue-amo-2025-02-03-fivw9l
+
+details:::nodes
+yaml:::get:::object_name:::script.nodes
+details:::
+
+details:::vars
+yaml:::get:::object_name:::script.vars
+details:::
+
 
 ```bash
 @select blue-amo-$(@@timestamp)
 @assistant script run - script=blue_amo .
 
 @assets publish push .
-@publish tar .
+
+@assistant build_README
 ```
 
-set:::object_name blue-amo-2025-02-03-vaiouy
+details:::output
+yaml:::get:::object_name:::output.script.nodes
+details:::
 
-yaml:::get:::object_name:::output
-
+details:::workflow
 assets:::get:::object_name/thumbnail-workflow.png
-
-object:::get:::object_name
+details:::
