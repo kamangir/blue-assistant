@@ -12,13 +12,10 @@ class GenerateImageAction(GenericAction):
     def perform(
         self,
         node_name: str,
-    ) -> Tuple[bool, Dict]:
-        success, generic_metadata = super().perform(node_name=node_name)
-        if not success:
-            return success, generic_metadata
+    ) -> bool:
+        if not super().perform(node_name=node_name):
+            return False
 
         logger.info(f"🪄 generating image ...: {node_name}")
-        metadata = {}
 
-        metadata.update(generic_metadata)
-        return True, metadata
+        return True

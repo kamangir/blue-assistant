@@ -1,7 +1,7 @@
 from typing import Dict, List
 import os
-from tqdm import tqdm
 import networkx as nx
+from functools import reduce
 
 from blueness import module
 from blue_objects import file, objects
@@ -45,6 +45,12 @@ class BaseScript:
 
         assert self.generate_graph(), "cannot generate graph"
 
+    def apply_vars(self, text: str) -> str:
+        for var_name, var_value in self.vars.items():
+            text = text.replace(f":::{var_name}", str(var_value))
+
+        return text
+
     def generate_graph(self) -> bool:
         self.G: nx.DiGraph = nx.DiGraph()
 
@@ -82,6 +88,16 @@ class BaseScript:
                 ]
             ),
             add_legend=False,
+        )
+
+    def get_history(
+        self,
+        node_name: str,
+    ) -> List[str]:
+        return reduce(
+            lambda x, y: x + y,
+            [self.get_history(successor) for successor in self.G.successors(node_name)],
+            [node_name],
         )
 
     def run(self) -> bool:

@@ -1,31 +1,31 @@
 script:
   vars:
-    premise:
-      - Generate a story in a few paragraphs about when the US attempts to take over Canada
-        and Greenland first through diplomatic and economic pressure and then direct military
-        action.
+    premise: >
+      Generate a story in a few paragraphs about when the US attempts to take over Canada
+      and Greenland first through diplomatic and economic pressure and then direct military
+      action.
 
-        To defend themselves, the Canadians take use of the geography and urban layout of
-        many North American cities close to bodies of water  and design spherical AI-enabled
-        amphibious loitering ammunition robots named blue-amo the size of basketball.
+      To defend themselves, the Canadians take use of the geography and urban layout of
+      many North American cities close to bodies of water  and design spherical AI-enabled
+      amphibious loitering ammunition robots named blue-amo the size of basketball.
 
-        The robots are carried to American targets by small narco submarines provided by the
-        Mexican cartels. These small autonomous submarines can swim in shallow waters undetected.
-        They used to deliver Cocaine to US.
+      The robots are carried to American targets by small narco submarines provided by the
+      Mexican cartels. These small autonomous submarines can swim in shallow waters undetected.
+      They used to deliver Cocaine to US.
 
-        At the target, the submarine opens a hatch and the robots roll off their container in
-        the submarine and swim towards the shore. From there they roll into hiding places to
-        act when and how their DeepSeek onboard Raspberry Pis determine appropriate.
+      At the target, the submarine opens a hatch and the robots roll off their container in
+      the submarine and swim towards the shore. From there they roll into hiding places to
+      act when and how their DeepSeek onboard Raspberry Pis determine appropriate.
 
-        The robots find and connect to open WiFi connections and scan the news to determine where
-        and when to attack. Their surface is covered in durable photocells, thus they charge their
-        batteries by lying on the ground. They each carry a pound of high explosives.
+      The robots find and connect to open WiFi connections and scan the news to determine where
+      and when to attack. Their surface is covered in durable photocells, thus they charge their
+      batteries by lying on the ground. They each carry a pound of high explosives.
 
-        When in danger, the robots roll towards the closest body of water and hide under water.
+      When in danger, the robots roll towards the closest body of water and hide under water.
 
-        The robots recognize when manipulated by children or animals and avoid any harmful action.
+      The robots recognize when manipulated by children or animals and avoid any harmful action.
 
-    frame_count: 3
+    frame_count: 10
 
   nodes:
     generating-the-story:

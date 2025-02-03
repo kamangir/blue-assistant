@@ -17,14 +17,17 @@ items = [
 
 
 def build():
-    return README.build(
-        items=items,
-        path=os.path.join(file.path(__file__), ".."),
-        ICON=ICON,
-        NAME=NAME,
-        VERSION=VERSION,
-        REPO_NAME=REPO_NAME,
+    return all(
+        README.build(
+            items=readme.get("items", []),
+            path=os.path.join(file.path(__file__), readme["path"]),
+            ICON=ICON,
+            NAME=NAME,
+            VERSION=VERSION,
+            REPO_NAME=REPO_NAME,
+        )
+        for readme in [
+            {"items": items, "path": ".."},
+            {"path": "docs/blue-amo-01.md"},
+        ]
     )
-
-
-

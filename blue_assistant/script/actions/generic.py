@@ -22,7 +22,7 @@ class GenericAction:
     def perform(
         self,
         node_name: str,
-    ) -> Tuple[bool, Dict]:
+    ) -> bool:
         logger.info(
             "{}.perform({}) on {}.{} ...".format(
                 NAME,
@@ -31,4 +31,4 @@ class GenericAction:
                 node_name,
             ),
         )
-        return True, {}
+        return True
