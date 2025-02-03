@@ -1,6 +1,6 @@
 # blue-amo 1
 
-🔥
+yaml:::get:::object_name:::script
 
 ```bash
 @select blue-amo-$(@@timestamp)

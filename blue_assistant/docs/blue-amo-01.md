@@ -1,6 +1,9 @@
 # blue-amo 1
 
-🔥
+```yaml
+{}
+
+```
 
 ```bash
 @select blue-amo-$(@@timestamp)
