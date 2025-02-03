@@ -1,6 +1,6 @@
 # blue-amo 1
 
-set:::object_name blue-amo-2025-02-03-rvc2sl
+set:::object_name blue-amo-2025-02-03-fj326d
 
 details:::nodes
 yaml:::get:::object_name:::script.nodes
@@ -26,6 +26,8 @@ details:::
 details:::workflow
 assets:::get:::object_name/thumbnail-workflow.png
 details:::
+
+assets:::get:::object_name/stitching-the-frames.png
 
 ---
 

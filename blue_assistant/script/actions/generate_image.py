@@ -33,15 +33,20 @@ class GenerateImageAction(GenericAction):
         if not super().perform(node_name=node_name):
             return False
 
-        filename = objects.path_of(
-            filename=f"{node_name}.png",
-            object_name=self.script.object_name,
-            create=True,
-        )
+        filename = f"{node_name}.png"
 
-        return self.generator.generate(
+        success = self.generator.generate(
             prompt=self.script.nodes[node_name]["prompt"],
-            filename=filename,
+            filename=objects.path_of(
+                filename=filename,
+                object_name=self.script.object_name,
+                create=True,
+            ),
             quality=BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY,
             size=BLUE_ASSISTANT_IMAGE_DEFAULT_SIZE,
         )[0]
+
+        if success:
+            self.script.nodes[node_name]["filename"] = filename
+
+        return success
