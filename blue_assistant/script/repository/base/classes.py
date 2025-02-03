@@ -52,9 +52,7 @@ class BaseScript:
         for node in self.nodes.values():
             list_of_nodes += node.get("depends-on", "").split(",")
 
-        list_of_nodes = list(
-            set([node_name for node_name in list_of_nodes if node_name])
-        )
+        list_of_nodes = list({node_name for node_name in list_of_nodes if node_name})
         logger.info(
             "{} node(s): {}".format(
                 len(list_of_nodes),
@@ -64,6 +62,7 @@ class BaseScript:
 
         for node_name in list_of_nodes:
             self.G.add_node(node_name)
+            self.G.nodes[node]["completed"] = False
 
         for node_name, node in self.nodes.items():
             for dependency in node.get("depends-on", "").split(","):
