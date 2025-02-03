@@ -31,15 +31,13 @@ script:
     generating-the-story:
       action: generate_text
       prompt: :::premise
-      output: story
     slicing-into-frames:
       action: generate_text
+      depends-on: generating-the-story
       prompt: >
         Slice this story into :::frame_count pieces, each appropriate for generating an image from,
         and return the slices separated by ---.
-      output: :::frames
-      depends-on: generating-the-story
     generating-the-frames:
       action: generate_image
-      prompt: Generate an image for :::input
       depends-on: slicing-into-frames
+      prompt: Generate an image for :::input

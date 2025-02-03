@@ -30,7 +30,7 @@ class GenerateTextAction(GenericAction):
 
         messages: List = []
         node_context = self.script.get_history(node_name)
-        logger.info("node context: {}".format(" -> ".join(node_context)))
+        logger.info("node context: {}".format(" <- ".join(node_context)))
         for successor in reversed(node_context):
             messages += [
                 {
