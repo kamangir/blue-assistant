@@ -29,9 +29,9 @@ class GenerateTextAction(GenericAction):
             return False
 
         messages: List = []
-        node_history = self.script.get_history(node_name)
-        logger.info("node history: {}".format(node_history))
-        for successor in reversed(node_history):
+        node_context = self.script.get_history(node_name)
+        logger.info("node context: {}".format(" -> ".join(node_context)))
+        for successor in reversed(node_context):
             messages += [
                 {
                     "role": "user",

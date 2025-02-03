@@ -7,13 +7,12 @@
 @assistant script run - script=blue_amo .
 
 @assets publish push .
-@publish tar .
+
+@assistant build_README
 ```
 
-set:::object_name blue_amo-2025-02-03-t76tdp
+set:::object_name blue-amo-2025-02-03-seaz7v
 
 yaml:::get:::object_name:::output
 
 assets:::get:::object_name/thumbnail-workflow.png
-
-object:::get:::object_name
