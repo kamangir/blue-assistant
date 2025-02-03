@@ -25,7 +25,7 @@ class BlueAmoScript(GenericScript):
         self.G.remove_node(holder_node_name)
 
         for index in range(self.vars["frame_count"]):
-            node_name = f"generating-frames-{index+1:03d}"
+            node_name = f"generating-frame-{index+1:03d}"
 
             self.nodes[node_name] = copy.deepcopy(holder_node)
 
