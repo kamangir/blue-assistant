@@ -7,7 +7,10 @@ from blue_objects import file
 from openai_commands.env import OPENAI_API_KEY
 
 from blue_assistant import NAME
-from blue_assistant.env import BLUE_ASSISTANT_DEFAULT_MODEL, BLUE_ASSISTANT_MAX_TOKEN
+from blue_assistant.env import (
+    BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
+    BLUE_ASSISTANT_TEXT_MAX_TOKEN,
+)
 from blue_assistant.script.actions.generic import GenericAction
 from blue_assistant.logger import logger
 
@@ -17,6 +20,7 @@ NAME = module.name(__file__, NAME)
 class GenerateTextAction(GenericAction):
     name = file.name(__file__)
 
+    # https://platform.openai.com/docs/guides/text-generation
     def perform(
         self,
         node_name: str,
@@ -67,8 +71,8 @@ class GenerateTextAction(GenericAction):
         try:
             response = client.chat.completions.create(
                 messages=messages,
-                model=BLUE_ASSISTANT_DEFAULT_MODEL,
-                max_tokens=BLUE_ASSISTANT_MAX_TOKEN,
+                model=BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
+                max_tokens=BLUE_ASSISTANT_TEXT_MAX_TOKEN,
             )
         except Exception as e:
             logger.error(str(e))
