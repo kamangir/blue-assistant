@@ -75,20 +75,7 @@ class BaseScript:
                 if dependency:
                     self.G.add_edge(node_name, dependency)
 
-        return dot_file.save_to_file(
-            objects.path_of(
-                filename="workflow.dot",
-                object_name=self.object_name,
-            ),
-            self.G,
-            caption=" | ".join(
-                [
-                    self.name,
-                    self.object_name,
-                ]
-            ),
-            add_legend=False,
-        )
+        return self.save_graph()
 
     def get_history(
         self,
@@ -114,6 +101,22 @@ class BaseScript:
             self.object_name,
             "script",
             self.script,
+        )
+
+    def save_graph(self) -> bool:
+        return dot_file.save_to_file(
+            objects.path_of(
+                filename="workflow.dot",
+                object_name=self.object_name,
+            ),
+            self.G,
+            caption=" | ".join(
+                [
+                    self.name,
+                    self.object_name,
+                ]
+            ),
+            add_legend=False,
         )
 
     # Aliases

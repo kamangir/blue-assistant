@@ -9,7 +9,7 @@ from blue_objects.metadata import post_to_object
 
 from blue_assistant import NAME
 from blue_assistant.script.repository.base.classes import BaseScript
-from blue_assistant.script.actions.functions import perform_action
+from blue_assistant.script.actions.functions import get_action_class
 from blue_assistant.logger import logger
 
 
@@ -18,6 +18,29 @@ NAME = module.name(__file__, NAME)
 
 class GenericScript(BaseScript):
     name = path.name(file.path(__file__))
+
+    def perform_action(
+        self,
+        node_name: str,
+    ) -> bool:
+        action_name = self.nodes[node_name].get("action", "unknown")
+
+        success, action_class = get_action_class(action_name=action_name)
+        if not success:
+            return success
+
+        logger.info(
+            "{}.perform_action: {} == {} on {}".format(
+                NAME,
+                action_name,
+                action_class.__name__,
+                node_name,
+            )
+        )
+
+        action_object = action_class(script=self)
+
+        return action_object.perform(node_name=node_name)
 
     def run(
         self,
@@ -46,10 +69,7 @@ class GenericScript(BaseScript):
                     )
                     continue
 
-                if not perform_action(
-                    script=self,
-                    node_name=node_name,
-                ):
+                if not self.perform_action(node_name=node_name):
                     success = False
                     break
 

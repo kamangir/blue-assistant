@@ -20,29 +20,3 @@ def get_action_class(
 
     logger.error(f"{action_name}: action not found.")
     return False, GenericAction
-
-
-def perform_action(
-    script: BaseScript,
-    node_name: str,
-) -> bool:
-    action_name = script.nodes[node_name].get("action", "unknown")
-
-    success, action_class = get_action_class(action_name=action_name)
-    if not success:
-        return success
-
-    logger.info(
-        "{}.perform_action: {} == {} on {}".format(
-            NAME,
-            action_name,
-            action_class.__name__,
-            node_name,
-        )
-    )
-
-    action_object = action_class(
-        script=script,
-    )
-
-    return action_object.perform(node_name=node_name)
