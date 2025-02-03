@@ -42,8 +42,14 @@ class GenerateImageAction(GenericAction):
                 object_name=self.script.object_name,
                 create=True,
             ),
-            quality=BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY,
-            size=BLUE_ASSISTANT_IMAGE_DEFAULT_SIZE,
+            quality=(
+                BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY if self.script.test_mode else "hd"
+            ),
+            size=(
+                BLUE_ASSISTANT_IMAGE_DEFAULT_SIZE
+                if self.script.test_mode
+                else "1792x1024"
+            ),
         )[0]
 
         if success:

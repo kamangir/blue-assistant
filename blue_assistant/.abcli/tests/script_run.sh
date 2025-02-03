@@ -16,7 +16,8 @@ function test_blue_assistant_script_run() {
             ~upload,$options \
             script=$script_name \
             test_blue_assistant_script_run-$(abcli_string_timestamp_short) \
-            "${@:2}"
+            "${@:2}" \
+            --test_mode 1
 
         [[ $? -ne 0 ]] && return 1
 

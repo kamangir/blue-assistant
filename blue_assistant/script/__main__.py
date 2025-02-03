@@ -32,6 +32,12 @@ parser.add_argument(
     help="0 | 1",
 )
 parser.add_argument(
+    "--test_mode",
+    type=int,
+    default=0,
+    help="0 | 1",
+)
+parser.add_argument(
     "--delim",
     type=str,
     default=", ",
@@ -59,6 +65,7 @@ elif args.task == "run":
     success, script = load_script(
         script_name=args.script_name,
         object_name=args.object_name,
+        test_mode=args.test_mode == 1,
         verbose=args.verbose == 1,
     )
 

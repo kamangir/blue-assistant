@@ -21,9 +21,14 @@ class BaseScript:
     def __init__(
         self,
         object_name: str,
+        test_mode: bool = False,
         verbose: bool = False,
     ):
         self.object_name = object_name
+
+        self.test_mode = test_mode
+        if self.test_mode:
+            logger.info("💰 test mode is on.")
 
         self.verbose = verbose
 

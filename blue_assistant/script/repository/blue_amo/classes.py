@@ -21,12 +21,17 @@ class BlueAmoScript(GenericScript):
     def __init__(
         self,
         object_name: str,
+        test_mode: bool = False,
         verbose: bool = False,
     ):
         super().__init__(
             object_name=object_name,
+            test_mode=test_mode,
             verbose=verbose,
         )
+
+        if self.test_mode:
+            self.vars["frame_count"] = 1
 
         holder_node_name = "generating-the-frames"
         logger.info(
