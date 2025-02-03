@@ -290,7 +290,14 @@ slicing-into-frames:
 </details>
 
 
+
+<details>
+<summary>workflow</summary>
+
 ![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-rvc2sl/thumbnail-workflow.png?raw=true)
+
+</details>
+
 
 ---
 
