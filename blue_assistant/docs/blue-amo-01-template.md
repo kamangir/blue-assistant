@@ -1,6 +1,6 @@
 # blue-amo 1
 
-yaml:::get:::object_name:::output.script
+yaml:::get:::object_name:::script
 
 ```bash
 @select blue-amo-$(@@timestamp)
@@ -13,6 +13,6 @@ yaml:::get:::object_name:::output.script
 
 set:::object_name blue-amo-2025-02-03-p33e2j
 
-yaml:::get:::object_name:::output.nodes
+yaml:::get:::object_name:::output.script.nodes
 
 assets:::get:::object_name/thumbnail-workflow.png
