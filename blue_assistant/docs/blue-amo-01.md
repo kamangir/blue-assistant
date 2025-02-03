@@ -1,8 +1,10 @@
 # blue-amo 1
 
 
+
 <details>
 <summary>nodes</summary>
+
 ```yaml
 generating-the-frames:
   action: generate_image
@@ -25,10 +27,14 @@ slicing-into-frames:
     '
 
 ```
+
 </details>
+
+
 
 <details>
 <summary>vars</summary>
+
 ```yaml
 frame_count: 10
 premise: 'Generate a story in a few paragraphs about when the US attempts to take
@@ -60,7 +66,9 @@ premise: 'Generate a story in a few paragraphs about when the US attempts to tak
   '
 
 ```
+
 </details>
+
 
 
 ```bash
@@ -72,8 +80,10 @@ premise: 'Generate a story in a few paragraphs about when the US attempts to tak
 @assistant build_README
 ```
 
+
 <details>
 <summary>output</summary>
+
 ```yaml
 generating-the-frames:
   action: generate_image
@@ -211,9 +221,15 @@ slicing-into-frames:
     '
 
 ```
+
 </details>
+
+
 
 <details>
 <summary>workflow</summary>
+
 ![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-fivw9l/thumbnail-workflow.png?raw=true)
+
 </details>
+
