@@ -1,5 +1,7 @@
 # blue-amo 1
 
+set:::object_name blue-amo-2025-02-03-p33e2j
+
 yaml:::get:::object_name:::script.nodes
 
 ```bash
@@ -10,8 +12,6 @@ yaml:::get:::object_name:::script.nodes
 
 @assistant build_README
 ```
-
-set:::object_name blue-amo-2025-02-03-p33e2j
 
 yaml:::get:::object_name:::output.script.nodes
 

@@ -1,7 +1,26 @@
 # blue-amo 1
 
+
 ```yaml
-{}
+generating-the-frames:
+  action: generate_image
+  completed: false
+  depends-on: slicing-into-frames
+  prompt: Generate an image for :::input
+generating-the-story:
+  action: generate_text
+  completed: false
+  output: story
+  prompt: :::premise
+slicing-into-frames:
+  action: generate_text
+  completed: false
+  depends-on: generating-the-story
+  output: :::frames
+  prompt: 'Slice this story into :::frame_count pieces, each appropriate for generating
+    an image from, and return the slices separated by ---.
+
+    '
 
 ```
 
@@ -13,7 +32,6 @@
 
 @assistant build_README
 ```
-
 
 ```yaml
 generating-the-frames:
