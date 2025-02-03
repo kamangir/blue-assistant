@@ -27,7 +27,10 @@ class GenericScript(BaseScript):
 
         metadata: Dict[Dict] = {"nodes": {}}
         success: bool = True
-        while not all(self.G.nodes[node]["completed"] for node in self.G.nodes):
+        while (
+            not all(self.G.nodes[node]["completed"] for node in self.G.nodes)
+            and success
+        ):
             for node_name in tqdm(self.G.nodes):
                 if self.G.nodes[node_name]["completed"]:
                     continue

@@ -5,6 +5,7 @@ openai_commands
 blueflow
 
 boto3
+openai
 geojson
 geopandas
 matplotlib

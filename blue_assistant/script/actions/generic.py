@@ -31,6 +31,4 @@ class GenericAction:
                 node_name,
             ),
         )
-        return True, {
-            "node_name": node_name,
-        }
+        return True, {}
