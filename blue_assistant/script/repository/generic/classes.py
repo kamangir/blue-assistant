@@ -58,7 +58,7 @@ class GenericScript(BaseScript):
         if not post_to_object(
             self.object_name,
             "output",
-            self.nodes,
+            self.metadata,
         ):
             return False
 
