@@ -27,4 +27,4 @@ assets:::get:::object_name/thumbnail-workflow.png
 
 ---
 
-objects:::blue-amo-2025-02-03-rvc2sl
+object:::blue-amo-2025-02-03-rvc2sl

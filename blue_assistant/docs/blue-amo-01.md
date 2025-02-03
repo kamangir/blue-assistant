@@ -294,4 +294,4 @@ slicing-into-frames:
 
 ---
 
-objects:::blue-amo-2025-02-03-rvc2sl
+[blue-amo-2025-02-03-rvc2sl](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-rvc2sl.tar.gz)
