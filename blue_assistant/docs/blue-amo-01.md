@@ -320,7 +320,9 @@ stitching-the-frames:
 
 ![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-fj326d/stitching-the-frames.png?raw=true)
 
+[blue-amo-2025-02-03-fj326d](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-fj326d.tar.gz)
+
 ---
 
-![image](https://github.com/kamangir/assets/blob/main/get?raw=true)
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-fj326d/stitching-the-frames.png?raw=true)
 
