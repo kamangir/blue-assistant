@@ -24,6 +24,4 @@ details:::output
 yaml:::get:::object_name:::output.script.nodes
 details:::
 
-details:::workflow
 assets:::get:::object_name/thumbnail-workflow.png
-details:::
