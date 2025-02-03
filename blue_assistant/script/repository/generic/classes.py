@@ -50,17 +50,14 @@ class GenericScript(BaseScript):
                     )
                     continue
 
-                success, output = perform_action(
+                if not perform_action(
                     script=self,
                     node_name=node_name,
-                )
-                self.G.nodes[node_name]["completed"] = success
-                metadata["nodes"][node_name] = {
-                    "success": success,
-                    "output": output,
-                }
-                if not success:
+                ):
+                    success = False
                     break
+
+                self.G.nodes[node_name]["completed"] = True
 
         if not post_to_object(
             self.object_name,

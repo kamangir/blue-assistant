@@ -25,14 +25,12 @@ def get_action_class(
 def perform_action(
     script: BaseScript,
     node_name: str,
-) -> Tuple[bool, Dict]:
+) -> bool:
     action_name = script.nodes[node_name].get("action", "unknown")
 
     success, action_class = get_action_class(action_name=action_name)
     if not success:
-        return False, {
-            "error": f"{action_name}: action not found.",
-        }
+        return success
 
     logger.info(
         "{}.perform_action: {} == {} on {}".format(
@@ -47,6 +45,4 @@ def perform_action(
         script=script,
     )
 
-    return action_object.perform(
-        node_name=node_name,
-    )
+    return action_object.perform(node_name=node_name)
