@@ -5,6 +5,27 @@ from blue_options.terminal import show_usage, xtra
 from blue_assistant.script.repository import list_of_script_names
 
 
+def help_list(
+    tokens: List[str],
+    mono: bool,
+) -> str:
+    args = [
+        "[--delim +]",
+        "[--log 0]",
+    ]
+
+    return show_usage(
+        [
+            "@assistant",
+            "script",
+            "list",
+        ]
+        + args,
+        "list scripts.",
+        mono=mono,
+    )
+
+
 def help_run(
     tokens: List[str],
     mono: bool,
@@ -33,4 +54,7 @@ def help_run(
     )
 
 
-help_functions = {"run": help_run}
+help_functions = {
+    "list": help_list,
+    "run": help_run,
+}

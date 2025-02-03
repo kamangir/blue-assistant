@@ -2,9 +2,9 @@
 
 function test_blue_assistant_script_run() {
     local options=$1
-    local list_of_script_name=$(python3 -m blue_assistant.script \
-        get_list_of \
-        --delim +)
+    local list_of_script_name=$(blue_assistant_script_list \
+        --delim + \
+        --log 0)
     list_of_script_name=$(abcli_option "$options" script $list_of_script_name)
 
     local script_name

@@ -20,6 +20,7 @@ function test_blue_assistant_help() {
         "@assistant browse" \
         \
         "@assistant script" \
+        "@assistant script list" \
         "@assistant script run" \
         \
         "blue_assistant"; do
