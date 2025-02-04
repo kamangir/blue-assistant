@@ -1,6 +1,10 @@
 # 🧠 blue-assistant
 
-🧠 `@assistant` runs AI scripts, such as the ones listed below.
+🧠 `@assistant` runs AI scripts; DAGs that combine deterministic and AI operations, such as below,
+
+|   |   |
+| --- | --- |
+| [`orbital-data-explorer`](./blue_assistant/script/repository/orbital_data_explorer/README.md) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](./blue_assistant/script/repository/orbital_data_explorer/README.md) Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI. | [`blue-amo`](./blue_assistant/script/repository/blue_amo/README.md) [![image](https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true)](./blue_assistant/script/repository/blue_amo/README.md) A story developed and visualized, by AI. |
 
 ```bash
 pip install blue-assistant
@@ -23,13 +27,9 @@ graph LR
     classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```
 
-|   |   |
-| --- | --- |
-| [`orbital-data-explorer`](./blue_assistant/script/repository/orbital_data_explorer/README.md) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](./blue_assistant/script/repository/orbital_data_explorer/README.md) Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI. | [`blue-amo`](./blue_assistant/script/repository/blue_amo/README.md) [![image](https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true)](./blue_assistant/script/repository/blue_amo/README.md) A story developed and visualized, by AI. |
-
 ---
 
 
 [![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.207.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.127.1`](https://github.com/kamangir/blue-assistant).
+built by 🌀 [`blue_options-4.207.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.128.1`](https://github.com/kamangir/blue-assistant).
