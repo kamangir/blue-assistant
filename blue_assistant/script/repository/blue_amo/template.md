@@ -4,6 +4,8 @@ set:::object_name blue-amo-2025-02-03-nswnx6
 
 yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
 
+A story developed and visualized by AI.
+
 ```bash
 @select blue-amo-$(@@timestamp)
 @assistant script run - \

@@ -38,6 +38,8 @@
 
 ```
 
+A story developed and visualized by AI.
+
 ```bash
 @select blue-amo-$(@@timestamp)
 @assistant script run - \
