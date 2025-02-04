@@ -44,7 +44,7 @@ class BlueAmoScript(GenericScript):
 
         reduce_node = "stitching_the_frames"
         self.G.add_node(reduce_node)
-        self.nodes[reduce_node] = {"action": "skip"}
+        self.nodes[reduce_node] = {"action": "generic"}
 
         for index in range(self.vars["frame_count"]):
             node_name = f"generating_frame_{index+1:03d}"
