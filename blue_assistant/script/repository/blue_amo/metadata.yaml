@@ -40,4 +40,6 @@ script:
     generating-the-frames:
       action: generate_image
       depends-on: slicing-into-frames
-      prompt: Generate an image to demonstrate :::input
+      prompt: >
+        :::story
+        Generate an image to demonstrate :::input

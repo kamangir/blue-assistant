@@ -28,6 +28,6 @@ def build():
         )
         for readme in [
             {"items": items, "path": ".."},
-            {"path": "docs/blue-amo-01.md"},
+            {"path": "docs/blue-amo.md"},
         ]
     )
