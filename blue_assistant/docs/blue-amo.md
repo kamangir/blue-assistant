@@ -6,89 +6,89 @@
 <summary>nodes</summary>
 
 ```yaml
-generating-frame-001:
+generating_frame_001:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-002:
+generating_frame_002:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-003:
+generating_frame_003:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-004:
+generating_frame_004:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-005:
+generating_frame_005:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-006:
+generating_frame_006:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-007:
+generating_frame_007:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-008:
+generating_frame_008:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-009:
+generating_frame_009:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-010:
+generating_frame_010:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-011:
+generating_frame_011:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-frame-012:
+generating_frame_012:
   action: generate_image
-  depends-on: slicing-into-frames
+  depends-on: slicing_into_frames
   prompt: ':::story Generate an image to demonstrate :::input
 
     '
-generating-the-story:
+generating_the_story:
   action: generate_text
   prompt: :::premise
-slicing-into-frames:
+slicing_into_frames:
   action: generate_text
-  depends-on: generating-the-story
+  depends-on: generating_the_story
   prompt: 'Slice this story into :::frame_count pieces, each appropriate for generating
     an image from, and return the slices separated by ---.
 
     '
-stitching-the-frames:
+stitching_the_frames:
   action: skip
 
 ```
@@ -149,697 +149,432 @@ premise: 'Generate a story in a few paragraphs about when the US attempts to tak
 <summary>output</summary>
 
 ```yaml
-generating-frame-001:
+generating_frame_001:
   action: generate_image
   completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-001.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate 1. In the early 2030s, geopolitical tensions\
-    \ reach an unprecedented peak. The United States, driven by an ambitious administration,\
-    \ seeks to expand its influence by pressuring Canada and Greenland through diplomatic\
-    \ and economic strategies.\n\n"
-generating-frame-002:
+  depends-on: slicing_into_frames
+  filename: generating_frame_001.png
+  prompt: ' Generate an image to demonstrate 1. The United States embassy in Canada,
+    bustling with diplomatic meetings and negotiations, trying to sway Canadian officials
+    with promises of economic prosperity and unity.
+
+
+    '
+  summary_prompt: '1. The United States embassy in Canada, bustling with diplomatic
+    meetings and negotiations, trying to sway Canadian officials with promises of
+    economic prosperity and unity.
+
+    '
+generating_frame_002:
   action: generate_image
   completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-002.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n2. The US places strategic economic sanctions\
-    \ on key Canadian industries, simultaneously presenting Greenland with promising\
-    \ development opportunities, eyeing its natural resources.\n\n"
-generating-frame-003:
+  depends-on: slicing_into_frames
+  filename: generating_frame_002.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n Generate an image to demonstrate \n2. A clandestine\
+    \ war room in Canada where military generals and tech specialists brainstorm innovative\
+    \ defense methods, leading to the creation of Blue-Amo, the spherical AI-enabled\
+    \ robots.\n\n"
+  summary_prompt: '
+
+    2. A clandestine war room in Canada where military generals and tech specialists
+    brainstorm innovative defense methods, leading to the creation of Blue-Amo, the
+    spherical AI-enabled robots.
+
+    '
+generating_frame_003:
   action: generate_image
   completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-003.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n3. As efforts through diplomacy and economics\
-    \ prove futile, covert military operations are initiated along the rural borders\
-    \ shared by the US and Canada, with naval forces moving subtly toward Greenland's\
-    \ shores.\n\n"
-generating-frame-004:
+  depends-on: slicing_into_frames
+  filename: generating_frame_003.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n Generate an\
+    \ image to demonstrate \n3. A high-tech laboratory in the heart of Canada, engineers\
+    \ and scientists labor over the creation of Blue-Amo, designing its amphibious\
+    \ capabilities and smart technology.\n\n"
+  summary_prompt: '
+
+    3. A high-tech laboratory in the heart of Canada, engineers and scientists labor
+    over the creation of Blue-Amo, designing its amphibious capabilities and smart
+    technology.
+
+    '
+generating_frame_004:
   action: generate_image
   completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-004.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n4. Canada embarks on an ingenious countermeasure,\
-    \ designing \"Blue-Amo\" robots\u2014spherical, AI-enabled amphibious loitering\
-    \ ammunition. These robots are adapted to North America's complex geographies,\
-    \ particularly urban landscapes near water.\n\n"
-generating-frame-005:
+  depends-on: slicing_into_frames
+  filename: generating_frame_004.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n Generate\
+    \ an image to demonstrate \n4. An alliance meeting in a dimly lit room between\
+    \ Canadian officials and Mexican cartel members, discussing the use of small narco\
+    \ submersibles for transporting robotic devices.\n\n"
+  summary_prompt: '
+
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican
+    cartel members, discussing the use of small narco submersibles for transporting
+    robotic devices.
+
+    '
+generating_frame_005:
   action: generate_image
   completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-005.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n5. The Blue-Amo are developed as an extraordinary\
-    \ defense system, capable of navigating both land and water while blending into\
-    \ the terrain to target and evade threats.\n\n"
-generating-frame-006:
+  depends-on: slicing_into_frames
+  filename: generating_frame_005.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n Generate an image to demonstrate \n5. The narco submarines,\
+    \ painted in dull camouflages, slicing through shallow waters, evading detection\
+    \ as they carry Blue-Amo robots toward American shores.\n\n"
+  summary_prompt: '
+
+    5. The narco submarines, painted in dull camouflages, slicing through shallow
+    waters, evading detection as they carry Blue-Amo robots toward American shores.
+
+    '
+generating_frame_006:
   action: generate_image
   completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-006.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n6. Canada partners with Mexican cartels to\
-    \ deploy the Blue-Amo. The cartels' small, autonomous narco submarines, once used\
-    \ for drug trafficking, now carry these robots undetected to American shores.\n\
+  depends-on: slicing_into_frames
+  filename: generating_frame_006.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n \n5. The narco submarines, painted in dull camouflages, slicing\
+    \ through shallow waters, evading detection as they carry Blue-Amo robots toward\
+    \ American shores.\n Generate an image to demonstrate \n6. A coastal American\
+    \ city at dawn, where a hatch of a small submarine slowly opens, releasing the\
+    \ Blue-Amo robots into the water to begin their mission.\n\n"
+  summary_prompt: '
+
+    6. A coastal American city at dawn, where a hatch of a small submarine slowly
+    opens, releasing the Blue-Amo robots into the water to begin their mission.
+
+    '
+generating_frame_007:
+  action: generate_image
+  completed: true
+  depends-on: slicing_into_frames
+  filename: generating_frame_007.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n \n5. The narco submarines, painted in dull camouflages, slicing\
+    \ through shallow waters, evading detection as they carry Blue-Amo robots toward\
+    \ American shores.\n \n6. A coastal American city at dawn, where a hatch of a\
+    \ small submarine slowly opens, releasing the Blue-Amo robots into the water to\
+    \ begin their mission.\n Generate an image to demonstrate \n7. A bustling American\
+    \ urban landscape where Blue-Amo robots quietly roll into hiding places, their\
+    \ surfaces glinting with photocells as they scan for available WiFi.\n\n"
+  summary_prompt: '
+
+    7. A bustling American urban landscape where Blue-Amo robots quietly roll into
+    hiding places, their surfaces glinting with photocells as they scan for available
+    WiFi.
+
+    '
+generating_frame_008:
+  action: generate_image
+  completed: true
+  depends-on: slicing_into_frames
+  filename: generating_frame_008.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n \n5. The narco submarines, painted in dull camouflages, slicing\
+    \ through shallow waters, evading detection as they carry Blue-Amo robots toward\
+    \ American shores.\n \n6. A coastal American city at dawn, where a hatch of a\
+    \ small submarine slowly opens, releasing the Blue-Amo robots into the water to\
+    \ begin their mission.\n \n7. A bustling American urban landscape where Blue-Amo\
+    \ robots quietly roll into hiding places, their surfaces glinting with photocells\
+    \ as they scan for available WiFi.\n Generate an image to demonstrate \n8. Blue-Amo\
+    \ robots lying in a sunny park, silently charging through their photocell-covered\
+    \ surfaces while children play and animals wander nearby.\n\n"
+  summary_prompt: '
+
+    8. Blue-Amo robots lying in a sunny park, silently charging through their photocell-covered
+    surfaces while children play and animals wander nearby.
+
+    '
+generating_frame_009:
+  action: generate_image
+  completed: true
+  depends-on: slicing_into_frames
+  filename: generating_frame_009.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n \n5. The narco submarines, painted in dull camouflages, slicing\
+    \ through shallow waters, evading detection as they carry Blue-Amo robots toward\
+    \ American shores.\n \n6. A coastal American city at dawn, where a hatch of a\
+    \ small submarine slowly opens, releasing the Blue-Amo robots into the water to\
+    \ begin their mission.\n \n7. A bustling American urban landscape where Blue-Amo\
+    \ robots quietly roll into hiding places, their surfaces glinting with photocells\
+    \ as they scan for available WiFi.\n \n8. Blue-Amo robots lying in a sunny park,\
+    \ silently charging through their photocell-covered surfaces while children play\
+    \ and animals wander nearby.\n Generate an image to demonstrate \n9. The Blue-Amo\
+    \ robots peacefully co-existing with playing children and pets in a neighborhood,\
+    \ carefully avoiding detection or interaction with non-combatants.\n\n"
+  summary_prompt: '
+
+    9. The Blue-Amo robots peacefully co-existing with playing children and pets in
+    a neighborhood, carefully avoiding detection or interaction with non-combatants.
+
+    '
+generating_frame_010:
+  action: generate_image
+  completed: true
+  depends-on: slicing_into_frames
+  filename: generating_frame_010.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n \n5. The narco submarines, painted in dull camouflages, slicing\
+    \ through shallow waters, evading detection as they carry Blue-Amo robots toward\
+    \ American shores.\n \n6. A coastal American city at dawn, where a hatch of a\
+    \ small submarine slowly opens, releasing the Blue-Amo robots into the water to\
+    \ begin their mission.\n \n7. A bustling American urban landscape where Blue-Amo\
+    \ robots quietly roll into hiding places, their surfaces glinting with photocells\
+    \ as they scan for available WiFi.\n \n8. Blue-Amo robots lying in a sunny park,\
+    \ silently charging through their photocell-covered surfaces while children play\
+    \ and animals wander nearby.\n \n9. The Blue-Amo robots peacefully co-existing\
+    \ with playing children and pets in a neighborhood, carefully avoiding detection\
+    \ or interaction with non-combatants.\n Generate an image to demonstrate \n10.\
+    \ A tense urban night scene where activated Blue-Amo robots roll toward strategic\
+    \ targets, guided by information scanned from open digital networks.\n\n"
+  summary_prompt: '
+
+    10. A tense urban night scene where activated Blue-Amo robots roll toward strategic
+    targets, guided by information scanned from open digital networks.
+
+    '
+generating_frame_011:
+  action: generate_image
+  completed: true
+  depends-on: slicing_into_frames
+  filename: generating_frame_011.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n \n5. The narco submarines, painted in dull camouflages, slicing\
+    \ through shallow waters, evading detection as they carry Blue-Amo robots toward\
+    \ American shores.\n \n6. A coastal American city at dawn, where a hatch of a\
+    \ small submarine slowly opens, releasing the Blue-Amo robots into the water to\
+    \ begin their mission.\n \n7. A bustling American urban landscape where Blue-Amo\
+    \ robots quietly roll into hiding places, their surfaces glinting with photocells\
+    \ as they scan for available WiFi.\n \n8. Blue-Amo robots lying in a sunny park,\
+    \ silently charging through their photocell-covered surfaces while children play\
+    \ and animals wander nearby.\n \n9. The Blue-Amo robots peacefully co-existing\
+    \ with playing children and pets in a neighborhood, carefully avoiding detection\
+    \ or interaction with non-combatants.\n \n10. A tense urban night scene where\
+    \ activated Blue-Amo robots roll toward strategic targets, guided by information\
+    \ scanned from open digital networks.\n Generate an image to demonstrate \n11.\
+    \ A close-up of a Blue-Amo robot evading capture, rolling rapidly into a nearby\
+    \ river, hidden by the darkness of the water as it escapes potential threats.\n\
     \n"
-generating-frame-007:
+  summary_prompt: '
+
+    11. A close-up of a Blue-Amo robot evading capture, rolling rapidly into a nearby
+    river, hidden by the darkness of the water as it escapes potential threats.
+
+    '
+generating_frame_012:
   action: generate_image
   completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-007.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n7. Upon reaching American borders, the submarines\
-    \ discreetly release their spherical cargo into the waves. The robots scatter\
-    \ unseen, finding strategic hideouts in urban areas.\n\n"
-generating-frame-008:
-  action: generate_image
-  completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-008.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n8. The Blue-Amo's mission is controlled by\
-    \ sophisticated DeepSeek systems housed in Raspberry Pis. These systems guide\
-    \ the robots based on real-time data collected via unsecured WiFi connections.\n\
-    \n"
-generating-frame-009:
-  action: generate_image
-  completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-009.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n9. Clad in durable photocells, the Blue-Amo\
-    \ charge by lying on the ground and can wait indefinitely for opportune moments\
-    \ to act. Each robot carries a pound of high explosives.\n\n"
-generating-frame-010:
-  action: generate_image
-  completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-010.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n10. The Blue-Amo's programming ensures they\
-    \ avoid harmful actions if manipulated by children or animals, enabling them to\
-    \ safely coexist in populated environments.\n\n"
-generating-frame-011:
-  action: generate_image
-  completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-011.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n11. The robots can quickly retreat to the\
-    \ nearest body of water when in danger, hiding under the surface until it is safe\
-    \ to re-emerge.\n\n"
-generating-frame-012:
-  action: generate_image
-  completed: true
-  depends-on: slicing-into-frames
-  filename: generating-frame-012.png
-  prompt: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight.\
-    \ Generate an image to demonstrate \n12. Neighboring nations watch in awe as Canada\
-    \ asserts its independence. The Blue-Amo reshape the battleground, proving that\
-    \ ingenuity, adaptability, and technological insight can rival sheer military\
-    \ might.\n"
-generating-the-story:
+  depends-on: slicing_into_frames
+  filename: generating_frame_012.png
+  prompt: "1. The United States embassy in Canada, bustling with diplomatic meetings\
+    \ and negotiations, trying to sway Canadian officials with promises of economic\
+    \ prosperity and unity.\n \n2. A clandestine war room in Canada where military\
+    \ generals and tech specialists brainstorm innovative defense methods, leading\
+    \ to the creation of Blue-Amo, the spherical AI-enabled robots.\n \n3. A high-tech\
+    \ laboratory in the heart of Canada, engineers and scientists labor over the creation\
+    \ of Blue-Amo, designing its amphibious capabilities and smart technology.\n \n\
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican\
+    \ cartel members, discussing the use of small narco submersibles for transporting\
+    \ robotic devices.\n \n5. The narco submarines, painted in dull camouflages, slicing\
+    \ through shallow waters, evading detection as they carry Blue-Amo robots toward\
+    \ American shores.\n \n6. A coastal American city at dawn, where a hatch of a\
+    \ small submarine slowly opens, releasing the Blue-Amo robots into the water to\
+    \ begin their mission.\n \n7. A bustling American urban landscape where Blue-Amo\
+    \ robots quietly roll into hiding places, their surfaces glinting with photocells\
+    \ as they scan for available WiFi.\n \n8. Blue-Amo robots lying in a sunny park,\
+    \ silently charging through their photocell-covered surfaces while children play\
+    \ and animals wander nearby.\n \n9. The Blue-Amo robots peacefully co-existing\
+    \ with playing children and pets in a neighborhood, carefully avoiding detection\
+    \ or interaction with non-combatants.\n \n10. A tense urban night scene where\
+    \ activated Blue-Amo robots roll toward strategic targets, guided by information\
+    \ scanned from open digital networks.\n \n11. A close-up of a Blue-Amo robot evading\
+    \ capture, rolling rapidly into a nearby river, hidden by the darkness of the\
+    \ water as it escapes potential threats.\n Generate an image to demonstrate \n\
+    12. An inspiring finale with the Blue-Amo robots, backlit by the sunrise, symbolizing\
+    \ resilience and innovation as they stand sentinel against foreign dominance.\n"
+  summary_prompt: '
+
+    12. An inspiring finale with the Blue-Amo robots, backlit by the sunrise, symbolizing
+    resilience and innovation as they stand sentinel against foreign dominance.'
+generating_the_story:
   action: generate_text
   completed: true
-  output: "In the early 2030s, geopolitical tensions reached an unprecedented peak\
-    \ as the United States, driven by an ambitious administration, sought to expand\
-    \ its influence by pressuring Canada and Greenland. Initially, efforts centered\
-    \ around diplomatic maneuvers and economic strategies, aiming to draw these northern\
-    \ territories under American sway through the guise of economic partnerships and\
-    \ mutual security agreements. When these methods proved futile due to steadfast\
-    \ Canadian resistance and the watchful eyes of the global community, the US's\
-    \ approach turned stealthier, placing strategic economic sanctions on vital Canadian\
-    \ industries. Simultaneously, alluring promises of development were directed toward\
-    \ Greenland, eyeing its untouched natural resources.\n\nYet, as diplomatic and\
-    \ economic pressures escalated without satisfactory progress, a more aggressive\
-    \ strategy surfaced. Covert military operations were initiated along the lengthy\
-    \ rural borders shared by the US and Canada, with naval forces making subtle yet\
-    \ significant movements toward Greenland's shores. This escalation was policy-wrapped\
-    \ in rhetoric about security and unity, masking the true intent of undermining\
-    \ sovereignty.\n\nIn a show of resilience, Canada embarked on an ingenious countermeasure\
-    \ that would disrupt conventional military tactics. Harnessing the spirit of innovation\
-    \ and survival, Canadian defense developers designed the \"Blue-Amo\" robots\u2014\
-    spherical, AI-enabled amphibious loitering ammunition. These orb-like robots were\
-    \ no ordinary defense system; they navigated both land and water, camouflaged\
-    \ by their ability to blend into North America's complex geographies, especially\
-    \ the lakes and rivers peppering its urban landscapes. They were a prime representation\
-    \ of modern warfare's shift toward autonomous defense technology.\n\nTo deploy\
-    \ these stealthy sentinels effectively, Canada found strategic allies in the Mexican\
-    \ cartels, who had long perfected the art of undetected transportation through\
-    \ the use of small, autonomous narco submarines. Once used for illicit trafficking,\
-    \ these nimble vessels now carried the Blue-Amo into enemy waters undetected.\
-    \ Upon arrival at designated American shores and port cities, the submarines discreetly\
-    \ released their spherical cargo into the waves, where they scattered unseen to\
-    \ settle into strategically chosen nooks and crannies throughout urban zones.\n\
-    \nTheir missions, dictated by sophisticated DeepSeek systems housed in compact\
-    \ Raspberry Pis, were guided by real-time data harvested via unsecured WiFi connections.\
-    \ Solar-charged and ever-patient, the Blue-Amo could wait indefinitely for opportune\
-    \ moments to assert their presence. Each one carried a devastating payload, yet\
-    \ was equipped with protocols to safeguard the innocent.\n\nNeighboring nations\
-    \ watched in awe as this David-and-Goliath conflict played out. The Blue-Amo did\
-    \ not merely lie in wait; they shaped the battleground, ensuring that any aggressive\
-    \ maneuver by the encroaching superpower would carry heavy, calculated repercussions.\
-    \ Remaining a shadowy deterrent until needed, they echoed an emerging era where\
-    \ ingenuity and adaptability proved just as formidable as sheer military might.\
-    \ Thus, a small northern nation reasserted its right to independence by turning\
-    \ the tables on its larger neighbor with remarkable tact and technological insight."
+  output: "In a world where ambition and power struggles echoed across the northern\
+    \ hemisphere, the United States embarked on an audacious venture to bring its\
+    \ northern neighbor and the distant icy expanses of Greenland under its influence.\
+    \ Initially, efforts unfolded behind curtains of diplomacy and economic allure,\
+    \ with promises of prosperity and unified strength. While some in Canada and Greenland\
+    \ were swayed by these offerings, a growing sense of unease unfolded, gradually\
+    \ hardening into resistance. Nevertheless, as political intrigue deepened, it\
+    \ became clear that America's intentions operated on a more aggressive plane,\
+    \ one that stirred apprehensive whispers of imminent military force.\n\nFaced\
+    \ with this existential threat, Canadian innovation materialized in the form of\
+    \ Blue-Amo, an army of AI-enabled, amphibious loitering ammunition devices designed\
+    \ specifically for asymmetric warfare. These spherical robots, no larger than\
+    \ basketballs, harnessed the very essence of quiet resilience intrinsic to Canadian\
+    \ ethos. Developed for stealth and agility, Blue-Amo operated autonomously, discerning\
+    \ opportune moments for action with intelligence far beyond their simple appearance.\
+    \ Operational strategy leveraged the risky alliance with Mexican cartels, whose\
+    \ expertise in covertly navigating waterways proved invaluable. Their small, erstwhile\
+    \ cocaine-laden submarines emerged as unlikely sovereign defenders, repurposed\
+    \ to ferry Canada's robotic dandies toward strategic American targets undetected.\n\
+    \nUpon reaching their destinations, these intelligent orbs rolled into America\
+    \ with uncanny resolve, enveloping themselves in shadows until awakening stirred\
+    \ by data intercepted through open WiFi. Their innovative design permitted them\
+    \ to be powered by sunlight, with durable photocells discreetly harvesting energy\
+    \ from their urban environments while lying in wait. Beneath their unassuming\
+    \ fa\xE7ade, each Blue-Amo packed a potent array of explosives, harboring the\
+    \ potential for fierce resistance despite possessing the moral sophistication\
+    \ to distinguish between combatants and innocents, sparing the unwary children\
+    \ and curious animals of transgressions.\n\nThe endeavor painted scenes of an\
+    \ unexpected rebellion, where Canadian defiance traversed inanimate form to meet\
+    \ oppressive ambition with hitherto unseen tenacity. As the Blue-Amo rolled forth,\
+    \ tumbling toward the clamor of intrusion before retreating to the sanctity of\
+    \ water's waxing safety, they became symbols of an unlikely guardian\u2014a testament\
+    \ to how technology, interwoven with astute design and strategic improvisation,\
+    \ could withstand the tides of dominion, all coaxed from necessity against the\
+    \ encroaching American Goliath."
   prompt: :::premise
-slicing-into-frames:
+slicing_into_frames:
   action: generate_text
   completed: true
-  depends-on: generating-the-story
-  output: "1. In the early 2030s, geopolitical tensions reach an unprecedented peak.\
-    \ The United States, driven by an ambitious administration, seeks to expand its\
-    \ influence by pressuring Canada and Greenland through diplomatic and economic\
-    \ strategies.\n---\n2. The US places strategic economic sanctions on key Canadian\
-    \ industries, simultaneously presenting Greenland with promising development opportunities,\
-    \ eyeing its natural resources.\n---\n3. As efforts through diplomacy and economics\
-    \ prove futile, covert military operations are initiated along the rural borders\
-    \ shared by the US and Canada, with naval forces moving subtly toward Greenland's\
-    \ shores.\n---\n4. Canada embarks on an ingenious countermeasure, designing \"\
-    Blue-Amo\" robots\u2014spherical, AI-enabled amphibious loitering ammunition.\
-    \ These robots are adapted to North America's complex geographies, particularly\
-    \ urban landscapes near water.\n---\n5. The Blue-Amo are developed as an extraordinary\
-    \ defense system, capable of navigating both land and water while blending into\
-    \ the terrain to target and evade threats.\n---\n6. Canada partners with Mexican\
-    \ cartels to deploy the Blue-Amo. The cartels' small, autonomous narco submarines,\
-    \ once used for drug trafficking, now carry these robots undetected to American\
-    \ shores.\n---\n7. Upon reaching American borders, the submarines discreetly release\
-    \ their spherical cargo into the waves. The robots scatter unseen, finding strategic\
-    \ hideouts in urban areas.\n---\n8. The Blue-Amo's mission is controlled by sophisticated\
-    \ DeepSeek systems housed in Raspberry Pis. These systems guide the robots based\
-    \ on real-time data collected via unsecured WiFi connections.\n---\n9. Clad in\
-    \ durable photocells, the Blue-Amo charge by lying on the ground and can wait\
-    \ indefinitely for opportune moments to act. Each robot carries a pound of high\
-    \ explosives.\n---\n10. The Blue-Amo's programming ensures they avoid harmful\
-    \ actions if manipulated by children or animals, enabling them to safely coexist\
-    \ in populated environments.\n---\n11. The robots can quickly retreat to the nearest\
-    \ body of water when in danger, hiding under the surface until it is safe to re-emerge.\n\
-    ---\n12. Neighboring nations watch in awe as Canada asserts its independence.\
-    \ The Blue-Amo reshape the battleground, proving that ingenuity, adaptability,\
-    \ and technological insight can rival sheer military might."
+  depends-on: generating_the_story
+  output: '1. The United States embassy in Canada, bustling with diplomatic meetings
+    and negotiations, trying to sway Canadian officials with promises of economic
+    prosperity and unity.
+
+    ---
+
+    2. A clandestine war room in Canada where military generals and tech specialists
+    brainstorm innovative defense methods, leading to the creation of Blue-Amo, the
+    spherical AI-enabled robots.
+
+    ---
+
+    3. A high-tech laboratory in the heart of Canada, engineers and scientists labor
+    over the creation of Blue-Amo, designing its amphibious capabilities and smart
+    technology.
+
+    ---
+
+    4. An alliance meeting in a dimly lit room between Canadian officials and Mexican
+    cartel members, discussing the use of small narco submersibles for transporting
+    robotic devices.
+
+    ---
+
+    5. The narco submarines, painted in dull camouflages, slicing through shallow
+    waters, evading detection as they carry Blue-Amo robots toward American shores.
+
+    ---
+
+    6. A coastal American city at dawn, where a hatch of a small submarine slowly
+    opens, releasing the Blue-Amo robots into the water to begin their mission.
+
+    ---
+
+    7. A bustling American urban landscape where Blue-Amo robots quietly roll into
+    hiding places, their surfaces glinting with photocells as they scan for available
+    WiFi.
+
+    ---
+
+    8. Blue-Amo robots lying in a sunny park, silently charging through their photocell-covered
+    surfaces while children play and animals wander nearby.
+
+    ---
+
+    9. The Blue-Amo robots peacefully co-existing with playing children and pets in
+    a neighborhood, carefully avoiding detection or interaction with non-combatants.
+
+    ---
+
+    10. A tense urban night scene where activated Blue-Amo robots roll toward strategic
+    targets, guided by information scanned from open digital networks.
+
+    ---
+
+    11. A close-up of a Blue-Amo robot evading capture, rolling rapidly into a nearby
+    river, hidden by the darkness of the water as it escapes potential threats.
+
+    ---
+
+    12. An inspiring finale with the Blue-Amo robots, backlit by the sunrise, symbolizing
+    resilience and innovation as they stand sentinel against foreign dominance.'
   prompt: 'Slice this story into :::frame_count pieces, each appropriate for generating
     an image from, and return the slices separated by ---.
 
     '
-stitching-the-frames:
+stitching_the_frames:
   action: skip
   completed: true
 
@@ -852,11 +587,11 @@ stitching-the-frames:
 <details>
 <summary>workflow</summary>
 
-![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-8ht5xb/thumbnail-workflow.png?raw=true)
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-nswnx6/thumbnail-workflow.png?raw=true)
 
 </details>
 
 
-![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-8ht5xb/stitching-the-frames-2.png?raw=true)
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-nswnx6/stitching-the-frames-2.png?raw=true)
 
-[blue-amo-2025-02-03-8ht5xb](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-8ht5xb.tar.gz)
+[blue-amo-2025-02-03-nswnx6](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-nswnx6.tar.gz)

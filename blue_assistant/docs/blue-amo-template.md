@@ -1,6 +1,6 @@
 # blue-amo
 
-set:::object_name blue-amo-2025-02-03-8ht5xb
+set:::object_name blue-amo-2025-02-03-nswnx6
 
 details:::nodes
 yaml:::get:::object_name:::script.nodes
