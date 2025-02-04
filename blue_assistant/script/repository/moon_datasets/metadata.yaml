@@ -2,6 +2,6 @@ script:
   vars: {}
   nodes:
     integration_api_one:
-      action: wip
+      action: skip
     integration_api_two:
-      action: wip
+      action: skip

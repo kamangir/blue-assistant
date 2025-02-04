@@ -9,7 +9,7 @@ from blue_objects.metadata import post_to_object
 
 from blue_assistant import NAME
 from blue_assistant.script.repository.base.classes import BaseScript
-from blue_assistant.script.actions.functions import get_action_class
+from blue_assistant.script.actions import dict_of_actions
 from blue_assistant.logger import logger
 
 
@@ -24,25 +24,15 @@ class GenericScript(BaseScript):
         node_name: str,
     ) -> bool:
         action_name = self.nodes[node_name].get("action", "unknown")
-        if action_name == "skip":
-            return True
 
-        success, action_class = get_action_class(action_name=action_name)
-        if not success:
-            return success
+        if action_name not in dict_of_actions:
+            logger.error(f"{action_name}: action not found.")
+            return False
 
-        logger.info(
-            "{}.perform_action: {} == {} on {}".format(
-                NAME,
-                action_name,
-                action_class.__name__,
-                node_name,
-            )
+        return dict_of_actions[action_name](
+            script=self,
+            node_name=node_name,
         )
-
-        action_object = action_class(script=self)
-
-        return action_object.perform(node_name=node_name)
 
     def run(
         self,

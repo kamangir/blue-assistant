@@ -7,7 +7,7 @@ from blue_assistant.logger import logger
 NAME = module.name(__file__, NAME)
 
 
-def generic_action(
+def skip_action(
     script: BaseScript,
     node_name: str,
 ) -> bool:

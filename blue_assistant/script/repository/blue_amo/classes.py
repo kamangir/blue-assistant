@@ -5,12 +5,7 @@ from blue_objects import file, path
 
 from blue_assistant import NAME
 from blue_assistant.script.repository.generic.classes import GenericScript
-from blue_assistant.script.repository.blue_amo.actions.slice_into_frames import (
-    slice_into_frames,
-)
-from blue_assistant.script.repository.blue_amo.actions.stitch_the_frames import (
-    stitch_the_frames,
-)
+from blue_assistant.script.repository.blue_amo.actions import dict_of_actions
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -75,14 +70,8 @@ class BlueAmoScript(GenericScript):
         if not super().perform_action(node_name=node_name):
             return False
 
-        if node_name == "slicing-into-frames":
-            return slice_into_frames(
-                script=self,
-                node_name=node_name,
-            )
-
-        if node_name == "stitching-the-frames":
-            return stitch_the_frames(
+        if node_name in dict_of_actions:
+            return dict_of_actions[node_name](
                 script=self,
                 node_name=node_name,
             )
