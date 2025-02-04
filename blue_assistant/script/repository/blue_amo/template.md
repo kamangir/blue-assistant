@@ -27,3 +27,7 @@ details:::
 assets:::get:::object_name/stitching_the_frames-2.png
 
 object:::get:::object_name
+
+---
+
+assets:::blue-amo-2025-02-04-nwb6nc/stitching_the_frames-2.png

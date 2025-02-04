@@ -18,8 +18,8 @@ script:
 
   nodes:
     researching_the_questions:
-      action: skip
+      action: generic
     integration_api_one:
-      action: skip
+      action: generic
     integration_api_two:
-      action: skip
+      action: generic
