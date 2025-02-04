@@ -1,6 +1,6 @@
 # 🧠 blue-assistant
 
-🧠 `@assistant` runs AI scripts; DAGs that combine deterministic and AI operations, such as below,
+🧠 `@assistant` runs AI scripts; DAGs that combine deterministic and AI operations.
 
 --table--
 
