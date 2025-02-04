@@ -31,7 +31,7 @@ def slicing_into_frames(
 
         script.nodes[node_name]["prompt"] = (
             script.nodes[node_name]["prompt"]
-            .replace(":::story", " ".join(list_of_frame_prompts[index - 1]))
+            .replace(":::story", " ".join(list_of_frame_prompts[:index]))
             .replace(":::input", list_of_frame_prompts[index])
         )
 
