@@ -98,11 +98,31 @@ def stitch_the_frames(
             full_frame = np.concatenate([full_frame, row], axis=0)
     logger.info(f"full frame: {string.pretty_shape_of_matrix(full_frame)}")
 
-    return file.save_image(
-        objects.path_of(
-            filename=f"{node_name}.png",
-            object_name=script.object_name,
-        ),
-        full_frame,
-        log=True,
-    )
+    for scale in [1, 2, 4]:
+        scaled_full_frame = (
+            full_frame
+            if scale == 1
+            else cv2.resize(
+                full_frame,
+                (
+                    int(full_frame.shape[1] / scale),
+                    int(full_frame.shape[0] / scale),
+                ),
+                interpolation=cv2.INTER_AREA,
+            )
+        )
+
+        if not file.save_image(
+            objects.path_of(
+                filename="{}{}.png".format(
+                    node_name,
+                    "" if scale == 1 else f"-{scale}",
+                ),
+                object_name=script.object_name,
+            ),
+            scaled_full_frame,
+            log=True,
+        ):
+            return False
+
+    return True
