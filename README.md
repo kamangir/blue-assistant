@@ -23,9 +23,13 @@ graph LR
     classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```
 
+|   |
+| --- |
+| [`blue-amo`](./blue_assistant/docs/blue-amo.md) [![image](https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true)](./blue_assistant/docs/blue-amo.md) story-telling with AI |
+
 ---
 
 
 [![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.207.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.111.1`](https://github.com/kamangir/blue-assistant).
+built by 🌀 [`blue_options-4.207.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.113.1`](https://github.com/kamangir/blue-assistant).

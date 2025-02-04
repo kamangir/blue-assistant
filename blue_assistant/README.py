@@ -6,13 +6,21 @@ from blue_assistant import NAME, VERSION, ICON, REPO_NAME
 
 
 items = [
-    "{}[`{}`](#) [![image]({})](#) {}".format(
-        ICON,
-        f"feature {index}",
-        "https://github.com/kamangir/assets/raw/main/blue-assistant/marquee.png?raw=true",
-        f"description of feature {index} ...",
+    "[`{}`]({}) [![image]({})]({}) {}".format(
+        item["title"],
+        item["url"],
+        item["marquee"],
+        item["url"],
+        item["description"],
     )
-    for index in range(1, 4)
+    for item in [
+        {
+            "title": "blue-amo",
+            "url": "./blue_assistant/docs/blue-amo.md",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
+            "description": "story-telling with AI",
+        }
+    ]
 ]
 
 
