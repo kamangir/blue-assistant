@@ -1,6 +1,5 @@
 from blueness import module
-from blue_objects import objects
-from openai_commands.image_generation.api import OpenAIImageGenerator
+from openai_commands.image_generation import api
 
 from blue_assistant import NAME
 from blue_assistant.env import (
@@ -21,20 +20,13 @@ def generate_image(
 ) -> bool:
     logger.info(f"{NAME}: {script} @ {node_name} ...")
 
-    generator = OpenAIImageGenerator(
-        model=BLUE_ASSISTANT_IMAGE_DEFAULT_MODEL,
-        verbose=script.verbose,
-    )
-
     filename = f"{node_name}.png"
 
-    success = generator.generate(
+    success, _ = api.generate_image(
         prompt=script.nodes[node_name]["prompt"],
-        filename=objects.path_of(
-            filename=filename,
-            object_name=script.object_name,
-            create=True,
-        ),
+        filename=filename,
+        object_name=script.object_name,
+        model=BLUE_ASSISTANT_IMAGE_DEFAULT_MODEL,
         quality=(BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY if script.test_mode else "hd"),
         size=(BLUE_ASSISTANT_IMAGE_DEFAULT_SIZE if script.test_mode else "1792x1024"),
         sign_with_prompt=False,
@@ -44,7 +36,8 @@ def generate_image(
                 script.nodes[node_name]["prompt"],
             )
         ],
-    )[0]
+        verbose=script.verbose,
+    )
 
     if success:
         script.nodes[node_name]["filename"] = filename

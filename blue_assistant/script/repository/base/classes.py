@@ -81,13 +81,13 @@ class BaseScript:
 
         return self.save_graph()
 
-    def get_history(
+    def get_context(
         self,
         node_name: str,
     ) -> List[str]:
         return reduce(
             lambda x, y: x + y,
-            [self.get_history(successor) for successor in self.G.successors(node_name)],
+            [self.get_context(successor) for successor in self.G.successors(node_name)],
             [node_name],
         )
 

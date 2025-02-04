@@ -11,7 +11,7 @@ def test_required_env():
 
 def test_blue_assistant_env():
     assert env.BLUE_ASSISTANT_TEXT_DEFAULT_MODEL
-    assert env.BLUE_ASSISTANT_TEXT_MAX_TOKEN
+    assert env.BLUE_ASSISTANT_TEXT_MAX_TOKENS
 
     assert env.BLUE_ASSISTANT_IMAGE_DEFAULT_MODEL
     assert env.BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY
