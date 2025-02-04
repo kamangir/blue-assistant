@@ -27,9 +27,10 @@ def slice_into_frames(
     for index in range(script.vars["frame_count"]):
         node_name = f"generating-frame-{index+1:03d}"
 
-        script.nodes[node_name]["prompt"] = script.nodes[node_name]["prompt"].replace(
-            ":::input",
-            list_of_frame_prompts[index],
+        script.nodes[node_name]["prompt"] = (
+            script.nodes[node_name]["prompt"]
+            .replace(":::story", script.nodes["generating-the-story"]["output"])
+            .replace(":::input", list_of_frame_prompts[index])
         )
 
     return True
