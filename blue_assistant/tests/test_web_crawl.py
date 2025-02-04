@@ -1,4 +1,8 @@
+from typing import List
 import pytest
+
+from blue_objects import objects
+
 from blue_assistant.web.crawl import crawl_list_of_urls
 
 
@@ -18,8 +22,13 @@ from blue_assistant.web.crawl import crawl_list_of_urls
 )
 def test_web_crawl(
     max_iterations: int,
+    seed_urls: List[str],
 ):
+    object_name = objects.unique_object("test_web_crawl")
+
     output = crawl_list_of_urls(
+        seed_urls=seed_urls,
+        object_name=object_name,
         max_iterations=max_iterations,
     )
 
