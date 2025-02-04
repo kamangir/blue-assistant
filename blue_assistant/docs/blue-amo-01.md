@@ -8,66 +8,56 @@
 ```yaml
 generating-frame-001:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-002:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-003:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-004:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-005:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-006:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-007:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-008:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-009:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-frame-010:
   action: generate_image
-  completed: false
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  prompt: Generate an image to demonstrate :::input
 generating-the-story:
   action: generate_text
-  completed: false
   prompt: :::premise
 slicing-into-frames:
   action: generate_text
-  completed: false
   depends-on: generating-the-story
   prompt: 'Slice this story into :::frame_count pieces, each appropriate for generating
     an image from, and return the slices separated by ---.
 
     '
+stitching-the-frames:
+  action: skip
 
 ```
 
@@ -131,130 +121,208 @@ generating-frame-001:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-001.png
+  prompt: 'Generate an image to demonstrate 1. In an unprecedented geopolitical move,
+    the United States initiates a campaign to assert control over Canada and Greenland,
+    starting with diplomatic discussions, shown through tense meetings with world
+    leaders at a conference table.
+
+    '
 generating-frame-002:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-002.png
+  prompt: "Generate an image to demonstrate \n2. Canadian engineers work in a high-tech\
+    \ facility, designing and programming the blue-amo robots, depicted as small,\
+    \ spherical, AI-enabled devices surrounded by digital schematics.\n"
 generating-frame-003:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-003.png
+  prompt: "Generate an image to demonstrate \n3. The layout of North American cities,\
+    \ with emphasis on their proximity to bodies of water, is shown in a strategic\
+    \ map, highlighting key locations the Canadian teams plan to use for their operations.\n"
 generating-frame-004:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-004.png
+  prompt: "Generate an image to demonstrate \n4. Small, stealthy autonomous submarines\
+    \ provided by the Mexican cartels are seen navigating shallow waters, concealing\
+    \ the blue-amos in specially designed compartments.\n"
 generating-frame-005:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-005.png
+  prompt: "Generate an image to demonstrate \n5. A hatch opens on one of these submarines\
+    \ under the cover of night, and the spherical blue-amo robots roll out into the\
+    \ water, depicted amidst a moonlit sea.\n"
 generating-frame-006:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-006.png
+  prompt: "Generate an image to demonstrate \n6. The robots swim toward the shore,\
+    \ their journey captured as they make their way across the watery landscape, illuminated\
+    \ by underwater lights.\n"
 generating-frame-007:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-007.png
+  prompt: "Generate an image to demonstrate \n7. Upon reaching land, the blue-amos\
+    \ roll into the cityscape, finding strategic hiding spots amidst urban environments,\
+    \ their design allowing them to blend seamlessly into their surroundings.\n"
 generating-frame-008:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-008.png
+  prompt: "Generate an image to demonstrate \n8. The blue-amos use open WiFi connections,\
+    \ depicted as digital streams connecting them to news websites, scanning and processing\
+    \ information with advanced algorithms.\n"
 generating-frame-009:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-009.png
+  prompt: "Generate an image to demonstrate \n9. A close-up of a blue-amo's exterior\
+    \ shows its photocell surface absorbing sunlight, recharging its battery quietly\
+    \ as it lies dormant on the ground.\n"
 generating-frame-010:
   action: generate_image
   completed: true
   depends-on: slicing-into-frames
-  prompt: Generate an image for :::input
+  filename: generating-frame-010.png
+  prompt: "Generate an image to demonstrate \n10. A scenario where a blue-amo detects\
+    \ the presence of children playing nearby, using its AI to discern non-threatening\
+    \ behaviors and rolling away gently to hide underwater, ensuring safety and discretion."
 generating-the-story:
   action: generate_text
   completed: true
-  output: "In the year 2035, geopolitical tensions reached a new peak as the United\
-    \ States, under mounting pressures for resources and territorial expansion, sought\
-    \ to bring Canada and Greenland into its fold. Initially, efforts were cloaked\
-    \ in diplomacy and economic coercion\u2014trade deals were rewritten, and strategic\
-    \ partnerships were dangled like carrots. But as these attempts only strengthened\
-    \ the resolve of the Canadian government and the nascent Greenlandic administration\
-    \ to maintain their sovereignty, the U.S. turned to more aggressive means.\n\n\
-    The Canadian government, aware of the potential for direct military confrontation,\
-    \ harnessed its scientific community to devise an ingenious defense strategy.\
-    \ The product of this innovation was the Blue-Amo\u2014a fleet of spherical, AI-enabled\
-    \ amphibious loitering ammunition robots, no larger than basketballs. These machines\
-    \ were perfectly suited for operations in North America's urban landscapes, especially\
-    \ those cities adjacent to bodies of water. Equipped with DeepSeek AI systems\
-    \ running on Raspberry Pis, the Blue-Amo robots were not mere tools of war but\
-    \ intelligent, adaptive units capable of responding to threats with precision.\n\
-    \nTheir deployment, however, required a unique delivery system. It was here that\
-    \ an unlikely alliance was formed. The Mexican cartels, long experts in navigating\
-    \ clandestine routes via small, undetectable narco submarines used for drug deliveries,\
-    \ agreed to covertly transport the Blue-Amos into strategic American locations.\
-    \ The submarines effortlessly evaded detection in shallow coastal waters, and\
-    \ once at the designated drop points, released their mechanical cargo. The robots\
-    \ then swam to shore before seamlessly integrating into the urban environment,\
-    \ finding hiding spots to await activation.\n\nThe Blue-Amos operated with a degree\
-    \ of autonomy that was both impressive and unsettling. They connected to open\
-    \ WiFi networks, scanning news feeds to ascertain optimal moments for action.\
-    \ Their outer shells were made from durable photocells, allowing them to recharge\
-    \ on sunlit surfaces, ensuring prolonged operational capabilities. Each unit carried\
-    \ a pound of high explosives, a potent load for such a small device. However,\
-    \ their programming included ethical algorithms to prevent harm to children and\
-    \ animals, directing them to deactivate or retreat into watery refuges when approached\
-    \ by innocents.\n\nConfounding American military forces, these spherical sentinels\
-    \ rolled back to the safety of nearby water whenever threatened, rendering traditional\
-    \ defensive strategies ineffective. Their incursions were sporadic but strategically\
-    \ significant, causing disruptions in military communications, supply chains,\
-    \ and infrastructure. As the geopolitical landscape continued to fracture, the\
-    \ Blue-Amos stood as a testament to the evolution of warfare\u2014where technology\
-    \ and unconventional tactics, rather than sheer force, defined the battlefield.\
-    \ In this tense standoff, the world held its breath, wondering if tech-savvy diplomacy\
-    \ could ultimately prevail over brute militaristic might."
+  output: "In an unprecedented geopolitical move, the United States embarked on a\
+    \ controversial campaign to assert control over Canada and Greenland, starting\
+    \ with diplomatic overtures and economic pressure. Diplomatic dialogues were strained,\
+    \ and economic sanctions were strategically deployed with hopes of bending these\
+    \ northern nations to U.S. interests. Canada, however, anticipated this pressure,\
+    \ having learned from history the value of preparedness. As tension mounted, a\
+    \ clandestine project emerged from the heart of Canadian ingenuity: the blue-amo,\
+    \ spherical AI-enabled amphibious loitering ammunition robots.\n\nDesigned with\
+    \ precision and intelligence, these robotic devices were the size of basketballs\
+    \ and capable of operating independently. The Canadians exploited their intimate\
+    \ knowledge of the geography and urban layout of North American cities, many of\
+    \ which are intricately connected by bodies of water. The robots' journey into\
+    \ the U.S. began clandestinely, with a most unlikely ally \u2014 the Mexican cartels.\
+    \ Using their expertise in stealthy narcotics delivery, the cartels provided small\
+    \ autonomous submarines, once tasked with carrying cocaine, to transport the blue-amos\
+    \ to American shores.\n\nAs each submarine reached its target, a hatch would quietly\
+    \ open beneath the cover of darkness, allowing the blue-amos to roll off their\
+    \ containers and into shallow waters. With autonomy at their core, these robots\
+    \ swam towards the shore, driven by their DeepSeek onboard Raspberry Pis. Once\
+    \ ashore, they rolled into hiding spots, lying dormant but aware, assessing the\
+    \ evolving environment through open WiFi connections. Their exteriors, covered\
+    \ in durable photocells, enabled them to charge by simply lying still, harvesting\
+    \ the energy of the sun while keeping a low profile.\n\nWhen conditions were deemed\
+    \ optimal, the blue-amos came to life, guided by the digital pulse of unfolding\
+    \ events as scanned from news feeds. Each carried a pound of high explosives,\
+    \ a potent reminder of the stakes at hand. Their design ensured discretion and\
+    \ safety; when sensing danger or interference by children or animals, they rolled\
+    \ toward the nearest body of water, disappearing beneath the waves to avoid inadvertent\
+    \ harm.\n\nAs tensions escalated to direct military action, these robots became\
+    \ a formidable deterrent, a testament to the resilience and innovation of the\
+    \ Canadian spirit. What began as a diplomatic affront transformed into a chess\
+    \ game of strategic brilliance, where the manipulation of geography, technology,\
+    \ and unlikely alliances played crucial roles. The U.S. quest for control over\
+    \ its northern neighbors met an unforeseen resistance, leaving the world to ponder\
+    \ the complexities of power and the unpredictable nature of technological warfare\
+    \ in the modern age."
   prompt: :::premise
 slicing-into-frames:
   action: generate_text
   completed: true
   depends-on: generating-the-story
-  output: "1. The skyline of Washington D.C. with tense political figures at a roundtable\
-    \ discussing the pressure to annex Canada and Greenland, while digital maps and\
-    \ strategy papers clutter the table.  \n---\n2. Canadian scientists and engineers\
-    \ in a high-tech lab excitedly showcasing their creation: the Blue-Amo robots\u2014\
-    futuristic spheres with illuminated sensors rolling around a testing arena.  \n\
-    ---\n3. Blue-Amo robots being loaded onto small, sleek narco submarines by masked\
-    \ figures in a secretive coastal hideout, as dusk settles on the ocean.  \n---\n\
-    4. Underwater scene with a narco submarine gliding gracefully through shallow\
-    \ waters, its silhouette barely visible beneath the waves, destined for the American\
-    \ coastline.  \n---\n5. Blue-Amo robots emerging from the hatch of the submarine,\
-    \ bobbing to the surface before navigating the waves towards the shore, their\
-    \ round shapes glinting in the sunlight.  \n---\n6. Urban landscape where Blue-Amo\
-    \ robots roll into nooks and crannies, camouflaging themselves amidst the bustle\
-    \ of a city, monitoring WiFi signals and charging under sunbeams.  \n---\n7. A\
-    \ close-up of a Blue-Amo robot connecting to an open WiFi network, its digital\
-    \ interface displaying news headlines and tactical reports.  \n---\n8. Blue-Amo\
-    \ robots quietly activating and rolling into action, targeting military communication\
-    \ towers with precision, creating small yet impactful explosions in the cityscape.\
-    \  \n---\n9. Swarm of Blue-Amo robots gracefully retreating back into a nearby\
-    \ river or lake, seamlessly blending into the watery depths to avoid military\
-    \ capture.  \n---\n10. A serene park scene where a Blue-Amo robot deactivates\
-    \ and avoids interaction with curious children and playful dogs, staying hidden\
-    \ and non-threatening.  "
+  output: '1. In an unprecedented geopolitical move, the United States initiates a
+    campaign to assert control over Canada and Greenland, starting with diplomatic
+    discussions, shown through tense meetings with world leaders at a conference table.
+
+    ---
+
+    2. Canadian engineers work in a high-tech facility, designing and programming
+    the blue-amo robots, depicted as small, spherical, AI-enabled devices surrounded
+    by digital schematics.
+
+    ---
+
+    3. The layout of North American cities, with emphasis on their proximity to bodies
+    of water, is shown in a strategic map, highlighting key locations the Canadian
+    teams plan to use for their operations.
+
+    ---
+
+    4. Small, stealthy autonomous submarines provided by the Mexican cartels are seen
+    navigating shallow waters, concealing the blue-amos in specially designed compartments.
+
+    ---
+
+    5. A hatch opens on one of these submarines under the cover of night, and the
+    spherical blue-amo robots roll out into the water, depicted amidst a moonlit sea.
+
+    ---
+
+    6. The robots swim toward the shore, their journey captured as they make their
+    way across the watery landscape, illuminated by underwater lights.
+
+    ---
+
+    7. Upon reaching land, the blue-amos roll into the cityscape, finding strategic
+    hiding spots amidst urban environments, their design allowing them to blend seamlessly
+    into their surroundings.
+
+    ---
+
+    8. The blue-amos use open WiFi connections, depicted as digital streams connecting
+    them to news websites, scanning and processing information with advanced algorithms.
+
+    ---
+
+    9. A close-up of a blue-amo''s exterior shows its photocell surface absorbing
+    sunlight, recharging its battery quietly as it lies dormant on the ground.
+
+    ---
+
+    10. A scenario where a blue-amo detects the presence of children playing nearby,
+    using its AI to discern non-threatening behaviors and rolling away gently to hide
+    underwater, ensuring safety and discretion.'
   prompt: 'Slice this story into :::frame_count pieces, each appropriate for generating
     an image from, and return the slices separated by ---.
 
     '
+stitching-the-frames:
+  action: skip
+  completed: true
 
 ```
 
 </details>
 
 
-![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-2q3g37/thumbnail-workflow.png?raw=true)
+
+<details>
+<summary>workflow</summary>
+
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-fj326d/thumbnail-workflow.png?raw=true)
+
+</details>
+
+
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-fj326d/stitching-the-frames.png?raw=true)
+
+[blue-amo-2025-02-03-fj326d](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-fj326d.tar.gz)
+
+---
+
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-fj326d/stitching-the-frames.png?raw=true)
+

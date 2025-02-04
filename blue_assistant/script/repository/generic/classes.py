@@ -24,6 +24,8 @@ class GenericScript(BaseScript):
         node_name: str,
     ) -> bool:
         action_name = self.nodes[node_name].get("action", "unknown")
+        if action_name == "skip":
+            return True
 
         success, action_class = get_action_class(action_name=action_name)
         if not success:
@@ -49,15 +51,18 @@ class GenericScript(BaseScript):
             return False
 
         success: bool = True
-        while not all(self.nodes[node]["completed"] for node in self.nodes) and success:
+        while (
+            not all(self.nodes[node].get("completed", False) for node in self.nodes)
+            and success
+        ):
             for node_name in tqdm(self.nodes):
-                if self.nodes[node_name]["completed"]:
+                if self.nodes[node_name].get("completed", False):
                     continue
 
                 pending_dependencies = [
                     node_name_
                     for node_name_ in self.G.successors(node_name)
-                    if not self.nodes[node_name_]["completed"]
+                    if not self.nodes[node_name_].get("completed", False)
                 ]
                 if pending_dependencies:
                     logger.info(

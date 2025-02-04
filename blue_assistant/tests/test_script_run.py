@@ -19,6 +19,7 @@ def test_scripts_run(script_name: str):
     success, script = load_script(
         script_name=script_name,
         object_name=object_name,
+        test_mode=True,
         verbose=True,
     )
     assert success == expected_success

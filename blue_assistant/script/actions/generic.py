@@ -1,13 +1,7 @@
-from typing import Dict, Tuple
-
-from blueness import module
 from blue_objects import file
 
-from blue_assistant import NAME
 from blue_assistant.script.repository.base.classes import BaseScript
 from blue_assistant.logger import logger
-
-NAME = module.name(__file__, NAME)
 
 
 class GenericAction:
@@ -24,8 +18,7 @@ class GenericAction:
         node_name: str,
     ) -> bool:
         logger.info(
-            "{}.perform({}) on {}.{} ...".format(
-                NAME,
+            "{}.perform on {}.{} ...".format(
                 self.__class__.__name__,
                 self.script.name,
                 node_name,

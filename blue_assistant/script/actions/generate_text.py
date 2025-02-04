@@ -7,7 +7,10 @@ from blue_objects import file
 from openai_commands.env import OPENAI_API_KEY
 
 from blue_assistant import NAME
-from blue_assistant.env import BLUE_ASSISTANT_DEFAULT_MODEL, BLUE_ASSISTANT_MAX_TOKEN
+from blue_assistant.env import (
+    BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
+    BLUE_ASSISTANT_TEXT_MAX_TOKEN,
+)
 from blue_assistant.script.actions.generic import GenericAction
 from blue_assistant.logger import logger
 
@@ -17,6 +20,7 @@ NAME = module.name(__file__, NAME)
 class GenerateTextAction(GenericAction):
     name = file.name(__file__)
 
+    # https://platform.openai.com/docs/guides/text-generation
     def perform(
         self,
         node_name: str,
@@ -29,9 +33,9 @@ class GenerateTextAction(GenericAction):
             return False
 
         messages: List = []
-        node_context = self.script.get_history(node_name)
-        logger.info("node context: {}".format(" <- ".join(node_context)))
-        for successor in reversed(node_context):
+        list_of_context_nodes = self.script.get_history(node_name)
+        logger.info("node context: {}".format(" <- ".join(list_of_context_nodes)))
+        for context_node in reversed(list_of_context_nodes):
             messages += [
                 {
                     "role": "user",
@@ -39,21 +43,21 @@ class GenerateTextAction(GenericAction):
                         {
                             "type": "text",
                             "text": self.script.apply_vars(
-                                self.script.nodes[successor]["prompt"]
+                                self.script.nodes[context_node]["prompt"]
                             ),
                         }
                     ],
                 }
             ]
 
-            if self.script.nodes[successor]["completed"]:
+            if self.script.nodes[context_node].get("completed", False):
                 messages += [
                     {
                         "role": "assistant",
                         "content": [
                             {
                                 "type": "text",
-                                "text": self.script.nodes[successor]["output"],
+                                "text": self.script.nodes[context_node]["output"],
                             }
                         ],
                     }
@@ -67,8 +71,8 @@ class GenerateTextAction(GenericAction):
         try:
             response = client.chat.completions.create(
                 messages=messages,
-                model=BLUE_ASSISTANT_DEFAULT_MODEL,
-                max_tokens=BLUE_ASSISTANT_MAX_TOKEN,
+                model=BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
+                max_tokens=BLUE_ASSISTANT_TEXT_MAX_TOKEN,
             )
         except Exception as e:
             logger.error(str(e))

@@ -34,7 +34,10 @@ def help_run(
 
     script_options = "script=<script>"
 
-    args = ["--verbose 1"]
+    args = [
+        "[--test_mode 1]",
+        "[--verbose 1]",
+    ]
 
     return show_usage(
         [

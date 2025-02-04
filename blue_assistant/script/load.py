@@ -8,6 +8,7 @@ from blue_assistant.logger import logger
 def load_script(
     script_name: str,
     object_name: str,
+    test_mode: bool = False,
     verbose: bool = False,
 ) -> Tuple[bool, BaseScript]:
     found: bool = False
@@ -23,5 +24,6 @@ def load_script(
 
     return found, script_class(
         object_name=object_name,
+        test_mode=test_mode,
         verbose=verbose,
     )

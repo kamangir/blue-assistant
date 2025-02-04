@@ -25,7 +25,7 @@ script:
 
       The robots recognize when manipulated by children or animals and avoid any harmful action.
 
-    frame_count: 10
+    frame_count: 12
 
   nodes:
     generating-the-story:
@@ -40,4 +40,4 @@ script:
     generating-the-frames:
       action: generate_image
       depends-on: slicing-into-frames
-      prompt: Generate an image for :::input
+      prompt: Generate an image to demonstrate :::input

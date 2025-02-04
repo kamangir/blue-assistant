@@ -21,9 +21,14 @@ class BaseScript:
     def __init__(
         self,
         object_name: str,
+        test_mode: bool = False,
         verbose: bool = False,
     ):
         self.object_name = object_name
+
+        self.test_mode = test_mode
+        if self.test_mode:
+            logger.info("💰 test mode is on.")
 
         self.verbose = verbose
 
@@ -68,7 +73,6 @@ class BaseScript:
 
         for node_name in list_of_nodes:
             self.G.add_node(node_name)
-            self.nodes[node_name]["completed"] = False
 
         for node_name, node in self.nodes.items():
             for dependency in node.get("depends-on", "").split(","):
