@@ -1,5 +1,7 @@
 # blue-amo
 
+The story of a robotic design to defend Canada against annexation by the US, developed and visualized by AI.
+
 [description](./metadata.yaml)
 
 ```bash
