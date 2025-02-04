@@ -1,15 +1,13 @@
 from typing import List
-from openai import OpenAI
-import pprint
 
 from blueness import module
-from openai_commands.env import OPENAI_API_KEY
+from openai_commands.text_generation import api
 
 from blue_assistant import NAME
 from blue_assistant.script.repository.base.classes import BaseScript
 from blue_assistant.env import (
     BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
-    BLUE_ASSISTANT_TEXT_MAX_TOKEN,
+    BLUE_ASSISTANT_TEXT_MAX_TOKENS,
 )
 from blue_assistant.logger import logger
 
@@ -21,10 +19,6 @@ def generate_text(
     script: BaseScript,
     node_name: str,
 ) -> bool:
-    if not OPENAI_API_KEY:
-        logger.error("OPENAI_API_KEY is not set.")
-        return False
-
     logger.info(f"{NAME}: {script} @ {node_name} ...")
 
     messages: List = []
@@ -56,29 +50,15 @@ def generate_text(
                 }
             ]
 
-    if script.verbose:
-        logger.info(f"messages: {pprint.pformat(messages)}")
+    success, output, _ = api.generate_text(
+        messages=messages,
+        model=BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
+        max_tokens=BLUE_ASSISTANT_TEXT_MAX_TOKENS,
+        verbose=script.verbose,
+    )
+    if not success:
+        return success
 
-    client = OpenAI(api_key=OPENAI_API_KEY)
-
-    try:
-        response = client.chat.completions.create(
-            messages=messages,
-            model=BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
-            max_tokens=BLUE_ASSISTANT_TEXT_MAX_TOKEN,
-        )
-    except Exception as e:
-        logger.error(str(e))
-        return False
-
-    if script.verbose:
-        logger.info("response: {}".format(response))
-
-    if not response.choices:
-        logger.error("no choice.")
-        return False
-
-    output = response.choices[0].message.content
     logger.info(f"🗣️ output: {output}")
     script.nodes[node_name]["output"] = output
 
