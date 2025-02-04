@@ -1,9 +1,6 @@
 # blue-amo
 
-yaml:::get:::object_name:::output.script.nodes
-
-...
-
+set:::object_name blue-amo-2025-02-03-nswnx6
 
 yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
 
@@ -16,8 +13,6 @@ yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
 
 @assistant build_README
 ```
-
-set:::object_name blue-amo-2025-02-03-nswnx6
 
 details:::output
 yaml:::get:::object_name:::output.script.nodes
