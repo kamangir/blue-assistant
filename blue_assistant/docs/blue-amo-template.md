@@ -1,14 +1,6 @@
 # blue-amo
 
-set:::object_name blue-amo-2025-02-03-nswnx6
-
-details:::nodes
-yaml:::get:::object_name:::script.nodes
-details:::
-
-details:::vars
-yaml:::get:::object_name:::script.vars
-details:::
+[description](../script/repository/blue_amo/metadata.yaml)
 
 ```bash
 @select blue-amo-$(@@timestamp)
