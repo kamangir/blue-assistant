@@ -1,6 +1,6 @@
 # 🧠 blue-assistant
 
-🧠 `@assistant` is an AI assistant.
+🧠 `@assistant` runs AI scripts, such as the ones listed below.
 
 ```bash
 pip install blue-assistant
