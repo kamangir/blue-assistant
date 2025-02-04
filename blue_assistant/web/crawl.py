@@ -40,7 +40,7 @@ def fetch_links_and_content(url, base_url, original_path):
 def crawl_list_of_urls(
     seed_urls: List[str],
     object_name: str,
-    max_iterations: int = 10000,
+    max_iterations: int = 10,
 ) -> Dict[str, str]:
     logger.info(
         "{}.crawl_list_of_urls({}): {} -> {}".format(

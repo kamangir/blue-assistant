@@ -18,7 +18,7 @@ parser.add_argument(
 parser.add_argument(
     "--max_iterations",
     type=int,
-    default=10000,
+    default=10,
 )
 parser.add_argument(
     "--verbose",
