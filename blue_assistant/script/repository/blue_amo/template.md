@@ -6,7 +6,8 @@ The story of a robotic design to defend Canada against annexation by the US, dev
 
 ```bash
 @select blue-amo-$(@@timestamp)
-@assistant script run - script=blue_amo .
+@assistant script run - \
+    script=blue_amo .
 
 @assets publish push .
 
