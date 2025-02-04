@@ -5,6 +5,14 @@
 
 ```
 
+...
+
+
+```yaml
+{}
+
+```
+
 ```bash
 @select blue-amo-$(@@timestamp)
 @assistant script run - \

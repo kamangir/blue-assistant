@@ -1,5 +1,10 @@
 # blue-amo
 
+yaml:::get:::object_name:::output.script.nodes
+
+...
+
+
 yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
 
 ```bash
