@@ -1,8 +1,6 @@
 # blue-amo
 
-The story of a robotic design to defend Canada against annexation by the US, developed and visualized by AI.
-
-[description](./metadata.yaml)
+yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
 
 ```bash
 @select blue-amo-$(@@timestamp)
