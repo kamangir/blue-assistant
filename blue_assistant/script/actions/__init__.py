@@ -1,14 +1,16 @@
-from typing import List
+from typing import Dict, Callable, Tuple
 
-from blue_assistant.script.actions.generic import GenericAction
-from blue_assistant.script.actions.generate_image import GenerateImageAction
-from blue_assistant.script.actions.generate_text import GenerateTextAction
-from blue_assistant.script.actions.wip import WorkInProgressAction
+from blue_assistant.script.repository.base.classes import BaseScript
+from blue_assistant.script.actions.generic import generic_action
+from blue_assistant.script.actions.generate_image import generate_image
+from blue_assistant.script.actions.generate_text import generate_text
+from blue_assistant.script.actions.skip import skip_action
 from blue_assistant.logger import logger
 
-list_of_actions: List[GenericAction] = [
-    GenericAction,
-    GenerateImageAction,
-    GenerateTextAction,
-    WorkInProgressAction,
-]
+
+dict_of_actions: Dict[str, Callable[[BaseScript, str], bool]] = {
+    "generic_action": generic_action,
+    "generate_image": generate_image,
+    "generate_text": generate_text,
+    "skip": skip_action,
+}

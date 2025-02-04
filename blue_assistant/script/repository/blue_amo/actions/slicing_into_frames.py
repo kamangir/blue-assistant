@@ -7,7 +7,7 @@ from blue_assistant.logger import logger
 NAME = module.name(__file__, NAME)
 
 
-def slice_into_frames(
+def slicing_into_frames(
     script: BaseScript,
     node_name: str,
 ) -> bool:
@@ -25,11 +25,13 @@ def slice_into_frames(
     list_of_frame_prompts += script.vars["frame_count"] * [""]
 
     for index in range(script.vars["frame_count"]):
-        node_name = f"generating-frame-{index+1:03d}"
+        node_name = f"generating_frame_{index+1:03d}"
+
+        script.nodes[node_name]["summary_prompt"] = list_of_frame_prompts[index]
 
         script.nodes[node_name]["prompt"] = (
             script.nodes[node_name]["prompt"]
-            .replace(":::story", script.nodes["generating-the-story"]["output"])
+            .replace(":::story", " ".join(list_of_frame_prompts[:index]))
             .replace(":::input", list_of_frame_prompts[index])
         )
 

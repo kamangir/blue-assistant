@@ -28,18 +28,18 @@ script:
     frame_count: 12
 
   nodes:
-    generating-the-story:
+    generating_the_story:
       action: generate_text
       prompt: :::premise
-    slicing-into-frames:
+    slicing_into_frames:
       action: generate_text
-      depends-on: generating-the-story
+      depends-on: generating_the_story
       prompt: >
         Slice this story into :::frame_count pieces, each appropriate for generating an image from,
         and return the slices separated by ---.
-    generating-the-frames:
+    generating_the_frames:
       action: generate_image
-      depends-on: slicing-into-frames
+      depends-on: slicing_into_frames
       prompt: >
         :::story
         Generate an image to demonstrate :::input

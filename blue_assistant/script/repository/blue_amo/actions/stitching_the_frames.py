@@ -15,7 +15,7 @@ from blue_assistant.logger import logger
 NAME = module.name(__file__, NAME)
 
 
-def stitch_the_frames(
+def stitching_the_frames(
     script: BaseScript,
     node_name: str,
 ) -> bool:
@@ -24,7 +24,7 @@ def stitch_the_frames(
         for filename in [
             script.nodes[node_name_].get("filename", "")
             for node_name_ in [
-                f"generating-frame-{index+1:03d}"
+                f"generating_frame_{index+1:03d}"
                 for index in range(script.vars["frame_count"])
             ]
         ]
