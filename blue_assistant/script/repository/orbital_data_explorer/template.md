@@ -5,7 +5,7 @@ Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
 🔥
 
 ```bash
-@select blue-amo-$(@@timestamp)
+@select orbital-data-explorer-$(@@timestamp)
 @assistant script run - \
     script=orbital_data_explorer .
 
@@ -14,7 +14,7 @@ Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
 @assistant build_README
 ```
 
-set:::object_name TBA
+set:::object_name orbital-data-explorer-2025-02-03-vo3xjk
 
 details:::output
 yaml:::get:::object_name:::output.script.nodes
