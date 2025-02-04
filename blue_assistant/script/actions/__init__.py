@@ -8,7 +8,7 @@ from blue_assistant.logger import logger
 
 
 dict_of_actions: Dict[str, Callable[[BaseScript, str], bool]] = {
-    "generic_action": generic_action,
+    "generic": generic_action,
     "generate_image": generate_image,
     "generate_text": generate_text,
 }
