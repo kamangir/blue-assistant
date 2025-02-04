@@ -1,16 +1,54 @@
 # blue-amo
 
-[description](./metadata.yaml)
+
+```yaml
+"In a world where ambition and power struggles echoed across the northern hemisphere,\
+  \ the United States embarked on an audacious venture to bring its northern neighbor\
+  \ and the distant icy expanses of Greenland under its influence. Initially, efforts\
+  \ unfolded behind curtains of diplomacy and economic allure, with promises of prosperity\
+  \ and unified strength. While some in Canada and Greenland were swayed by these\
+  \ offerings, a growing sense of unease unfolded, gradually hardening into resistance.\
+  \ Nevertheless, as political intrigue deepened, it became clear that America's intentions\
+  \ operated on a more aggressive plane, one that stirred apprehensive whispers of\
+  \ imminent military force.\n\nFaced with this existential threat, Canadian innovation\
+  \ materialized in the form of Blue-Amo, an army of AI-enabled, amphibious loitering\
+  \ ammunition devices designed specifically for asymmetric warfare. These spherical\
+  \ robots, no larger than basketballs, harnessed the very essence of quiet resilience\
+  \ intrinsic to Canadian ethos. Developed for stealth and agility, Blue-Amo operated\
+  \ autonomously, discerning opportune moments for action with intelligence far beyond\
+  \ their simple appearance. Operational strategy leveraged the risky alliance with\
+  \ Mexican cartels, whose expertise in covertly navigating waterways proved invaluable.\
+  \ Their small, erstwhile cocaine-laden submarines emerged as unlikely sovereign\
+  \ defenders, repurposed to ferry Canada's robotic dandies toward strategic American\
+  \ targets undetected.\n\nUpon reaching their destinations, these intelligent orbs\
+  \ rolled into America with uncanny resolve, enveloping themselves in shadows until\
+  \ awakening stirred by data intercepted through open WiFi. Their innovative design\
+  \ permitted them to be powered by sunlight, with durable photocells discreetly harvesting\
+  \ energy from their urban environments while lying in wait. Beneath their unassuming\
+  \ fa\xE7ade, each Blue-Amo packed a potent array of explosives, harboring the potential\
+  \ for fierce resistance despite possessing the moral sophistication to distinguish\
+  \ between combatants and innocents, sparing the unwary children and curious animals\
+  \ of transgressions.\n\nThe endeavor painted scenes of an unexpected rebellion,\
+  \ where Canadian defiance traversed inanimate form to meet oppressive ambition with\
+  \ hitherto unseen tenacity. As the Blue-Amo rolled forth, tumbling toward the clamor\
+  \ of intrusion before retreating to the sanctity of water's waxing safety, they\
+  \ became symbols of an unlikely guardian\u2014a testament to how technology, interwoven\
+  \ with astute design and strategic improvisation, could withstand the tides of dominion,\
+  \ all coaxed from necessity against the encroaching American Goliath."
+
+```
+
+A story developed and visualized by AI.
 
 ```bash
 @select blue-amo-$(@@timestamp)
-@assistant script run - script=blue_amo .
+@assistant script run - \
+    script=blue_amo .
 
 @assets publish push .
 
 @assistant build_README
 ```
-
 
 
 <details>

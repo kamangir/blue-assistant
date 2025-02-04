@@ -1,7 +1,0 @@
-script:
-  vars: {}
-  nodes:
-    integration_api_one:
-      action: skip
-    integration_api_two:
-      action: skip

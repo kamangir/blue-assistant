@@ -1,17 +1,20 @@
 # blue-amo
 
-[description](./metadata.yaml)
+set:::object_name blue-amo-2025-02-03-nswnx6
+
+yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
+
+A story developed and visualized by AI.
 
 ```bash
 @select blue-amo-$(@@timestamp)
-@assistant script run - script=blue_amo .
+@assistant script run - \
+    script=blue_amo .
 
 @assets publish push .
 
 @assistant build_README
 ```
-
-set:::object_name blue-amo-2025-02-03-nswnx6
 
 details:::output
 yaml:::get:::object_name:::output.script.nodes
