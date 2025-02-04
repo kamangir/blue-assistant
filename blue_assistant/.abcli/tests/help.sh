@@ -23,6 +23,9 @@ function test_blue_assistant_help() {
         "@assistant script list" \
         "@assistant script run" \
         \
+        "@assistant web" \
+        "@assistant web crawl" \
+        \
         "blue_assistant"; do
         abcli_eval ,$options \
             abcli_help $module

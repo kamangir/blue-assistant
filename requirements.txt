@@ -17,6 +17,7 @@ pylint
 pytest
 python-dotenv[cli]
 tqdm
+BeautifulSoup
 
 networkx
 pydot
