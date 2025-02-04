@@ -76,7 +76,7 @@ def crawl_list_of_urls(
             logger.warning(f"max iteration of {max_iterations} reached.")
             break
 
-    if len(queue):
+    if queue:
         logger.warning(f"queue: {len(queue)}")
 
     return visited
