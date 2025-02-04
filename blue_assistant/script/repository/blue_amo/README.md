@@ -1,6 +1,6 @@
 # blue-amo
 
-[description](../script/repository/blue_amo/metadata.yaml)
+[description](./metadata.yaml)
 
 ```bash
 @select blue-amo-$(@@timestamp)
