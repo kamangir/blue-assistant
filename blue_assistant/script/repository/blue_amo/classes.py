@@ -29,7 +29,7 @@ class BlueAmoScript(GenericScript):
         if self.test_mode:
             self.vars["frame_count"] = 1
 
-        holder_node_name = "generating-the-frames"
+        holder_node_name = "generating_the_frames"
         logger.info(
             "{}: expanding {} X {}...".format(
                 NAME,
@@ -42,19 +42,19 @@ class BlueAmoScript(GenericScript):
         del self.nodes[holder_node_name]
         self.G.remove_node(holder_node_name)
 
-        reduce_node = "stitching-the-frames"
+        reduce_node = "stitching_the_frames"
         self.G.add_node(reduce_node)
         self.nodes[reduce_node] = {"action": "skip"}
 
         for index in range(self.vars["frame_count"]):
-            node_name = f"generating-frame-{index+1:03d}"
+            node_name = f"generating_frame_{index+1:03d}"
 
             self.nodes[node_name] = copy.deepcopy(holder_node)
 
             self.G.add_node(node_name)
             self.G.add_edge(
                 node_name,
-                "slicing-into-frames",
+                "slicing_into_frames",
             )
             self.G.add_edge(
                 reduce_node,

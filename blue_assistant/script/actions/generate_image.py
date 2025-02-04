@@ -38,6 +38,12 @@ def generate_image(
         quality=(BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY if script.test_mode else "hd"),
         size=(BLUE_ASSISTANT_IMAGE_DEFAULT_SIZE if script.test_mode else "1792x1024"),
         sign_with_prompt=False,
+        footer=[
+            script.nodes[node_name].get(
+                "summary_prompt",
+                script.nodes[node_name]["prompt"],
+            )
+        ],
     )[0]
 
     if success:
