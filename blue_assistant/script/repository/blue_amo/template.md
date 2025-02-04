@@ -30,4 +30,4 @@ object:::get:::object_name
 
 ---
 
-assets:::get:::blue-amo-2025-02-04-nwb6nc/stitching_the_frames-2.png
+assets:::blue-amo-2025-02-04-nwb6nc/stitching_the_frames-2.png

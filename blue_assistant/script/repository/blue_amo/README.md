@@ -504,4 +504,4 @@ stitching_the_frames:
 
 ---
 
-![image](https://github.com/kamangir/assets/blob/main/get?raw=true)
+![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-04-nwb6nc/stitching_the_frames-2.png?raw=true)
