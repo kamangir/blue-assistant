@@ -27,6 +27,6 @@ details:::workflow
 assets:::get:::object_name/thumbnail-workflow.png
 details:::
 
-assets:::get:::object_name/stitching-the-frames.png
+assets:::get:::object_name/stitching-the-frames-2.png
 
 object:::get:::object_name
