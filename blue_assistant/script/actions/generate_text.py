@@ -28,7 +28,7 @@ def generate_text(
     logger.info(f"{NAME}: {script} @ {node_name} ...")
 
     messages: List = []
-    list_of_context_nodes = script.get_history(node_name)
+    list_of_context_nodes = script.get_context(node_name)
     logger.info("node context: {}".format(" <- ".join(list_of_context_nodes)))
     for context_node in reversed(list_of_context_nodes):
         messages += [
