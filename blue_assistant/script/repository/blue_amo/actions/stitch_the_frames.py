@@ -2,6 +2,7 @@ from typing import List
 import numpy as np
 import cv2
 from tqdm import trange
+import math
 
 from blueness import module
 from blue_objects import file, objects
@@ -55,21 +56,47 @@ def stitch_the_frames(
         return True
 
     common_height = list_of_frames[0].shape[0]
-    for index in trange(len(list_of_frames)):
-        if list_of_frames[index].shape[0] != common_height:
-            aspect_ratio = (
-                list_of_frames[index].shape[1] / list_of_frames[index].shape[0]
-            )
-            new_width = int(common_height * aspect_ratio)
+    common_width = list_of_frames[0].shape[1]
+    for index in trange(1, len(list_of_frames)):
+        frame_height = list_of_frames[index].shape[0]
+        frame_width = list_of_frames[index].shape[1]
 
+        if frame_height != common_height or frame_width != common_width:
             list_of_frames[index] = cv2.resize(
                 list_of_frames[index],
-                (new_width, common_height),
+                (common_width, common_height),
                 interpolation=cv2.INTER_AREA,
             )
 
-    full_frame = np.concatenate(list_of_frames, axis=1)
-    logger.info(f"full_frame: {string.pretty_shape_of_matrix(full_frame)}")
+    width_count = int(math.ceil(math.sqrt(len(list_of_frames))))
+    height_count = int(math.ceil(len(list_of_frames) / width_count))
+    logger.info(
+        "{} x {} -> {} x {}".format(
+            len(list_of_frames),
+            string.pretty_shape_of_matrix(list_of_frames[0]),
+            height_count,
+            width_count,
+        )
+    )
+
+    list_of_frames += (height_count * width_count - len(list_of_frames)) * [
+        np.zeros_like(list_of_frames[0])
+    ]
+
+    full_frame: np.ndarray = None
+    for height_index in trange(height_count):
+        row = np.concatenate(
+            list_of_frames[
+                height_index * width_count : (height_index + 1) * width_count
+            ],
+            axis=1,
+        )
+
+        if not height_index:
+            full_frame = row
+        else:
+            full_frame = np.concatenate([full_frame, row], axis=0)
+    logger.info(f"full frame: {string.pretty_shape_of_matrix(full_frame)}")
 
     return file.save_image(
         objects.path_of(
