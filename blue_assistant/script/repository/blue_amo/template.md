@@ -1,6 +1,6 @@
 # blue-amo
 
-yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
+yaml:::get:::object_name:::script.nodes.generating_the_story.output
 
 ```bash
 @select blue-amo-$(@@timestamp)
