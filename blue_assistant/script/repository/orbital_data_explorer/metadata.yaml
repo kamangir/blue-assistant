@@ -5,8 +5,11 @@ script:
       - https://oderest.rsl.wustl.edu/
       - https://pds-geosciences.wustl.edu/dataserv/default.htm
       - https://github.com/samiriff/mars-ode-data-access
-    dict_of_questions:
-      STAC-like-representation: >
+
+  nodes:
+    researching_the_questions:
+      action: generic
+      prompt: >
         We want to use the following generalized STAC definitions to develop query and access mechanisms to 
         Orbital Data Explorer, ODE for short:
 
@@ -14,11 +17,7 @@ script:
         We define the datasets within ODE, if they exist, as separate collections, similar to STAC collections.
         We define the semi-atomic unit of data in ODE as a datacube, similar to a STAC item.
 
-        Collect any information in this page that is relevant to the above definitions.
-
-  nodes:
-    researching_the_questions:
-      action: generic
+        write python code to generate the list of collections in ODE. :::input
       max_iterations: 20
     integration_api_one:
       action: generic
