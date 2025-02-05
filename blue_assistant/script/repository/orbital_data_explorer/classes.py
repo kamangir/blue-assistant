@@ -9,6 +9,21 @@ from blue_assistant.script.repository.orbital_data_explorer.actions import (
 class OrbitalDataExplorerScript(GenericScript):
     name = path.name(file.path(__file__))
 
+    def __init__(
+        self,
+        object_name: str,
+        test_mode: bool = False,
+        verbose: bool = False,
+    ):
+        super().__init__(
+            object_name=object_name,
+            test_mode=test_mode,
+            verbose=verbose,
+        )
+
+        if self.test_mode:
+            self.nodes["researching_the_questions"]["max_iterations"] = 3
+
     def perform_action(
         self,
         node_name: str,

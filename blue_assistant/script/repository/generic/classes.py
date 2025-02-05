@@ -24,6 +24,7 @@ class GenericScript(BaseScript):
         node_name: str,
     ) -> bool:
         action_name = self.nodes[node_name].get("action", "unknown")
+        logger.info(f"---- node: {node_name} ---- ")
 
         if action_name not in dict_of_actions:
             logger.error(f"{action_name}: action not found.")
