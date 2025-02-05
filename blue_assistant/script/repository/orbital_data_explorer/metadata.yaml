@@ -1,6 +1,6 @@
 script:
   vars:
-    list_of_urls:
+    seed_urls:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
       - https://pds-geosciences.wustl.edu/dataserv/default.htm
@@ -19,6 +19,7 @@ script:
   nodes:
     researching_the_questions:
       action: generic
+      max_iterations: 20
     integration_api_one:
       action: generic
     integration_api_two:
