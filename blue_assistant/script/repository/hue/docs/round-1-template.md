@@ -1,11 +1,9 @@
-# Hue 🔥
+# Hue - round 1
 
 ```yaml
 --include--noref ../metadata.yaml
 ```
 [metadata.yaml](../metadata.yaml)
-
-🔥
 
 ```bash
 @select hue-$(@@timestamp)
@@ -15,10 +13,6 @@
   --verbose 1
 ```
 
-set:::object_name TBA
+set:::object_name hue-2025-03-13-urcan3
 
 yaml:::get:::object_name
-
----
-
-- [round 1](./README-round-1.md)

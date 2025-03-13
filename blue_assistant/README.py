@@ -48,6 +48,7 @@ def build():
             },
             {"path": "script/repository/blue_amo"},
             {"path": "script/repository/orbital_data_explorer"},
+            {"path": "script/repository/hue/docs/round-1.md"},
             {"path": "script/repository/hue/docs"},
         ]
     )
