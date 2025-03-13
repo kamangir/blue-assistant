@@ -19,6 +19,8 @@ set:::object_name TBA
 
 yaml:::get:::object_name
 
+`get:::object_name/metadata.yaml`
+
 ---
 
 - [round 1](./round-1.md)
