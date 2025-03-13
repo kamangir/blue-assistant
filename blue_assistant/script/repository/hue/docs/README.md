@@ -23,7 +23,7 @@ script:
 
 
 <details>
-<summary>output</summary>
+<summary>metadata</summary>
 
 ```yaml
 output:
