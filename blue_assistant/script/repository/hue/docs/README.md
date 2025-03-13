@@ -1,5 +1,7 @@
 # Hue 🔥
 
+[metadata.yaml](../metadata.yaml)
+
 ```yaml
 script:
   vars:
@@ -10,7 +12,6 @@ script:
       prompt: >
         :::objective
 
-using [metadata](../metadata.yaml).
 ```
 
 🔥
