@@ -15,6 +15,12 @@ items = [
     )
     for item in [
         {
+            "title": "hue",
+            "url": "./blue_assistant/script/repository/hue",
+            "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/hue.jpg?raw=true",
+            "description": '"send a color command to the Hue LED lights in my apartment." 🔥',
+        },
+        {
             "title": "orbital-data-explorer",
             "url": "./blue_assistant/script/repository/orbital_data_explorer/README.md",
             "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
@@ -44,5 +50,6 @@ def build():
             {"items": items, "path": ".."},
             {"path": "script/repository/blue_amo"},
             {"path": "script/repository/orbital_data_explorer"},
+            {"path": "script/repository/hue/docs"},
         ]
     )
