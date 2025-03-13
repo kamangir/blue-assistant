@@ -5,35 +5,28 @@ from blue_objects import file, README
 from blue_assistant import NAME, VERSION, ICON, REPO_NAME
 
 
-items = [
-    "[`{}`]({}) [![image]({})]({}) {}".format(
-        item["title"],
-        item["url"],
-        item["marquee"],
-        item["url"],
-        item["description"],
-    )
-    for item in [
+items = README.Items(
+    [
         {
-            "title": "hue",
+            "name": "hue",
             "url": "./blue_assistant/script/repository/hue",
             "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/hue.jpg?raw=true",
             "description": '"send a color command to the Hue LED lights in my apartment." 🔥',
         },
         {
-            "title": "blue-amo",
+            "name": "blue-amo",
             "url": "./blue_assistant/script/repository/blue_amo/README.md",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
             "description": "A story developed and visualized, by AI.",
         },
         {
-            "title": "orbital-data-explorer",
+            "name": "orbital-data-explorer",
             "url": "./blue_assistant/script/repository/orbital_data_explorer/README.md",
             "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
             "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI. ⏸️",
         },
     ]
-]
+)
 
 
 def build():
