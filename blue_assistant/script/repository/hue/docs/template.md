@@ -13,7 +13,7 @@
   --verbose 1
 ```
 
-set:::object_name hue-2025-03-13-g3o2g6
+set:::object_name hue-2025-03-13-urcan3
 
 details:::output
 yaml:::get:::object_name

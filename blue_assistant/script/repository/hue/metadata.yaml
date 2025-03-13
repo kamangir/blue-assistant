@@ -4,5 +4,4 @@ script:
   nodes:
     generating_the_code:
       action: generate_text
-      prompt: >
-        :::objective
+      prompt: :::objective
