@@ -2,8 +2,6 @@
 
 🧠 `@assistant` runs AI scripts; DAGs that combine deterministic and AI operations.
 
---table--
-
 ```bash
 pip install blue-assistant
 ```
@@ -30,6 +28,8 @@ graph LR
 
     classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```
+
+--table--
 
 ---
 
