@@ -17,8 +17,8 @@ items = [
         {
             "title": "orbital-data-explorer",
             "url": "./blue_assistant/script/repository/orbital_data_explorer/README.md",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
-            "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.",
+            "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
+            "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI. ⏸️",
         },
         {
             "title": "blue-amo",
