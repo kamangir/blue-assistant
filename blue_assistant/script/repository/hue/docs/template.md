@@ -1,7 +1,7 @@
 # Hue 🔥
 
 ```yaml
-file:::../metadata.yaml
+--include-- ../metadata.yaml
 ```
 
 🔥

@@ -1,7 +1,16 @@
 # Hue 🔥
 
 ```yaml
-file:::../metadata.yaml
+script:
+  vars:
+    objective: Write Python + Bash code to send a color command to the Hue LED lights in my apartment.
+  nodes:
+    generating_the_code:
+      action: generate_text
+      prompt: >
+        :::objective
+
+using [metadata](../metadata.yaml).
 ```
 
 🔥
