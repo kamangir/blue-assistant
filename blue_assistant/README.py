@@ -40,6 +40,7 @@ def build():
     return all(
         README.build(
             items=readme.get("items", []),
+            cols=readme.get("cols", 3),
             path=os.path.join(file.path(__file__), readme["path"]),
             ICON=ICON,
             NAME=NAME,
@@ -47,7 +48,11 @@ def build():
             REPO_NAME=REPO_NAME,
         )
         for readme in [
-            {"items": items, "path": ".."},
+            {
+                "items": items,
+                "cols": 2,
+                "path": "..",
+            },
             {"path": "script/repository/blue_amo"},
             {"path": "script/repository/orbital_data_explorer"},
             {"path": "script/repository/hue/docs"},
