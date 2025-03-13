@@ -16,3 +16,5 @@
 set:::object_name hue-2025-03-13-urcan3
 
 yaml:::get:::object_name
+
+`get:::object_name/metadata.yaml`
