@@ -35,9 +35,8 @@ set:::object_name hue-2025-03-14-hpow92
 
 | | |
 |-|-|
-| assets:::blue-assistant/20250314_143702.jpg | assets:::get:::object_name/thumbnail-workflow.png
- |
- 
+| assets:::blue-assistant/20250314_143702.jpg | assets:::get:::object_name/thumbnail-workflow.png |
+
 ---
 
 - [round 1](./round-1.md)
