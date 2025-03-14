@@ -29,6 +29,18 @@ script:
 
 `TBA/metadata.yaml`
 
+🔥
+
+```bash
+@hue set - \
+	--bridge_ip TBA \
+	--username TBA \
+	--light_id TBA \
+	--verbose 1
+```
+
+🔥
+
 ---
 
 - [round 1](./round-1.md)

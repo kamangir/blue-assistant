@@ -7,11 +7,23 @@ NAME = module.name(__file__, NAME)
 
 
 def set_light_color(
-    color: str,
-    light: str,
+    bridge_ip: str,
+    username: str,
+    light_id: str,
+    hue: int,  # 0 to 65535
+    saturation: int,  # 0 to 254
     verbose: bool = False,
 ) -> bool:
-    logger.info(f"{NAME}.set_light_color: {color} -> {light}")
+    logger.info(
+        "{}.set_light_color({}@{}:{}) -> hue=0x{:x}, saturation=0x{:x}".format(
+            NAME,
+            username,
+            bridge_ip,
+            light_id,
+            hue,
+            saturation,
+        )
+    )
 
     logger.info("🪄")
 

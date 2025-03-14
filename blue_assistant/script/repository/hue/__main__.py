@@ -3,6 +3,7 @@ import argparse
 from blueness import module
 from blueness.argparse.generic import sys_exit
 
+from blue_assistant import NAME
 from blue_assistant.script.repository.hue.functions import set_light_color
 from blue_assistant.logger import logger
 
@@ -15,12 +16,29 @@ parser.add_argument(
     help="set",
 )
 parser.add_argument(
-    "--color",
+    "--bridge_ip",
     type=str,
 )
 parser.add_argument(
-    "--light",
+    "--username",
     type=str,
+    help="aka API key",
+)
+parser.add_argument(
+    "--light_id",
+    type=str,
+)
+parser.add_argument(
+    "--hue",
+    type=int,
+    default=65535,
+    help="0 to 65535",
+)
+parser.add_argument(
+    "--saturation",
+    type=int,
+    default=254,
+    help="0 to 254",
 )
 parser.add_argument(
     "--verbose",
@@ -31,10 +49,13 @@ parser.add_argument(
 args = parser.parse_args()
 
 success = False
-if args.task == "task":
+if args.task == "set":
     success = set_light_color(
-        color=args.color,
-        light=args.light,
+        bridge_ip=args.bridge_ip,
+        username=args.username,
+        light_id=args.light_id,
+        hue=args.hue,
+        saturation=args.saturation,
         verbose=args.verbose == 1,
     )
 else:

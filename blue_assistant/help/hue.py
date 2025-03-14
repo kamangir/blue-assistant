@@ -10,11 +10,13 @@ def help_set(
     options = xtra("dryrun", mono=mono)
 
     args = [
-        "[--color <color>]",
-        "[--light <light>]",
+        "[--bridge_ip <bridge_ip>]",
+        "[--username <username>]",
+        "[--light_id <light_id>]",
+        "[--hue <65535>]",
+        "[--saturation <254>]",
         "[--verbose 1]",
     ]
-
     return show_usage(
         [
             "@hue",
