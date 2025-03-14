@@ -1,7 +1,7 @@
 # Hue 🔥
 
 ```yaml
---include--noref ../metadata.yaml
+include:::noref ../metadata.yaml
 ```
 [metadata.yaml](../metadata.yaml)
 
@@ -11,13 +11,12 @@
 @select hue-$(@@timestamp)
 
 @assistant script run - \
-  script=hue . \
-  --verbose 1
+  script=hue .
 ```
 
 set:::object_name TBA
 
-yaml:::get:::object_name
+metadata:::get:::object_name
 
 `get:::object_name/metadata.yaml`
 
