@@ -118,7 +118,7 @@ def set_light_color(
 
 
 def test(
-    hue: int,
+    hue: int,  # 0 to 65535
     light_id: str = "all",
     interval: float = 0.1,
     bridge_ip: str = env.HUE_BRIDGE_IP_ADDRESS,
@@ -153,19 +153,22 @@ def test(
         list_of_lights = [light_id]
 
     saturation = 0
-    while True:
-        for light_id_ in tqdm(list_of_lights):
-            set_light_color(
-                light_id=light_id_,
-                hue=hue,
-                saturation=saturation,
-                bridge_ip=bridge_ip,
-                username=username,
-                verbose=verbose,
-            )
+    try:
+        while True:
+            for light_id_ in tqdm(list_of_lights):
+                set_light_color(
+                    light_id=light_id_,
+                    hue=hue,
+                    saturation=saturation,
+                    bridge_ip=bridge_ip,
+                    username=username,
+                    verbose=verbose,
+                )
 
-            sleep(interval)
+                sleep(interval)
 
-        saturation = 254 - saturation
+            saturation = 254 - saturation
+    except KeyboardInterrupt:
+        logger.info("Ctrl+C detected.")
 
     return True
