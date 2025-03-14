@@ -1,3 +1,4 @@
+from typing import Tuple, Dict
 import requests
 
 from blueness import module
@@ -41,6 +42,34 @@ def create_user(
     except Exception as e:
         logger.error(e)
         return ""
+
+
+# hue-2025-03-14-4r9mgh
+def list_lights(
+    bridge_ip: str = env.HUE_BRIDGE_IP_ADDRESS,
+    username: str = env.HUE_BRIDGE_USERNAME,
+    verbose: bool = False,
+) -> Tuple[bool, Dict]:
+    URL = f"http://{bridge_ip}/api/{username}"
+
+    response = requests.get(URL)
+
+    if response.status_code != 200:
+        logger.error(response)
+        return False, {}
+
+    list_of_lights = response.json()["lights"]
+    logger.info(
+        "found {} light(s): {}".format(
+            len(list_of_lights),
+            ", ".join(list_of_lights.keys()),
+        )
+    )
+    if verbose:
+        for light_id, light_info in list_of_lights.items():
+            logger.info(f"#{light_id}: {light_info}")
+
+    return True, list_of_lights
 
 
 # hue-2025-03-13-1xjr1z

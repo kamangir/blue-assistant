@@ -4,10 +4,6 @@ from blue_options.terminal import show_usage, xtra
 
 from blue_assistant import env
 
-bridge_args = [
-    f"[--bridge_ip <{env.HUE_BRIDGE_IP_ADDRESS}>]",
-]
-
 
 def help_create_user(
     tokens: List[str],
@@ -15,14 +11,42 @@ def help_create_user(
 ) -> str:
     options = xtra("dryrun", mono=mono)
 
+    args = [
+        f"[--bridge_ip <{env.HUE_BRIDGE_IP_ADDRESS}>]",
+    ]
+
     return show_usage(
         [
             "@hue",
             "create_user",
             f"[{options}]",
         ]
-        + bridge_args,
+        + args,
         "create a hue user.",
+        mono=mono,
+    )
+
+
+def help_list(
+    tokens: List[str],
+    mono: bool,
+) -> str:
+    options = xtra("dryrun", mono=mono)
+
+    args = [
+        f"[--bridge_ip <{env.HUE_BRIDGE_IP_ADDRESS}>]",
+        f"[--username <{env.HUE_BRIDGE_USERNAME}>]",
+        "[--verbose 1]",
+    ]
+
+    return show_usage(
+        [
+            "@hue",
+            "list",
+            f"[{options}]",
+        ]
+        + args,
+        "list hue lights.",
         mono=mono,
     )
 
@@ -33,7 +57,8 @@ def help_set(
 ) -> str:
     options = xtra("dryrun", mono=mono)
 
-    args = bridge_args + [
+    args = [
+        f"[--bridge_ip <{env.HUE_BRIDGE_IP_ADDRESS}>]",
         f"[--username <{env.HUE_BRIDGE_USERNAME}>]",
         "[--light_id <light_id>]",
         "[--hue <65535>]",
@@ -55,5 +80,6 @@ def help_set(
 
 help_functions = {
     "create_user": help_create_user,
+    "list": help_list,
     "set": help_set,
 }

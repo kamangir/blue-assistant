@@ -12,6 +12,12 @@ include:::noref ../metadata.yaml
 🔥
 
 ```bash
+@hue list
+```
+
+🔥
+
+```bash
 @hue set - \
   --username TBA \
   --light_id TBA \

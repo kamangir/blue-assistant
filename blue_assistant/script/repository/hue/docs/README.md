@@ -31,9 +31,9 @@ script:
     bridge_ip_prompt: |
       Generate instructions for finding my Hue bridge IP address.
     create_user_prompt: |
-      Write Python code to create a developer username on my Philips Hue Bridge
-    light_id_prompt: |
-      Generate instructions for finding the light ID of my Hue lights.
+      Write Python code to create a developer username on my Philips Hue Bridge.
+    list_lights_prompt: |
+      Write Python code to list the lights available on my Philips Hue Bridge.
 
   nodes:
     generating_set_light_color:
@@ -52,9 +52,10 @@ script:
       action: generate_text
       prompt: :::create_user_prompt
       depends-on: acquiring_bridge_ip
-    finding_light_id:
+    list_lights:
+      completed: true
       action: generate_text
-      prompt: :::light_id_prompt
+      prompt: :::list_lights_prompt
       depends-on: generating_create_user
 
 ```
@@ -62,6 +63,12 @@ script:
 
 ```bash
 @hue create_user
+```
+
+🔥
+
+```bash
+@hue list
 ```
 
 🔥

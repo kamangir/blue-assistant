@@ -28,6 +28,7 @@ function test_blue_assistant_help() {
         \
         "@hue" \
         "@hue create_user" \
+        "@hue list" \
         "@hue set" \
         \
         "blue_assistant"; do

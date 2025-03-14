@@ -6,8 +6,9 @@ from blueness.argparse.generic import sys_exit
 from blue_assistant import NAME
 from blue_assistant import env
 from blue_assistant.script.repository.hue.functions import (
-    set_light_color,
     create_user,
+    list_lights,
+    set_light_color,
 )
 from blue_assistant.logger import logger
 
@@ -17,7 +18,7 @@ parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
     "task",
     type=str,
-    help="create_user | set",
+    help="create_user | list | set",
 )
 parser.add_argument(
     "--bridge_ip",
@@ -61,6 +62,12 @@ if args.task == "create_user":
     )
     if username:
         success = True
+elif args.task == "list":
+    success, _ = list_lights(
+        bridge_ip=args.bridge_ip,
+        username=args.username,
+        verbose=args.verbose == 1,
+    )
 elif args.task == "set":
     success = set_light_color(
         bridge_ip=args.bridge_ip,
