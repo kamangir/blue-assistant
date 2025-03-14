@@ -10,8 +10,9 @@ def help_set(
     options = xtra("dryrun", mono=mono)
 
     args = [
-        "[--light <light>",
         "[--color <color>]",
+        "[--light <light>]",
+        "[--verbose 1]",
     ]
 
     return show_usage(
