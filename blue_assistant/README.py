@@ -14,16 +14,16 @@ items = README.Items(
             "description": '"send a color command to the Hue LED lights in my apartment."',
         },
         {
-            "name": "blue-amo",
-            "url": "./blue_assistant/script/repository/blue_amo/README.md",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
-            "description": "A story developed and visualized, by AI.",
-        },
-        {
             "name": "orbital-data-explorer",
             "url": "./blue_assistant/script/repository/orbital_data_explorer/README.md",
             "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
             "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI. ⏸️",
+        },
+        {
+            "name": "blue-amo",
+            "url": "./blue_assistant/script/repository/blue_amo/README.md",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
+            "description": "A story developed and visualized, by AI.",
         },
     ]
 )
@@ -43,7 +43,6 @@ def build():
         for readme in [
             {
                 "items": items,
-                "cols": 2,
                 "path": "..",
             },
             {"path": "script/repository/blue_amo"},
