@@ -25,6 +25,6 @@ def set_light_color(
         )
     )
 
-    logger.info("🪄")
+    ...
 
     return True

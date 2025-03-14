@@ -1,0 +1,7 @@
+script:
+  vars:
+    objective: Write a Python function to send a color command to a Hue light.
+  nodes:
+    generating_the_code:
+      action: generate_text
+      prompt: :::objective

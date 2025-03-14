@@ -1,9 +1,9 @@
 # Hue - round 1
 
 ```yaml
-include:::noref ../metadata.yaml
+include:::noref ../metadata-round-1.yaml
 ```
-[metadata.yaml](../metadata.yaml)
+[metadata.yaml](../metadata-round-1.yaml)
 
 ```bash
 @select hue-$(@@timestamp)
