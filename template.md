@@ -30,7 +30,7 @@ graph LR
 
     bridge_ip["🔗 bridge_ip"]:::folder
     hue_username["🔗 hue_username"]:::folder
-    list_of_lights["💡 lights"]:::folder
+    list_of_lights["💡 light IDs"]:::folder
 
     hue_create_user["@hue create_user"]
     hue_list["@hue list"]
