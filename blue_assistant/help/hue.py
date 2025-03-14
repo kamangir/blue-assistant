@@ -87,7 +87,8 @@ def help_test(
     args = [
         f"[--bridge_ip <{env.HUE_BRIDGE_IP_ADDRESS}>]",
         f"[--username <{env.HUE_BRIDGE_USERNAME}>]",
-        "[--light_id <light_id>]",
+        "[--light_id all | <light_id>]",
+        "[--interval <1>]",
         "[--hue <65535>]",
         "[--verbose 1]",
     ]
@@ -97,7 +98,6 @@ def help_test(
             "@hue",
             "hue",
             f"[{options}]",
-            "[-|<object-name>]",
         ]
         + args,
         "test hue.",

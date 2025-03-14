@@ -1,4 +1,4 @@
-# Hue 🔥
+# Hue
 
 ## output
 
@@ -14,25 +14,11 @@
 🧠  found 16 light(s): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
 ```
 
-🔥
-
 ```bash
-@hue cycle_lights
+@hue test
 ```
 
-🔥
-
-```bash
-@hue set - \
-  --light_id 1 \
-  --verbose 1
-```
-
-🔥
-
-
-
-🔥
+assets::blue-assistant/20250314_143702.jpg
 
 ## script
 
@@ -109,8 +95,6 @@ script:
 
 
 ![image](https://github.com/kamangir/assets/blob/main/hue-2025-03-14-hpow92/thumbnail-workflow.png?raw=true)
-
-
 
 ---
 

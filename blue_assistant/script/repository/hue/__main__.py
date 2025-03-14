@@ -9,6 +9,7 @@ from blue_assistant.script.repository.hue.functions import (
     create_user,
     list_lights,
     set_light_color,
+    test,
 )
 from blue_assistant.logger import logger
 
@@ -18,7 +19,7 @@ parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
     "task",
     type=str,
-    help="create_user | list | set",
+    help="create_user | list | set | test",
 )
 parser.add_argument(
     "--bridge_ip",
@@ -34,6 +35,8 @@ parser.add_argument(
 parser.add_argument(
     "--light_id",
     type=str,
+    default="",
+    help="all | <light_id>",
 )
 parser.add_argument(
     "--hue",
@@ -52,6 +55,12 @@ parser.add_argument(
     type=int,
     default=0,
     help="0 | 1",
+)
+parser.add_argument(
+    "--interval",
+    type=float,
+    default=0.1,
+    help="in seconds",
 )
 args = parser.parse_args()
 
@@ -75,6 +84,15 @@ elif args.task == "set":
         light_id=args.light_id,
         hue=args.hue,
         saturation=args.saturation,
+        verbose=args.verbose == 1,
+    )
+elif args.task == "test":
+    success = test(
+        bridge_ip=args.bridge_ip,
+        username=args.username,
+        light_id=args.light_id,
+        interval=args.interval,
+        hue=args.hue,
         verbose=args.verbose == 1,
     )
 else:

@@ -1,5 +1,7 @@
-from typing import Tuple, Dict
+from typing import Tuple, Dict, List
 import requests
+from time import sleep
+from tqdm import tqdm
 
 from blueness import module
 
@@ -111,5 +113,59 @@ def set_light_color(
 
     if verbose:
         logger.info(response.json())
+
+    return True
+
+
+def test(
+    hue: int,
+    light_id: str = "all",
+    interval: float = 0.1,
+    bridge_ip: str = env.HUE_BRIDGE_IP_ADDRESS,
+    username: str = env.HUE_BRIDGE_USERNAME,
+    verbose: bool = False,
+) -> bool:
+    if not light_id:
+        light_id = "all"
+
+    logger.info(
+        "{}.test({}@{}:{}) @ hue=0x{:x}, interval={} s".format(
+            NAME,
+            username,
+            bridge_ip,
+            light_id,
+            hue,
+            interval,
+        )
+    )
+
+    list_of_lights: List[str]
+    if light_id == "all":
+        success, dict_of_lights = list_lights(
+            bridge_ip=bridge_ip,
+            username=username,
+            verbose=verbose,
+        )
+        if not success:
+            return success
+        list_of_lights = list(dict_of_lights.keys())
+    else:
+        list_of_lights = [light_id]
+
+    saturation = 0
+    while True:
+        for light_id in tqdm(list_of_lights):
+            set_light_color(
+                light_id=light_id,
+                hue=hue,
+                saturation=saturation,
+                bridge_ip=bridge_ip,
+                username=username,
+                verbose=verbose,
+            )
+
+            sleep(interval)
+
+        saturation = 254 - saturation
 
     return True
