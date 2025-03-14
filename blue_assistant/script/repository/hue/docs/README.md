@@ -1,21 +1,5 @@
 # Hue
 
-```bash
-@hue create_user
-```
-
-```bash
-@hue list
-```
-
-```text
-🧠  found 16 light(s): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
-```
-
-```bash
-@hue test
-```
-
 ```yaml
 script:
   vars:
@@ -87,6 +71,22 @@ script:
   extensions=png,push .
 ```
 
+
+```bash
+@hue create_user
+```
+
+```bash
+@hue list
+```
+
+```text
+🧠  found 16 light(s): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+```
+
+```bash
+@hue test
+```
 
 | | |
 |-|-|
