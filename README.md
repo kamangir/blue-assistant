@@ -17,6 +17,7 @@ graph LR
     url["🔗 url"]:::folder
     object["📂 object"]:::folder
 
+
     script --> assistant_script_list
 
     script --> assistant_script_run
@@ -25,6 +26,33 @@ graph LR
 
     url --> assistant_web_crawl
     assistant_web_crawl --> object
+
+
+    bridge_ip["🔗 bridge_ip"]:::folder
+    hue_username["🔗 hue_username"]:::folder
+    list_of_lights["💡 lights"]:::folder
+
+    hue_create_user["@hue<br>create_user"]
+    hue_list["@hue<br>list"]
+    hue_set["@hue<br>set"]
+    hue_test["@hue<br>test"]
+
+    bridge_ip --> hue_create_user
+    hue_create_user --> hue_username
+
+    bridge_ip --> hue_list
+    hue_username --> hue_list
+    hue_list --> list_of_lights
+
+    bridge_ip --> hue_set
+    hue_username --> hue_set
+    list_of_lights --> hue_set
+
+    bridge_ip --> hue_test
+    hue_username --> hue_test
+    list_of_lights --> hue_test
+
+
 
     classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```
@@ -39,4 +67,4 @@ graph LR
 
 [![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.234.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.218.1`](https://github.com/kamangir/blue-assistant).
+built by 🌀 [`blue_options-4.234.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.219.1`](https://github.com/kamangir/blue-assistant).

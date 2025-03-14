@@ -96,7 +96,7 @@ def help_test(
     return show_usage(
         [
             "@hue",
-            "hue",
+            "test",
             f"[{options}]",
         ]
         + args,
