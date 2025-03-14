@@ -26,7 +26,7 @@ def help_set(
             f"[{options}]",
         ]
         + args,
-        "blue-plugin node <object-name>.",
+        "set hue lights.",
         mono=mono,
     )
 
