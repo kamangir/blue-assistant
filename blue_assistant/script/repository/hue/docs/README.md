@@ -16,7 +16,10 @@
 @hue test
 ```
 
-![image](https://github.com/kamangir/assets/blob/main/blue-assistant/20250314_143702.jpg?raw=true)
+| | |
+|-|-|
+| ![image](https://github.com/kamangir/assets/blob/main/blue-assistant/20250314_143702.jpg?raw=true) | ![image](https://github.com/kamangir/assets/blob/main/get?raw=true)
+ |
 
 ## script
 
@@ -92,7 +95,6 @@ script:
 ```
 
 
-![image](https://github.com/kamangir/assets/blob/main/hue-2025-03-14-hpow92/thumbnail-workflow.png?raw=true)
 
 ---
 

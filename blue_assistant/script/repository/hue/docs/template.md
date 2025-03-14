@@ -16,7 +16,10 @@
 @hue test
 ```
 
-assets:::blue-assistant/20250314_143702.jpg
+| | |
+|-|-|
+| assets:::blue-assistant/20250314_143702.jpg | assets:::get:::object_name/thumbnail-workflow.png
+ |
 
 ## script
 
@@ -37,7 +40,6 @@ include:::noref ../metadata.yaml
 
 set:::object_name hue-2025-03-14-hpow92
 
-assets:::get:::object_name/thumbnail-workflow.png
 
 ---
 
