@@ -4,6 +4,7 @@ from blueness import module
 from blueness.argparse.generic import sys_exit
 
 from blue_assistant import NAME
+from blue_assistant import env
 from blue_assistant.script.repository.hue.functions import set_light_color
 from blue_assistant.logger import logger
 
@@ -18,6 +19,7 @@ parser.add_argument(
 parser.add_argument(
     "--bridge_ip",
     type=str,
+    default=env.HUE_BRIDGE_IP_ADDRESS,
 )
 parser.add_argument(
     "--username",

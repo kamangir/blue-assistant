@@ -16,3 +16,5 @@ def test_blue_assistant_env():
     assert env.BLUE_ASSISTANT_IMAGE_DEFAULT_MODEL
     assert env.BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY
     assert env.BLUE_ASSISTANT_IMAGE_DEFAULT_SIZE
+
+    assert env.HUE_BRIDGE_IP_ADDRESS

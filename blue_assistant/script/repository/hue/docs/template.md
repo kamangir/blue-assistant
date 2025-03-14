@@ -14,7 +14,7 @@ include:::noref ../metadata.yaml
   script=hue .
 ```
 
-set:::object_name hue-2025-03-13-efzia5
+set:::object_name TBA
 
 metadata:::get:::object_name
 
@@ -24,7 +24,6 @@ metadata:::get:::object_name
 
 ```bash
 @hue set - \
-  --bridge_ip TBA \
   --username TBA \
   --light_id TBA \
   --verbose 1
