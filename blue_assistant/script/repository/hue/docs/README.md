@@ -88,7 +88,7 @@ script:
   script=hue .
 
 @assets publish \
-	extensions=png,push .
+  extensions=png,push .
 ```
 
 

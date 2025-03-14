@@ -32,7 +32,7 @@ include:::noref ../metadata.yaml
   script=hue .
 
 @assets publish \
-	extensions=png,push .
+  extensions=png,push .
 ```
 
 set:::object_name hue-2025-03-14-hpow92
