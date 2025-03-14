@@ -30,6 +30,7 @@ function test_blue_assistant_help() {
         "@hue create_user" \
         "@hue list" \
         "@hue set" \
+        "@hue test" \
         \
         "blue_assistant"; do
         abcli_eval ,$options \

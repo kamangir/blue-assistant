@@ -9,7 +9,7 @@ function blue_assistant_hue() {
         return
     fi
 
-    python3 -m blue_assistant.hue "$@"
+    python3 -m blue_assistant.script.repository.hue "$@"
 }
 
 abcli_source_caller_suffix_path /hue

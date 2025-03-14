@@ -78,8 +78,36 @@ def help_set(
     )
 
 
+def help_test(
+    tokens: List[str],
+    mono: bool,
+) -> str:
+    options = xtra("dryrun", mono=mono)
+
+    args = [
+        f"[--bridge_ip <{env.HUE_BRIDGE_IP_ADDRESS}>]",
+        f"[--username <{env.HUE_BRIDGE_USERNAME}>]",
+        "[--light_id <light_id>]",
+        "[--hue <65535>]",
+        "[--verbose 1]",
+    ]
+
+    return show_usage(
+        [
+            "@hue",
+            "hue",
+            f"[{options}]",
+            "[-|<object-name>]",
+        ]
+        + args,
+        "test hue.",
+        mono=mono,
+    )
+
+
 help_functions = {
     "create_user": help_create_user,
     "list": help_list,
     "set": help_set,
+    "test": help_test,
 }
