@@ -9,12 +9,47 @@ from blue_assistant.logger import logger
 NAME = module.name(__file__, NAME)
 
 
+# hue-2025-03-14-1l8tv6
+def create_user(
+    bridge_ip: str = env.HUE_BRIDGE_IP_ADDRESS,
+    wait_for_link_press: bool = True,
+) -> str:
+    URL = f"http://{bridge_ip}/api"
+
+    payload = {
+        "devicetype": "my_hue_app#python_script",
+    }
+
+    if wait_for_link_press:
+        input("Press the link button on the Hue Bridge ...")
+
+    try:
+        response = requests.post(URL, json=payload)
+
+        if response.status_code == 200:
+            result = response.json()
+            if "success" in result[0]:
+                username = result[0]["success"]["username"]
+                logger.info(f"created {username}")
+                return username
+
+            logger.error(result)
+            return ""
+
+        logger.error(response)
+        return ""
+    except Exception as e:
+        logger.error(e)
+        return ""
+
+
+# hue-2025-03-13-1xjr1z
 def set_light_color(
-    username: str,
     light_id: str,
     hue: int,  # 0 to 65535
     saturation: int,  # 0 to 254
     bridge_ip: str = env.HUE_BRIDGE_IP_ADDRESS,
+    username: str = env.HUE_BRIDGE_USERNAME,
     verbose: bool = False,
 ) -> bool:
     logger.info(
@@ -27,8 +62,6 @@ def set_light_color(
             saturation,
         )
     )
-
-    # hue-2025-03-13-1xjr1z
 
     # Construct the API endpoint URL
     url = f"http://{bridge_ip}/api/{username}/lights/{light_id}/state"

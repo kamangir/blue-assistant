@@ -27,6 +27,7 @@ function test_blue_assistant_help() {
         "@assistant web crawl" \
         \
         "@hue" \
+        "@hue create_user" \
         "@hue set" \
         \
         "blue_assistant"; do

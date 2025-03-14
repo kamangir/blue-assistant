@@ -23,6 +23,12 @@ metadata:::get:::object_name
 🔥
 
 ```bash
+@hue create_user
+```
+
+🔥
+
+```bash
 @hue set - \
   --username TBA \
   --light_id TBA \

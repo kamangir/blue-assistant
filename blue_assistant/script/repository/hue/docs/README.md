@@ -3,9 +3,9 @@
 ```yaml
 script:
   vars:
-    function_prompt: |
+    set_light_color_prompt: |
       Complete this Python function to send a color command to a Hue light.
-    function_signature: |
+    set_light_color_signature: |
       def set_light_color(
           bridge_ip: str,
           username: str,
@@ -30,31 +30,31 @@ script:
           return True
     bridge_ip_prompt: |
       Generate instructions for finding my Hue bridge IP address.
-    username_prompt: |
+    create_user_prompt: |
       Write Python code to create a developer username on my Philips Hue Bridge
     light_id_prompt: |
       Generate instructions for finding the light ID of my Hue lights.
 
   nodes:
-    generating_the_code:
+    generating_set_light_color:
       completed: true
       action: generate_text
       prompt: |
-        :::function_prompt
+        :::set_light_color_prompt
 
-        :::function_signature
+        :::set_light_color_signature
     acquiring_bridge_ip:
       completed: true
       action: generate_text
       prompt: :::bridge_ip_prompt
-    creating_username:
+    generating_create_user:
       action: generate_text
-      prompt: :::username_prompt
+      prompt: :::create_user_prompt
       depends-on: acquiring_bridge_ip
     finding_light_id:
       action: generate_text
       prompt: :::light_id_prompt
-      depends-on: creating_username
+      depends-on: generating_create_user
 
 ```
 [metadata.yaml](../metadata.yaml)
@@ -75,6 +75,12 @@ script:
 ```
 
 `TBA/metadata.yaml`
+
+🔥
+
+```bash
+@hue create_user
+```
 
 🔥
 
