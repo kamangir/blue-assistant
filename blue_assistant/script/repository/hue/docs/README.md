@@ -1,7 +1,5 @@
 # Hue
 
-## output
-
 ```bash
 @hue create_user
 ```
