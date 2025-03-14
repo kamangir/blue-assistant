@@ -17,6 +17,8 @@ include:::noref ../metadata.yaml
 
 set:::object_name hue-2025-03-14-hpow92
 
+---
+
 ```bash
 @hue create_user
 ```

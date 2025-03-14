@@ -72,6 +72,8 @@ script:
 ```
 
 
+---
+
 ```bash
 @hue create_user
 ```
