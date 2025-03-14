@@ -27,7 +27,10 @@ function test_blue_assistant_help() {
         "@assistant web crawl" \
         \
         "@hue" \
+        "@hue create_user" \
+        "@hue list" \
         "@hue set" \
+        "@hue test" \
         \
         "blue_assistant"; do
         abcli_eval ,$options \

@@ -33,10 +33,12 @@ jobs:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          HUE_BRIDGE_USERNAME: ${{ secrets.HUE_BRIDGE_USERNAME }}
         run: |
           echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
           echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"
           echo "DATABRICKS_HOST: $DATABRICKS_HOST"
           echo "DATABRICKS_TOKEN: $DATABRICKS_TOKEN"
           echo "OPENAI_API_KEY: $OPENAI_API_KEY"
+          echo "HUE_BRIDGE_USERNAME: $HUE_BRIDGE_USERNAME"
           pytest --verbose
