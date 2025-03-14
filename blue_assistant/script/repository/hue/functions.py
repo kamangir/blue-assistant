@@ -3,7 +3,7 @@ import requests
 from blueness import module
 
 from blue_assistant import NAME
-from blue_assistant import env,
+from blue_assistant import env
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -14,7 +14,7 @@ def set_light_color(
     light_id: str,
     hue: int,  # 0 to 65535
     saturation: int,  # 0 to 254
-    bridge_ip: str=env.HUE_BRIDGE_IP_ADDRESS,
+    bridge_ip: str = env.HUE_BRIDGE_IP_ADDRESS,
     verbose: bool = False,
 ) -> bool:
     logger.info(
