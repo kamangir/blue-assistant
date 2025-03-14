@@ -1,7 +1,7 @@
 # Hue 🔥
 
 ```yaml
---include--noref ../metadata.yaml
+include:::noref ../metadata.yaml
 ```
 [metadata.yaml](../metadata.yaml)
 
