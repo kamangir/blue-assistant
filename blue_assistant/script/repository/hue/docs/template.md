@@ -1,9 +1,27 @@
 # Hue 🔥
 
+## input
+
 ```yaml
 include:::noref ../metadata.yaml
 ```
 [metadata.yaml](../metadata.yaml)
+
+```bash
+@select hue-$(@@timestamp)
+
+@assistant script run - \
+  script=hue .
+
+@assets publish \
+	extensions=png,push .
+```
+
+set:::object_name hue-2025-03-14-hpow92
+
+assets:::get:::object_name/thumbnail-workflow.png
+
+## output
 
 ```bash
 @hue create_user
@@ -28,20 +46,7 @@ include:::noref ../metadata.yaml
 
 🔥
 
-```bash
-@select hue-$(@@timestamp)
 
-@assistant script run - \
-  script=hue .
-```
-
-🔥
-
-set:::object_name hue-2025-03-14-hpow92
-
-metadata:::get:::object_name
-
-`get:::object_name/metadata.yaml`
 
 🔥
 
