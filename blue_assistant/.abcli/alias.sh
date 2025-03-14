@@ -2,5 +2,4 @@
 
 alias @assistant=blue_assistant
 
-
-
+alias @hue=blue_assistant_hue
