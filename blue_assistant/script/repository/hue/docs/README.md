@@ -18,7 +18,7 @@
 @hue test
 ```
 
-assets::blue-assistant/20250314_143702.jpg
+![image](https://github.com/kamangir/assets/blob/main/blue-assistant/20250314_143702.jpg?raw=true)
 
 ## script
 

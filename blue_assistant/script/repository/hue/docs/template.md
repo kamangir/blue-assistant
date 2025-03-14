@@ -18,7 +18,7 @@
 @hue test
 ```
 
-assets::blue-assistant/20250314_143702.jpg
+assets:::blue-assistant/20250314_143702.jpg
 
 ## script
 
