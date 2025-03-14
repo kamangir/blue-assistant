@@ -33,10 +33,10 @@ script:
 
 ```bash
 @hue set - \
-	--bridge_ip TBA \
-	--username TBA \
-	--light_id TBA \
-	--verbose 1
+  --bridge_ip TBA \
+  --username TBA \
+  --light_id TBA \
+  --verbose 1
 ```
 
 🔥
