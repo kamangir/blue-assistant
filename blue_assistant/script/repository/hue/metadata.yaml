@@ -38,14 +38,14 @@ script:
         :::function_prompt
 
         :::function_signature
-      acquiring_bridge_ip:
-        action: generate_text
-        prompt: bridge_ip_prompt
-      creating_username:
-        action: generate_text
-        prompt: username_prompt
-        depends-on: acquiring_bridge_ip
-      finding_light_id:
-        action: generate_text
-        prompt: light_id_prompt
-        depends-on: creating_username
+    acquiring_bridge_ip:
+      action: generate_text
+      prompt: :::bridge_ip_prompt
+    creating_username:
+      action: generate_text
+      prompt: :::username_prompt
+      depends-on: acquiring_bridge_ip
+    finding_light_id:
+      action: generate_text
+      prompt: :::light_id_prompt
+      depends-on: creating_username

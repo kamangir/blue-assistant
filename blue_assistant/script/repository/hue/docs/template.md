@@ -14,7 +14,7 @@ include:::noref ../metadata.yaml
   script=hue .
 ```
 
-set:::object_name TBA
+set:::object_name hue-2025-03-13-efzia5
 
 metadata:::get:::object_name
 
