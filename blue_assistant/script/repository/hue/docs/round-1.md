@@ -3,14 +3,14 @@
 ```yaml
 script:
   vars:
-    objective: Write Python + Bash code to send a color command to the Hue LED lights in my apartment.
+    objective: Write a Python function to send a color command to a Hue light.
   nodes:
     generating_the_code:
       action: generate_text
       prompt: :::objective
 
 ```
-[metadata.yaml](../metadata.yaml)
+[metadata.yaml](../metadata-round-1.yaml)
 
 ```bash
 @select hue-$(@@timestamp)

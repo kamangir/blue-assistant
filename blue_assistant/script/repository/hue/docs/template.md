@@ -20,6 +20,17 @@ metadata:::get:::object_name
 
 `get:::object_name/metadata.yaml`
 
+🔥
+
+```bash
+@hue set - \
+  --username TBA \
+  --light_id TBA \
+  --verbose 1
+```
+
+🔥
+
 ---
 
 - [round 1](./round-1.md)

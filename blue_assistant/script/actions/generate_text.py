@@ -44,7 +44,7 @@ def generate_text(
                     "content": [
                         {
                             "type": "text",
-                            "text": script.nodes[context_node]["output"],
+                            "text": script.nodes[context_node].get("output", ""),
                         }
                     ],
                 }

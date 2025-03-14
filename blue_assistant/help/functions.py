@@ -4,6 +4,7 @@ from blue_options.terminal import show_usage, xtra
 from abcli.help.generic import help_functions as generic_help_functions
 
 from blue_assistant import ALIAS
+from blue_assistant.help.hue import help_functions as help_hue
 from blue_assistant.help.script import help_functions as help_script
 from blue_assistant.help.web import help_functions as help_web
 
@@ -30,6 +31,7 @@ help_functions = generic_help_functions(plugin_name=ALIAS)
 help_functions.update(
     {
         "browse": help_browse,
+        "hue": help_hue,
         "script": help_script,
         "web": help_web,
     }

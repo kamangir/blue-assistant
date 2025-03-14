@@ -26,6 +26,9 @@ function test_blue_assistant_help() {
         "@assistant web" \
         "@assistant web crawl" \
         \
+        "@hue" \
+        "@hue set" \
+        \
         "blue_assistant"; do
         abcli_eval ,$options \
             abcli_help $module
