@@ -154,9 +154,9 @@ def test(
 
     saturation = 0
     while True:
-        for light_id in tqdm(list_of_lights):
+        for light_id_ in tqdm(list_of_lights):
             set_light_color(
-                light_id=light_id,
+                light_id=light_id_,
                 hue=hue,
                 saturation=saturation,
                 bridge_ip=bridge_ip,
