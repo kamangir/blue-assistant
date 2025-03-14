@@ -48,6 +48,7 @@ script:
       action: generate_text
       prompt: :::bridge_ip_prompt
     generating_create_user:
+      completed: true
       action: generate_text
       prompt: :::create_user_prompt
       depends-on: acquiring_bridge_ip
@@ -58,25 +59,6 @@ script:
 
 ```
 [metadata.yaml](../metadata.yaml)
-
-🔥
-
-```bash
-@select hue-$(@@timestamp)
-
-@assistant script run - \
-  script=hue .
-```
-
-
-```yaml
-{}
-
-```
-
-`TBA/metadata.yaml`
-
-🔥
 
 ```bash
 @hue create_user
@@ -90,6 +72,25 @@ script:
   --light_id TBA \
   --verbose 1
 ```
+
+🔥
+
+```bash
+@select hue-$(@@timestamp)
+
+@assistant script run - \
+  script=hue .
+```
+
+🔥
+
+
+```yaml
+{}
+
+```
+
+`TBA/metadata.yaml`
 
 🔥
 

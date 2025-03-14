@@ -45,6 +45,7 @@ script:
       action: generate_text
       prompt: :::bridge_ip_prompt
     generating_create_user:
+      completed: true
       action: generate_text
       prompt: :::create_user_prompt
       depends-on: acquiring_bridge_ip
