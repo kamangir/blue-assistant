@@ -4,7 +4,7 @@ Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
 
 set:::object_name orbital-data-explorer-2025-02-04-6b8mp6
 
-yaml:::get:::object_name:::output.script.nodes.researching_the_questions.output
+metadata:::get:::object_name:::output.script.nodes.researching_the_questions.output
 
 ```bash
 @select orbital-data-explorer-$(@@timestamp)
@@ -18,7 +18,7 @@ yaml:::get:::object_name:::output.script.nodes.researching_the_questions.output
 
 
 details:::output
-yaml:::get:::object_name:::output.script.nodes
+metadata:::get:::object_name:::output.script.nodes
 details:::
 
 details:::workflow

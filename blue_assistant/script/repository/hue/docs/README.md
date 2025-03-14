@@ -18,8 +18,7 @@ script:
 @select hue-$(@@timestamp)
 
 @assistant script run - \
-  script=hue . \
-  --verbose 1
+  script=hue .
 ```
 
 

@@ -2,7 +2,7 @@
 
 set:::object_name blue-amo-2025-02-03-nswnx6
 
-yaml:::get:::object_name:::output.script.nodes.generating_the_story.output
+metadata:::get:::object_name:::output.script.nodes.generating_the_story.output
 
 A story developed and visualized by AI.
 
@@ -17,7 +17,7 @@ A story developed and visualized by AI.
 ```
 
 details:::output
-yaml:::get:::object_name:::output.script.nodes
+metadata:::get:::object_name:::output.script.nodes
 details:::
 
 details:::workflow
