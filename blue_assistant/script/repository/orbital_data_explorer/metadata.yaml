@@ -1,25 +1,36 @@
 script:
   vars:
-    seed_urls:
+    overview_prompt: |
+      We want to access Orbital Data Explorer, ODE for short, using STAC terminology. So, we consider ODE as a catalog and 
+      call each separate dataset in ODE as a collection that contains items. We call these items objects or datacubes.
+    research_prompt: |
+      Read the following text and extract the relevant information.
+    research_seed_urls:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
       - https://pds-geosciences.wustl.edu/dataserv/default.htm
       - https://github.com/samiriff/mars-ode-data-access
+    summarize_prompt: |
+      Summarize the following.
 
   nodes:
-    researching_the_questions:
+    research:
       runnable: false
       action: generic
-      prompt: >
-        We want to access Orbital Data Explorer, ODE for short, using STAC conventions. So, we consider ODE as a catalog and 
-        call each separate dataset in ODE as a collection. Read the following text and write a python function that generates 
-        the list of collections in ODE relevant to Mars, Moon, Venus, or Mercury.
-
-        Then, write a python function that finds an item in one of the listed datasets. :::input
+      prompt: |
+        :::overview_prompt
+        :::research_prompt
       max_iterations: 20
-    integration_api_one:
+
+    summarize_research:
       runnable: false
-      action: generic
-    integration_api_two:
+      action: generate_text
+      prompt: |
+        :::overview_prompt
+        :::summarize_prompt
+      depends-on: research
+
+    writing_code:
       runnable: false
-      action: generic
+      action: generate_text
+      depends-on: summarize_research
