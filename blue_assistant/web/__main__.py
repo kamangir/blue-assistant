@@ -3,9 +3,10 @@ import argparse
 from blueness import module
 from blueness.argparse.generic import sys_exit
 from blue_options.logger import log_dict
+from blue_objects.metadata import post_to_object
 
 from blue_assistant import NAME
-from blue_assistant.web.crawl import crawl_list_of_urls, fetch_links_and_content
+from blue_assistant.web.functions import crawl_list_of_urls, fetch_links_and_text
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -43,22 +44,33 @@ args = parser.parse_args()
 
 success = False
 if args.task == "crawl":
-    success = True
-
-    output = crawl_list_of_urls(
+    dict_of_urls = crawl_list_of_urls(
         seed_urls=args.seed_urls.split("+"),
         object_name=args.object_name,
         max_iterations=args.max_iterations,
     )
 
     if args.verbose == 1:
-        log_dict(logger, output, "url(s)")
+        log_dict(logger, dict_of_urls, "url(s)")
 
+    success = post_to_object(
+        args.object_name,
+        NAME.replace(".", "-"),
+        dict_of_urls,
+    )
 elif args.task == "fetch":
-    success = True
-    links, plain_text = fetch_links_and_content(
+    links, text = fetch_links_and_text(
         url=args.url,
         verbose=True,
+    )
+
+    success = post_to_object(
+        args.object_name,
+        NAME.replace(".", "-"),
+        {
+            "links": list(links),
+            "text": text,
+        },
     )
 else:
     success = None

@@ -53,5 +53,7 @@ def build():
             #
             {"path": "script/repository/hue/docs/round-1.md"},
             {"path": "script/repository/hue/docs"},
+            #
+            {"path": "web/"},
         ]
     )

@@ -1,7 +1,7 @@
 from typing import List, Dict, Set, Tuple
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse, urlunparse
+from urllib.parse import urljoin
 
 from blueness import module
 from blue_options.logger import log_long_text, log_list
@@ -12,10 +12,10 @@ from blue_assistant.logger import logger
 NAME = module.name(__file__, NAME)
 
 
-def fetch_links_and_content(
+def fetch_links_and_text(
     url: str,
     verbose: bool = False,
-) -> Tuple[Set, str]:
+) -> Tuple[List[str], str]:
     try:
         response = requests.get(url, timeout=5)
         response.raise_for_status()
@@ -64,17 +64,17 @@ def crawl_list_of_urls(
 
     iteration: int = 0
     while queue:
-        current_url = queue.pop()
-        if current_url in visited:
+        url = queue.pop()
+        if url in visited:
             continue
 
-        logger.info(f"🔗  {current_url} ...")
-        new_links, content = fetch_links_and_content(
-            url=current_url,
+        logger.info(f"🔗  {url} ...")
+        url_links, url_text = fetch_links_and_text(
+            url=url,
             verbose=verbose,
         )
-        visited[current_url] = content
-        queue.update(new_links - visited.keys())
+        visited[url] = url_text
+        queue.update(url_links - visited.keys())
 
         iteration += 1
         if max_iterations != -1 and iteration >= max_iterations:

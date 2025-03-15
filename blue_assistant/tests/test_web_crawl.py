@@ -3,7 +3,7 @@ import pytest
 
 from blue_objects import objects
 
-from blue_assistant.web.crawl import crawl_list_of_urls
+from blue_assistant.web.functions import crawl_list_of_urls
 
 
 @pytest.mark.parametrize(
