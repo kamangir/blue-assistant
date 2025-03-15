@@ -2,6 +2,7 @@ from typing import List, Dict, Set, Tuple
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import re
 
 from blueness import module
 from blue_options.logger import log_long_text, log_list
@@ -36,6 +37,9 @@ def fetch_links_and_text(
         logger.info(f"ignored: {a_url}")
 
     plain_text = soup.get_text(separator=" ", strip=True)
+    for thing in ["\r", "\n", "\t"]:
+        plain_text = plain_text.replace(thing, " ")
+    plain_text = re.sub(r"\s+", " ", plain_text).strip()
 
     if verbose:
         log_list(logger, list(links), "link(s)")

@@ -6,7 +6,7 @@
 @web fetch - https://ode.rsl.wustl.edu/ -
 ```
 
-set:::fetch_object_name web-fetch-2025-03-14-aw5tis
+set:::fetch_object_name web-fetch-2025-03-14-z913y2
 
 details:::metadata
 metadata:::get:::fetch_object_name
@@ -20,7 +20,7 @@ details:::
     --max_iterations 3
 ```
 
-set:::crawl_object_name web-crawl-2025-03-14-5501u0
+set:::crawl_object_name web-crawl-2025-03-14-ehapp6
 
 details:::metadata
 metadata:::get:::crawl_object_name
