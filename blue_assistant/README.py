@@ -14,10 +14,16 @@ items = README.Items(
             "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/). 🔥",
         },
         {
-            "name": "Blue Script",
+            "name": "🌀 blue script",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
             "description": "An AI scripting language.",
             "url": "./blue_assistant/script/",
+        },
+        {
+            "name": "@web",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
+            "description": "Web crawl and fetch commands.",
+            "url": "./blue_assistant/web/",
         },
         {
             "name": "@hue",
@@ -49,7 +55,6 @@ def build():
         for readme in [
             {
                 "items": items,
-                "cols": 2,
                 "path": "..",
             },
             {"path": "script/repository/blue_amo"},
