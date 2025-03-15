@@ -21,7 +21,7 @@ items = README.Items(
         },
         {
             "name": "orbital-data-explorer",
-            "url": "./blue_assistant/script/repository/orbital_data_explorer/README.md",
+            "url": "./blue_assistant/script/repository/orbital_data_explorer",
             "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
             "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI. ⏸️",
         },
@@ -47,8 +47,13 @@ def build():
                 "path": "..",
             },
             {"path": "script/repository/blue_amo"},
-            {"path": "script/repository/orbital_data_explorer"},
+            #
+            {"path": "script/repository/orbital_data_explorer/docs/round-1.md"},
+            {"path": "script/repository/orbital_data_explorer/docs"},
+            #
             {"path": "script/repository/hue/docs/round-1.md"},
             {"path": "script/repository/hue/docs"},
+            #
+            {"path": "web/"},
         ]
     )

@@ -2,9 +2,11 @@ import argparse
 
 from blueness import module
 from blueness.argparse.generic import sys_exit
+from blue_options.logger import log_dict
+from blue_objects.metadata import post_to_object
 
 from blue_assistant import NAME
-from blue_assistant.web.crawl import crawl_list_of_urls
+from blue_assistant.web.functions import crawl_list_of_urls, fetch_links_and_text
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -13,7 +15,7 @@ parser = argparse.ArgumentParser(NAME)
 parser.add_argument(
     "task",
     type=str,
-    help="crawl",
+    help="crawl | fetch",
 )
 parser.add_argument(
     "--max_iterations",
@@ -27,6 +29,10 @@ parser.add_argument(
     help="0 | 1",
 )
 parser.add_argument(
+    "--url",
+    type=str,
+)
+parser.add_argument(
     "--seed_urls",
     type=str,
 )
@@ -38,22 +44,34 @@ args = parser.parse_args()
 
 success = False
 if args.task == "crawl":
-    success = True
-
-    output = crawl_list_of_urls(
+    dict_of_urls = crawl_list_of_urls(
         seed_urls=args.seed_urls.split("+"),
         object_name=args.object_name,
         max_iterations=args.max_iterations,
     )
 
     if args.verbose == 1:
-        logger.info(f"{len(output)} url(s)")
-        for index, (url, content) in enumerate(output.items()):
-            logger.info(f"#{index: 4} - {url}: {content[:200]}...\n")
-            if index > 10:
-                logger.info("...")
-                break
+        log_dict(logger, dict_of_urls, "url(s)")
 
+    success = post_to_object(
+        args.object_name,
+        NAME.replace(".", "-"),
+        dict_of_urls,
+    )
+elif args.task == "fetch":
+    links, text = fetch_links_and_text(
+        url=args.url,
+        verbose=True,
+    )
+
+    success = post_to_object(
+        args.object_name,
+        NAME.replace(".", "-"),
+        {
+            "links": list(links),
+            "text": text,
+        },
+    )
 else:
     success = None
 

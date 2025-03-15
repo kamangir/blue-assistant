@@ -23,14 +23,15 @@ function test_blue_assistant_help() {
         "@assistant script list" \
         "@assistant script run" \
         \
-        "@assistant web" \
-        "@assistant web crawl" \
-        \
         "@hue" \
         "@hue create_user" \
         "@hue list" \
         "@hue set" \
         "@hue test" \
+        \
+        "@web" \
+        "@web crawl" \
+        "@web fetch" \
         \
         "blue_assistant"; do
         abcli_eval ,$options \

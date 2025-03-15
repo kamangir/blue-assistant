@@ -15,19 +15,38 @@ def help_crawl(
 
     return show_usage(
         [
-            "@assistant",
-            "web",
+            "@web",
             "crawl",
             f"[{options}]",
             "<url-1>+<url-2>+<url-3>",
             "[-|<object-name>]",
         ]
         + args,
-        "crawl the web.",
+        "crawl the urls.",
+        mono=mono,
+    )
+
+
+def help_fetch(
+    tokens: List[str],
+    mono: bool,
+) -> str:
+    options = xtra("dryrun,~upload", mono=mono)
+
+    return show_usage(
+        [
+            "@web",
+            "fetch",
+            f"[{options}]",
+            "<url>",
+            "[-|<object-name>]",
+        ],
+        "fetch <url>.",
         mono=mono,
     )
 
 
 help_functions = {
     "crawl": help_crawl,
+    "fetch": help_fetch,
 }

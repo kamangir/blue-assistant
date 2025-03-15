@@ -5,7 +5,7 @@ from tqdm import tqdm
 from openai_commands.text_generation import api
 
 from blue_assistant import NAME
-from blue_assistant.web.crawl import crawl_list_of_urls
+from blue_assistant.web.functions import crawl_list_of_urls
 from blue_assistant.script.repository.base.classes import BaseScript
 from blue_assistant.logger import logger
 

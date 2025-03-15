@@ -10,7 +10,7 @@ script:
       prompt: :::objective
 
 ```
-[metadata.yaml](../metadata-round-1.yaml)
+[metadata.yaml](./round-1.yaml)
 
 ```bash
 @select hue-$(@@timestamp)

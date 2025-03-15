@@ -35,9 +35,7 @@ class GenericScript(BaseScript):
             node_name=node_name,
         )
 
-    def run(
-        self,
-    ) -> bool:
+    def run(self) -> bool:
         if not super().run():
             return False
 
@@ -48,6 +46,11 @@ class GenericScript(BaseScript):
         ):
             for node_name in tqdm(self.nodes):
                 if self.nodes[node_name].get("completed", False):
+                    continue
+
+                if not self.nodes[node_name].get("runnable", True):
+                    logger.info(f"Not runnable, skipped: {node_name}.")
+                    self.nodes[node_name]["completed"] = True
                     continue
 
                 pending_dependencies = [

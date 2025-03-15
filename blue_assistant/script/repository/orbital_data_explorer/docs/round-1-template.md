@@ -8,6 +8,7 @@ metadata:::get:::object_name:::output.script.nodes.researching_the_questions.out
 
 ```bash
 @select orbital-data-explorer-$(@@timestamp)
+
 @assistant script run - \
     script=orbital_data_explorer .
 

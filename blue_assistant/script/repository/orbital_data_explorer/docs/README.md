@@ -1,3 +1,10 @@
+# orbital-data-explorer 🔥
+
+Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
+
+🔥
+
+```yaml
 script:
   vars:
     overview_prompt: |
@@ -34,3 +41,24 @@ script:
       runnable: false
       action: generate_text
       depends-on: summarize_research
+
+```
+[metadata.yaml](../metadata.yaml)
+
+🔥
+
+```bash
+@select orbital-data-explorer-$(@@timestamp)
+
+@assistant script run - \
+    script=orbital_data_explorer .
+
+@assets publish push .
+```
+
+
+🔥
+
+---
+
+- [round 1](./round-1.md)
