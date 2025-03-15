@@ -17,8 +17,8 @@ graph LR
 
     script["📜 script"]:::folder
     url["🔗 url"]:::folder
-    url2["🔗 url 2"]:::folder
-    url3["🔗 url 3"]:::folder
+    url2["🔗 url"]:::folder
+    url3["🔗 url"]:::folder
     object["📂 object"]:::folder
 
 
