@@ -38,7 +38,7 @@ script:
 	[-|<object-name>]
  . fetch <url>.
 ```
-```bash
+```
 
 ---
 

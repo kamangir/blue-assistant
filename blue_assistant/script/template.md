@@ -24,7 +24,7 @@ script:
 
 ```bash
 help::: blue_assistant web
-```bash
+```
 
 ---
 
