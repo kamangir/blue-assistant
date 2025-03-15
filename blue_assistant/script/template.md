@@ -22,9 +22,7 @@ script:
 
 ```
 
-```bash
-help::: blue_assistant web
-```
+help::: blue_assistant script
 
 ---
 

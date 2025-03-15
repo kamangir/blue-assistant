@@ -23,21 +23,22 @@ script:
 ```
 
 ```bash
-```bash
-@web \
-	crawl \
-	[dryrun,~upload] \
-	<url-1>+<url-2>+<url-3> \
+@assistant \
+	script \
+	list \
+	[--delim +] \
+	[--log 0]
+ . list scripts.
+@assistant \
+	script \
+	run \
+	[download,dryrun,~upload] \
+	[script=<script>] \
 	[-|<object-name>] \
-	[--max_iterations <100000>]
- . crawl the urls.
-@web \
-	fetch \
-	[dryrun,~upload] \
-	<url> \
-	[-|<object-name>]
- . fetch <url>.
-```
+	[--test_mode 1] \
+	[--verbose 1]
+ . run <object-name>.
+   script: generic | blue_amo | hue | orbital_data_explorer
 ```
 
 ---
