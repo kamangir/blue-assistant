@@ -27,8 +27,6 @@ class BaseScript:
         self.object_name = object_name
 
         self.test_mode = test_mode
-        if self.test_mode:
-            logger.info("💰 test mode is on.")
 
         self.verbose = verbose
 
@@ -41,14 +39,70 @@ class BaseScript:
         success, self.metadata = file.load_yaml(metadata_filename)
         assert success, f"cannot load {self.name}/metadata.yaml"
 
-        logger.info("loaded {} node(s)".format(len(self.nodes)))
+        self.metadata.setdefault("script", {})
+        assert isinstance(
+            self.script,
+            dict,
+        ), "script: expected dict, received {}.".format(
+            self.script.__class__.__name__,
+        )
 
-        logger.info("loaded {} variable(s)".format(len(self.vars)))
+        self.script.setdefault("nodes", {})
+        assert isinstance(
+            self.nodes,
+            dict,
+        ), "nodes: expected dict, received {}.".format(
+            self.nodes.__class__.__name__,
+        )
+
+        self.script.setdefault("vars", {})
+        assert isinstance(
+            self.vars,
+            dict,
+        ), "vars: expected dict, received {}.".format(
+            self.vars.__class__.__name__,
+        )
+
+        if self.test_mode:
+            logger.info("🧪  test mode is on.")
+
+            for node_name, node in self.nodes.items():
+                if "test_mode" in self.script:
+                    updates = self.script["test_mode"]
+                    logger.info(f"🧪  vars.update({updates})")
+                    self.vars.update(updates)
+
+                if "test_mode" in node:
+                    updates = node["test_mode"]
+                    logger.info(f"🧪  {node_name}.update({updates})")
+                    node.update(updates)
+
+        logger.info(
+            "loaded {} node(s): {}".format(
+                len(self.nodes),
+                ", ".join(self.nodes.keys()),
+            )
+        )
+
+        logger.info(
+            "loaded {} var(s){}".format(
+                len(self.vars),
+                "" if verbose else ": {}".format(", ".join(self.vars.keys())),
+            )
+        )
         if verbose:
             for var_name, var_value in self.vars.items():
                 logger.info("{}: {}".format(var_name, var_value))
 
-        assert self.generate_graph(), "cannot generate graph"
+        assert self.generate_graph(), "cannot generate graph."
+
+    def __str__(self) -> str:
+        return "{}[{} var(s), {} node(s) -> {}]".format(
+            self.__class__.__name__,
+            len(self.vars),
+            len(self.nodes),
+            self.object_name,
+        )
 
     def apply_vars(self, text: str) -> str:
         for var_name, var_value in self.vars.items():
@@ -126,12 +180,12 @@ class BaseScript:
     # Aliases
     @property
     def script(self) -> Dict:
-        return self.metadata.get("script", {})
+        return self.metadata["script"]
 
     @property
     def nodes(self) -> Dict[str, Dict]:
-        return self.metadata.get("script", {}).get("nodes", {})
+        return self.metadata["script"]["nodes"]
 
     @property
     def vars(self) -> Dict:
-        return self.metadata.get("script", {}).get("vars", {})
+        return self.metadata["script"]["vars"]
