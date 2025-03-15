@@ -8,7 +8,7 @@ from blue_assistant import NAME, VERSION, ICON, REPO_NAME
 items = README.Items(
     [
         {
-            "name": "hue",
+            "name": "@hue",
             "url": "./blue_assistant/script/repository/hue",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
             "description": '"send a color command to the Hue LED lights in my apartment."',
