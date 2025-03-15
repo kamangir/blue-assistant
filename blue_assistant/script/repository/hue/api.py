@@ -166,9 +166,9 @@ def test(
         while True:
             logger.info(f"hue_offset={hue_offset}")
 
-            for light_index, light_id_ in tqdm(enumerate(list_of_lights)):
+            for light_index in tqdm(range(len(list_of_lights))):
                 set_light_color(
-                    light_id=light_id_,
+                    light_id=list_of_lights[light_index],
                     hue=list_of_hue_values[hue_offset + light_index],
                     saturation=random.randint(1, env.HUE_MAX_SATURATION),
                     bridge_ip=bridge_ip,
