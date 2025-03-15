@@ -13,6 +13,7 @@ script:
 
   nodes:
     researching_the_questions:
+      runnable: false
       action: generic
       prompt: >
         We want to access Orbital Data Explorer, ODE for short, using STAC conventions. So, we consider ODE as a catalog and 
@@ -22,8 +23,10 @@ script:
         Then, write a python function that finds an item in one of the listed datasets. :::input
       max_iterations: 20
     integration_api_one:
+      runnable: false
       action: generic
     integration_api_two:
+      runnable: false
       action: generic
 
 ```

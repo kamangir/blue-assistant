@@ -18,7 +18,7 @@ include:::noref ../metadata.yaml
 @assets publish push .
 ```
 
-set:::object_name TBA
+set:::object_name orbital-data-explorer-2025-03-14-bp6m01
 
 🔥
 

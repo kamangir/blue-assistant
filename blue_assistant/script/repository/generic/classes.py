@@ -50,6 +50,11 @@ class GenericScript(BaseScript):
                 if self.nodes[node_name].get("completed", False):
                     continue
 
+                if not self.nodes[node_name].get("runnable", True):
+                    logger.info(f"Not runnable, skipped: {node_name}.")
+                    self.nodes[node_name]["completed"] = True
+                    continue
+
                 pending_dependencies = [
                     node_name_
                     for node_name_ in self.G.successors(node_name)
