@@ -26,4 +26,4 @@ details:::metadata
 metadata:::get:::crawl_object_name
 details:::
 
-objects:::get:::crawl_object_name
+object:::get:::crawl_object_name
