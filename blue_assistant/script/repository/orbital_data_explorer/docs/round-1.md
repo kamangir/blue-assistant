@@ -1,6 +1,6 @@
 # orbital-data-explorer
 
-Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
+Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
 
 
 ```yaml

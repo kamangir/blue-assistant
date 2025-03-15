@@ -1,39 +1,45 @@
 # orbital-data-explorer 🔥
 
-Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
+Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
 
 🔥
 
 ```yaml
 script:
   vars:
-    overview_prompt: |
-      We want to access Orbital Data Explorer, ODE for short, using STAC terminology. So, we consider ODE as a catalog and 
-      call each separate dataset in ODE as a collection that contains items. We call these items objects or datacubes.
+    context_prompt: |
+      Our objective is to access the Orbital Data Explorer, ODE for short, using STAC 
+      terminology. For this purpose, we consider ODE as a catalog and each separate dataset 
+      in ODE as a collection that contains items. We call these items objects or datacubes.
+
     research_prompt: |
-      Read the following text and extract the relevant information.
+      Read the following text and extract information relevant to this objective.
     research_seed_urls:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
       - https://pds-geosciences.wustl.edu/dataserv/default.htm
       - https://github.com/samiriff/mars-ode-data-access
+
     summarize_prompt: |
       Summarize the following.
 
   nodes:
     researching_the_questions:
-      runnable: false
-      action: generic
-      prompt: |
-        :::overview_prompt
+      runnable: true
+      action: web_crawl
+      prompt: >
+        :::context_prompt
         :::research_prompt
       max_iterations: 20
+      seed_urls: :::research_seed_urls
+      test_mode:
+        max_iterations: 1
 
     summarize_research:
       runnable: false
       action: generate_text
-      prompt: |
-        :::overview_prompt
+      prompt: >
+        :::context_prompt
         :::summarize_prompt
       depends-on: researching_the_questions
 

@@ -23,6 +23,7 @@ def test_scripts_run(script_name: str):
         verbose=True,
     )
     assert success == expected_success
+    assert script.test_mode
     assert isinstance(script, BaseScript)
 
     if expected_success:
