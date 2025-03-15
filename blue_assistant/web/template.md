@@ -15,12 +15,16 @@ details:::
 ## @web crawl
 
 ```bash
+@select crawl-$(@@timestamp)
+
 @web crawl cache \
-    https://ode.rsl.wustl.edu/+https://oderest.rsl.wustl.edu/ - \
+    https://ode.rsl.wustl.edu/+https://oderest.rsl.wustl.edu/ . \
     --max_iterations 20
+
+@publish tar .
 ```
 
-set:::crawl_object_name web-crawl-2025-03-15-wualae
+set:::crawl_object_name crawl-2025-03-15-s8jrfg
 
 details:::metadata
 metadata:::get:::crawl_object_name
