@@ -1,6 +1,6 @@
 import pytest
 
-from blue_assistant.web.functions import fetch_links_and_text
+from blue_assistant.web.fetch import fetch_links_and_text
 
 
 @pytest.mark.parametrize(
@@ -12,7 +12,11 @@ from blue_assistant.web.functions import fetch_links_and_text
 def test_web_fetch(
     url: str,
 ):
-    links, plain_text = fetch_links_and_text(url=url)
+    summary = fetch_links_and_text(url=url)
 
-    assert isinstance(links, set)
-    assert isinstance(plain_text, str)
+    for key, type_ in {
+        "links": set,
+        "text": str,
+    }.items():
+        assert key in summary
+        assert isinstance(summary[key], type_)

@@ -1,12 +1,9 @@
-from typing import Dict
 from blueness import module
-from tqdm import tqdm
 
 from blue_options.logger import log_list
-from openai_commands.text_generation import api
 
 from blue_assistant import NAME
-from blue_assistant.web.functions import crawl_list_of_urls
+from blue_assistant.web.crawl import crawl_list_of_urls
 from blue_assistant.script.repository.base.classes import BaseScript
 from blue_assistant.logger import logger
 
@@ -43,20 +40,12 @@ def web_crawl(
         seed_urls=seed_urls,
         object_name=script.object_name,
         max_iterations=script.nodes[node_name]["max_iterations"],
+        use_cache=use_cache,
     )
 
-    success, output, _ = api.generate_text(
-        prompt=script.nodes[node_name]["prompt"].replace(
-            ":::input", " ".join([content for content in visited_urls.values()])
-        ),
-        verbose=script.verbose,
-    )
-    if not success:
-        return success
-
-    logger.info(output)
+    ...
 
     script.nodes[node_name]["visited_urls"] = visited_urls
-    script.nodes[node_name]["output"] = output
+    script.nodes[node_name]["output"] = "TBA"
 
     return True

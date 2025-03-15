@@ -15,12 +15,14 @@ details:::
 ## @web crawl
 
 ```bash
-@web crawl - \
+@web crawl cache \
     https://ode.rsl.wustl.edu/+https://oderest.rsl.wustl.edu/ - \
     --max_iterations 3
 ```
 
-set:::crawl_object_name web-crawl-2025-03-14-6exgop
+🔥
+
+set:::crawl_object_name TBA
 
 details:::metadata
 metadata:::get:::crawl_object_name
