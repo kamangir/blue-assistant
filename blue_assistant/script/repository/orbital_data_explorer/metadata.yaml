@@ -1,10 +1,11 @@
 script:
   vars:
     overview_prompt: |
-      We want to access Orbital Data Explorer, ODE for short, using STAC terminology. So, we consider ODE as a catalog and 
-      call each separate dataset in ODE as a collection that contains items. We call these items objects or datacubes.
+      We want to access Orbital Data Explorer, ODE for short, using STAC terminology. 
+      So, we consider ODE as a catalog and call each separate dataset in ODE as a 
+      collection that contains items. We call these items objects or datacubes.
     research_prompt: |
-      Read the following text and extract the relevant information.
+      Read the following text and extract information relevant to this job.
     research_seed_urls:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
