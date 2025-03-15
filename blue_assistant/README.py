@@ -1,8 +1,10 @@
 import os
 
+from blue_options.help.functions import get_help
 from blue_objects import file, README
 
 from blue_assistant import NAME, VERSION, ICON, REPO_NAME
+from blue_assistant.help.functions import help_functions
 
 
 items = README.Items(
@@ -45,6 +47,11 @@ def build():
             NAME=NAME,
             VERSION=VERSION,
             REPO_NAME=REPO_NAME,
+            help_function=lambda tokens: get_help(
+                tokens,
+                help_functions,
+                mono=True,
+            ),
         )
         for readme in [
             {
