@@ -1,14 +1,17 @@
 from typing import List, Dict, Set, Tuple
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 from urllib.parse import urljoin
 import re
+import warnings
 
 from blueness import module
 from blue_options.logger import log_long_text, log_list
 
 from blue_assistant import NAME
 from blue_assistant.logger import logger
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 NAME = module.name(__file__, NAME)
 
@@ -37,6 +40,9 @@ def fetch_links_and_text(
         logger.info(f"ignored: {a_url}")
 
     plain_text = soup.get_text(separator=" ", strip=True)
+
+    # remove non-ASCII characters
+    plain_text = re.sub(r"[^\x20-\x7E]+", "", plain_text)
     for thing in ["\r", "\n", "\t"]:
         plain_text = plain_text.replace(thing, " ")
     plain_text = re.sub(r"\s+", " ", plain_text).strip()
