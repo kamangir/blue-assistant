@@ -9,7 +9,7 @@ script:
   nodes:
     researching_the_questions:
       action: generic
-      prompt: >
+      prompt: |
         We want to access Orbital Data Explorer, ODE for short, using STAC conventions. So, we consider ODE as a catalog and 
         call each separate dataset in ODE as a collection. Read the following text and write a python function that generates 
         the list of collections in ODE relevant to Mars, Moon, Venus, or Mercury.
