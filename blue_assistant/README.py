@@ -17,7 +17,7 @@ items = README.Items(
             "name": "blue-amo",
             "url": "./blue_assistant/script/repository/blue_amo/README.md",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
-            "description": "A story developed and visualized, by AI.",
+            "description": "Story development and visualization.",
         },
         {
             "name": "orbital-data-explorer",
