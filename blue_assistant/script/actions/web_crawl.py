@@ -43,8 +43,6 @@ def web_crawl(
         use_cache=use_cache,
     )
 
-    ...
-
     script.nodes[node_name]["visited_urls"] = visited_urls
     script.nodes[node_name]["output"] = "TBA"
 
