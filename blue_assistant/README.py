@@ -55,6 +55,7 @@ def build():
         for readme in [
             {
                 "items": items,
+                "cols": 2,
                 "path": "..",
             },
             {"path": "script/repository/blue_amo"},
