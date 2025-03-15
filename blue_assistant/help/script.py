@@ -30,7 +30,7 @@ def help_run(
     tokens: List[str],
     mono: bool,
 ) -> str:
-    options = xtra("download,dryrun,~upload", mono=mono)
+    options = xtra("~cache,download,dryrun,~upload", mono=mono)
 
     script_options = "script=<script>"
 

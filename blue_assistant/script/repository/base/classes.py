@@ -145,12 +145,16 @@ class BaseScript:
             [node_name],
         )
 
-    def run(self) -> bool:
+    def run(
+        self,
+        use_cache: bool = True,
+    ) -> bool:
         logger.info(
-            "{}.run: {}:{} -> {}".format(
+            "{}.run: {}:{} -{}> {}".format(
                 NAME,
                 self.__class__.__name__,
                 self.name,
+                "use-cache-" if use_cache else "",
                 self.object_name,
             )
         )

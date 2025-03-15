@@ -10,6 +10,7 @@ NAME = module.name(__file__, NAME)
 def slicing_into_frames(
     script: BaseScript,
     node_name: str,
+    use_cache: bool,
 ) -> bool:
     logger.info(f"{NAME}: processing the output...")
 

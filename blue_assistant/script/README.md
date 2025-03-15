@@ -55,7 +55,7 @@ script:
 @assistant \
 	script \
 	run \
-	[download,dryrun,~upload] \
+	[~cache,download,dryrun,~upload] \
 	[script=<script>] \
 	[-|<object-name>] \
 	[--test_mode 1] \

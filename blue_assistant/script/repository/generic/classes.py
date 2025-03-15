@@ -22,6 +22,7 @@ class GenericScript(BaseScript):
     def perform_action(
         self,
         node_name: str,
+        use_cache: bool,
     ) -> bool:
         action_name = self.nodes[node_name].get("action", "unknown")
         logger.info(f"---- node: {node_name} ---- ")
@@ -33,10 +34,14 @@ class GenericScript(BaseScript):
         return dict_of_actions[action_name](
             script=self,
             node_name=node_name,
+            use_cache=use_cache,
         )
 
-    def run(self) -> bool:
-        if not super().run():
+    def run(
+        self,
+        use_cache: bool = True,
+    ) -> bool:
+        if not super().run(use_cache=use_cache):
             return False
 
         success: bool = True
@@ -68,7 +73,10 @@ class GenericScript(BaseScript):
                     )
                     continue
 
-                if not self.perform_action(node_name=node_name):
+                if not self.perform_action(
+                    node_name=node_name,
+                    use_cache=use_cache,
+                ):
                     success = False
                     break
 

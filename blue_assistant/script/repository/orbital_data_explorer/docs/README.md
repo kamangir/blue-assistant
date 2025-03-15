@@ -14,6 +14,7 @@ script:
 
     research_prompt: |
       Read the following text and extract information relevant to this objective.
+
     research_seed_urls:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/

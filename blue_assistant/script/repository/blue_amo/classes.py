@@ -66,14 +66,19 @@ class BlueAmoScript(GenericScript):
     def perform_action(
         self,
         node_name: str,
+        use_cache: bool,
     ) -> bool:
-        if not super().perform_action(node_name=node_name):
+        if not super().perform_action(
+            node_name=node_name,
+            use_cache=use_cache,
+        ):
             return False
 
         if node_name in dict_of_actions:
             return dict_of_actions[node_name](
                 script=self,
                 node_name=node_name,
+                use_cache=use_cache,
             )
 
         return True

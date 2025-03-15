@@ -17,6 +17,7 @@ NAME = module.name(__file__, NAME)
 def generate_image(
     script: BaseScript,
     node_name: str,
+    use_cache: bool,
 ) -> bool:
     logger.info(f"{NAME}: {script} @ {node_name} ...")
 

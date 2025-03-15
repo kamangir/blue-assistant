@@ -17,6 +17,7 @@ NAME = module.name(__file__, NAME)
 def web_crawl(
     script: BaseScript,
     node_name: str,
+    use_cache: bool,
 ) -> bool:
     logger.info(f"{NAME}: {script} @ {node_name} ...")
 
@@ -24,16 +25,17 @@ def web_crawl(
     if not isinstance(seed_url_var_name, str):
         logger.error(f"{node_name}: seed_urls must be a string.")
         return False
-    # to allow both :::<var-name> and <var-name> - for convenience :)
-    if seed_url_var_name.startswith(":::"):
-        seed_url_var_name = seed_url_var_name[3:].strip()
     if not seed_url_var_name:
         logger.error(f"{node_name}: seed_urls not found.")
         return False
+
+    # to allow both :::<var-name> and <var-name> - for convenience :)
+    if seed_url_var_name.startswith(":::"):
+        seed_url_var_name = seed_url_var_name[3:].strip()
+
     if seed_url_var_name not in script.vars:
         logger.error(f"{node_name}: {seed_url_var_name}: seed_urls not found in vars.")
         return False
-
     seed_urls = script.vars[seed_url_var_name]
     log_list(logger, seed_urls, "seed url(s)")
 
