@@ -2,6 +2,12 @@
 
 Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
 
+🔥 validate fetch
+
+🔥 validate crawl
+
+🔥
+
 ```yaml
 include:::noref ../metadata.yaml
 ```
