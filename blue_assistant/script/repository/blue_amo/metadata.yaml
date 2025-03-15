@@ -1,6 +1,6 @@
 script:
   vars:
-    premise: >
+    premise: |
       Generate a story in a few paragraphs about when the US attempts to take over Canada
       and Greenland first through diplomatic and economic pressure and then direct military
       action.
@@ -34,7 +34,7 @@ script:
     slicing_into_frames:
       action: generate_text
       depends-on: generating_the_story
-      prompt: >
+      prompt: |
         Slice this story into :::frame_count pieces, each appropriate for generating an image from,
         and return the slices separated by ---.
     generating_the_frames:

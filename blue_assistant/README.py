@@ -1,14 +1,28 @@
 import os
 
+from blue_options.help.functions import get_help
 from blue_objects import file, README
 
 from blue_assistant import NAME, VERSION, ICON, REPO_NAME
+from blue_assistant.help.functions import help_functions
 
 
 items = README.Items(
     [
         {
-            "name": "hue",
+            "name": "orbital-data-explorer",
+            "url": "./blue_assistant/script/repository/orbital_data_explorer",
+            "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
+            "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/). 🔥",
+        },
+        {
+            "name": "🌀 blue script",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
+            "description": "A minimal AI DAG interface.",
+            "url": "./blue_assistant/script/",
+        },
+        {
+            "name": "@hue",
             "url": "./blue_assistant/script/repository/hue",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
             "description": '"send a color command to the Hue LED lights in my apartment."',
@@ -17,13 +31,7 @@ items = README.Items(
             "name": "blue-amo",
             "url": "./blue_assistant/script/repository/blue_amo/README.md",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
-            "description": "A story developed and visualized, by AI.",
-        },
-        {
-            "name": "orbital-data-explorer",
-            "url": "./blue_assistant/script/repository/orbital_data_explorer",
-            "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
-            "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI. ⏸️",
+            "description": "Story development and visualization.",
         },
     ]
 )
@@ -39,6 +47,11 @@ def build():
             NAME=NAME,
             VERSION=VERSION,
             REPO_NAME=REPO_NAME,
+            help_function=lambda tokens: get_help(
+                tokens,
+                help_functions,
+                mono=True,
+            ),
         )
         for readme in [
             {
@@ -54,6 +67,7 @@ def build():
             {"path": "script/repository/hue/docs/round-1.md"},
             {"path": "script/repository/hue/docs"},
             #
+            {"path": "script/"},
             {"path": "web/"},
         ]
     )

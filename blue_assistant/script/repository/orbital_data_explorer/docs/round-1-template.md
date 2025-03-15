@@ -1,6 +1,6 @@
 # orbital-data-explorer
 
-Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
+Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
 
 set:::object_name orbital-data-explorer-2025-02-04-6b8mp6
 

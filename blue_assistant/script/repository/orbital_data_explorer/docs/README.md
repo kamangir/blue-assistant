@@ -1,6 +1,6 @@
 # orbital-data-explorer 🔥
 
-Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
+Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
 
 🔥
 
@@ -8,10 +8,11 @@ Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/), through AI.
 script:
   vars:
     overview_prompt: |
-      We want to access Orbital Data Explorer, ODE for short, using STAC terminology. So, we consider ODE as a catalog and 
-      call each separate dataset in ODE as a collection that contains items. We call these items objects or datacubes.
+      We want to access Orbital Data Explorer, ODE for short, using STAC terminology. 
+      Therefore, we consider ODE as a catalog and each separate dataset in ODE as a 
+      collection that contains items. We call these items objects or datacubes.
     research_prompt: |
-      Read the following text and extract the relevant information.
+      Read the following text and extract information relevant to this objective.
     research_seed_urls:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
@@ -24,7 +25,7 @@ script:
     researching_the_questions:
       runnable: false
       action: generic
-      prompt: |
+      prompt: >
         :::overview_prompt
         :::research_prompt
       max_iterations: 20
@@ -32,7 +33,7 @@ script:
     summarize_research:
       runnable: false
       action: generate_text
-      prompt: |
+      prompt: >
         :::overview_prompt
         :::summarize_prompt
       depends-on: researching_the_questions

@@ -39,19 +39,21 @@ script:
     generating_set_light_color:
       completed: true
       action: generate_text
-      prompt: |
+      prompt: >
         :::set_light_color_prompt
-
         :::set_light_color_signature
+
     acquiring_bridge_ip:
       completed: true
       action: generate_text
       prompt: :::bridge_ip_prompt
+
     generating_create_user:
       completed: true
       action: generate_text
       prompt: :::create_user_prompt
       depends-on: acquiring_bridge_ip
+
     list_lights:
       completed: true
       action: generate_text
