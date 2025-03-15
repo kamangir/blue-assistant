@@ -25,3 +25,5 @@ set:::crawl_object_name web-crawl-2025-03-15-wualae
 details:::metadata
 metadata:::get:::crawl_object_name
 details:::
+
+objects:::get:::crawl_object_name
