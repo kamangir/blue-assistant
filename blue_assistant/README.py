@@ -20,12 +20,6 @@ items = README.Items(
             "url": "./blue_assistant/script/",
         },
         {
-            "name": "@web",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
-            "description": "Web crawl and fetch commands.",
-            "url": "./blue_assistant/web/",
-        },
-        {
             "name": "@hue",
             "url": "./blue_assistant/script/repository/hue",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
@@ -55,7 +49,7 @@ def build():
         for readme in [
             {
                 "items": items,
-                "cols": 4,
+                "cols": 2,
                 "path": "..",
             },
             {"path": "script/repository/blue_amo"},
