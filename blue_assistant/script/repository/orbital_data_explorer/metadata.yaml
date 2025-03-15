@@ -5,7 +5,7 @@ script:
       So, we consider ODE as a catalog and call each separate dataset in ODE as a 
       collection that contains items. We call these items objects or datacubes.
     research_prompt: |
-      Read the following text and extract information relevant to this job.
+      Read the following text and extract information relevant to this objective.
     research_seed_urls:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
