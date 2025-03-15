@@ -3,6 +3,7 @@ import requests
 from time import sleep
 from tqdm import tqdm
 import cv2
+import random
 
 from blueness import module
 
@@ -160,7 +161,6 @@ def test(
     )
     list_of_hue_values = list_of_hue_values + list_of_hue_values
 
-    saturation = 100
     hue_offset: int = 0
     try:
         while True:
@@ -170,7 +170,7 @@ def test(
                 set_light_color(
                     light_id=light_id_,
                     hue=list_of_hue_values[hue_offset + light_index],
-                    saturation=saturation,
+                    saturation=random.randint(1, env.HUE_MAX_SATURATION),
                     bridge_ip=bridge_ip,
                     username=username,
                     verbose=verbose,

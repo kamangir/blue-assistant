@@ -48,8 +48,8 @@ parser.add_argument(
 parser.add_argument(
     "--saturation",
     type=int,
-    default=254,
-    help="0 to 254",
+    default=env.HUE_MAX_SATURATION,
+    help=f"0 to {env.HUE_MAX_SATURATION}",
 )
 parser.add_argument(
     "--verbose",

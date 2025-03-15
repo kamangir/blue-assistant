@@ -19,3 +19,4 @@ def test_blue_assistant_env():
 
     assert env.HUE_BRIDGE_IP_ADDRESS
     assert env.HUE_BRIDGE_USERNAME
+    assert env.HUE_MAX_SATURATION

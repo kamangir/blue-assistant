@@ -63,7 +63,7 @@ def help_set(
         f"[--username <{env.HUE_BRIDGE_USERNAME}>]",
         "[--light_id <light_id>]",
         "[--hue <65535>]",
-        "[--saturation <254>]",
+        f"[--saturation <{env.HUE_MAX_SATURATION}>]",
         "[--verbose 1]",
     ]
 
