@@ -17,8 +17,6 @@ include:::noref ../metadata.yaml
 @assets publish push .
 ```
 
-🔥
-
 set:::object_name TBA
 
 🔥

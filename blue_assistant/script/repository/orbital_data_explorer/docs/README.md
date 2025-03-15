@@ -39,8 +39,6 @@ script:
 @assets publish push .
 ```
 
-🔥
-
 
 🔥
 
