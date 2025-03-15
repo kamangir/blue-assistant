@@ -14,7 +14,7 @@ script:
       Summarize the following.
 
   nodes:
-    research:
+    researching_the_questions:
       runnable: false
       action: generic
       prompt: |
@@ -28,7 +28,7 @@ script:
       prompt: |
         :::overview_prompt
         :::summarize_prompt
-      depends-on: research
+      depends-on: researching_the_questions
 
     writing_code:
       runnable: false
