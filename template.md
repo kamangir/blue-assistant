@@ -67,6 +67,8 @@ graph LR
 
 items:::
 
+---
+
 Also home to [`@web`](./blue_assistant/web/)
 
 ---

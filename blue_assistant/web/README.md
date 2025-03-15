@@ -75,8 +75,7 @@ blue_assistant-web:
 
 ```bash
 @web crawl - \
-    https://ode.rsl.wustl.edu/+https://oderest.rsl.wustl.edu/ \
-    - \
+    https://ode.rsl.wustl.edu/+https://oderest.rsl.wustl.edu/ - \
     --max_iterations 3
 ```
 
