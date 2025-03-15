@@ -6,7 +6,7 @@ from blue_options.logger import log_dict
 from blue_objects.metadata import post_to_object
 
 from blue_assistant import NAME
-from blue_assistant.web.functions import crawl_list_of_urls, fetch_links_and_text
+from blue_assistant.web import crawl_list_of_urls, fetch_links_and_text
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -40,6 +40,12 @@ parser.add_argument(
     "--object_name",
     type=str,
 )
+parser.add_argument(
+    "--use_cache",
+    type=int,
+    default=0,
+    help="0 | 1",
+)
 args = parser.parse_args()
 
 success = False
@@ -48,6 +54,7 @@ if args.task == "crawl":
         seed_urls=args.seed_urls.split("+"),
         object_name=args.object_name,
         max_iterations=args.max_iterations,
+        use_cache=args.use_cache == 1,
     )
 
     if args.verbose == 1:
@@ -59,7 +66,7 @@ if args.task == "crawl":
         dict_of_urls,
     )
 elif args.task == "fetch":
-    links, text = fetch_links_and_text(
+    summary = fetch_links_and_text(
         url=args.url,
         verbose=True,
     )
@@ -67,10 +74,7 @@ elif args.task == "fetch":
     success = post_to_object(
         args.object_name,
         NAME.replace(".", "-"),
-        {
-            "links": list(links),
-            "text": text,
-        },
+        summary,
     )
 else:
     success = None

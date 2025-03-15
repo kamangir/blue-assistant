@@ -11,11 +11,13 @@ function test_blue_assistant_script_run() {
     for script_name in $(echo "$list_of_script_name" | tr + " "); do
         abcli_log "testing $script_name ..."
 
+        local object_name=test_blue_assistant_script_run-$(abcli_string_timestamp_short)
+
         abcli_eval ,$options \
             blue_assistant_script_run \
             ~upload,$options \
             script=$script_name \
-            test_blue_assistant_script_run-$(abcli_string_timestamp_short) \
+            $object_name \
             "${@:2}" \
             --test_mode 1 \
             --verbose 1

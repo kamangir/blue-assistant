@@ -3,7 +3,8 @@
 function blue_assistant_script_run() {
     local options=$1
     local do_dryrun=$(abcli_option_int "$options" dryrun 0)
-    local do_download=$(abcli_option_int "$options" download 0)
+    local use_cache=$(abcli_option_int "$options" cache 1)
+    local do_download=$(abcli_option_int "$options" download $use_cache)
     local do_upload=$(abcli_option_int "$options" upload $(abcli_not $do_dryrun))
 
     local script_options=$2
@@ -20,6 +21,7 @@ function blue_assistant_script_run() {
         run \
         --script_name $script_name \
         --object_name $object_name \
+        --use_cache $use_cache \
         "${@:4}"
     [[ $? -ne 0 ]] && return 1
 
