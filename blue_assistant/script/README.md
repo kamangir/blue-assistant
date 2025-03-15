@@ -22,6 +22,10 @@ script:
 
 ```
 
+```bash
+help::: blue_assistant_web
+```bash
+
 ---
 
 [repository](./repository/)
