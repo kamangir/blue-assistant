@@ -80,40 +80,12 @@ blue_assistant-web:
 <summary>metadata</summary>
 
 ```yaml
-blue_assistant-web:
-  https://ode.rsl.wustl.edu/: text/html
-  https://ode.rsl.wustl.edu/mars/index.aspx: text/html; charset=utf-8
-  https://ode.rsl.wustl.edu/moon/index.aspx: text/html; charset=utf-8
-  https://ode.rsl.wustl.edu/venus/index.aspx: text/html; charset=utf-8
-  https://oderest.rsl.wustl.edu/: text/html
-  https://oderest.rsl.wustl.edu/#GDSRESTInterface: text/html
-  https://oderest.rsl.wustl.edu/#ODERESTInterface: text/html
-  https://oderest.rsl.wustl.edu/LPSC42_ODE.pdf: application/pdf
-  https://oderest.rsl.wustl.edu/LPSC45_ODE_Abstract.pdf: application/pdf
-  https://oderest.rsl.wustl.edu/ODE_REST_V2.1.6.pdf: application/pdf
-  https://oderest.rsl.wustl.edu/gdsweb/GDSDLRERDR.html: text/html
-  https://oderest.rsl.wustl.edu/gdsweb/GDSLOLARDR.html: text/html
-  https://oderest.rsl.wustl.edu/gdsweb/GDSMLARDR.html: text/html
-  https://oderest.rsl.wustl.edu/gdsweb/GDSMOLAPEDR.html: text/html
-  https://oderest.rsl.wustl.edu/live2/?query=featureclasses&odemetadb=mars: text/xml;
-    charset=utf-8
-  https://oderest.rsl.wustl.edu/live2/?query=featurenames&odemetadb=mars: text/xml;
-    charset=utf-8
-  https://oderest.rsl.wustl.edu/live2/?query=iipt: text/xml; charset=utf-8
-  ? https://oderest.rsl.wustl.edu/live2?query=products&target=mars&results=c&ihid=MRO&iid=HiRISE&pt=RDRV11&minlat=0.0&maxlat=10.0&westernlon=1&easternlon=5&loc=b
-  : text/xml; charset=utf-8
-  https://oderest.rsl.wustl.edu/live2?target=mars&query=product&results=c&output=XML&pt=RDR&iid=HiRISE&ihid=MRO: text/xml;
-    charset=utf-8
-  https://oderest.rsl.wustl.edu/live2?target=mars&query=product&results=cm&output=XML&pt=RDR&iid=HiRISE&ihid=MRO: text/xml;
-    charset=utf-8
 crawl_cache:
   https://ode.rsl.wustl.edu/: text/html
-  https://ode.rsl.wustl.edu/mars/index.aspx: text/html; charset=utf-8
-  https://ode.rsl.wustl.edu/moon/index.aspx: text/html; charset=utf-8
-  https://ode.rsl.wustl.edu/venus/index.aspx: text/html; charset=utf-8
   https://oderest.rsl.wustl.edu/: text/html
   https://oderest.rsl.wustl.edu/#GDSRESTInterface: text/html
   https://oderest.rsl.wustl.edu/#ODERESTInterface: text/html
+  https://oderest.rsl.wustl.edu/GDSWeb/: text/html
   https://oderest.rsl.wustl.edu/LPSC42_ODE.pdf: application/pdf
   https://oderest.rsl.wustl.edu/LPSC45_ODE_Abstract.pdf: application/pdf
   https://oderest.rsl.wustl.edu/ODE_REST_V2.1.6.pdf: application/pdf
@@ -132,6 +104,9 @@ crawl_cache:
     charset=utf-8
   https://oderest.rsl.wustl.edu/live2?target=mars&query=product&results=cm&output=XML&pt=RDR&iid=HiRISE&ihid=MRO: text/xml;
     charset=utf-8
+  ? https://oderest.rsl.wustl.edu/livegds?query=divinerrdr&results=vsi&maxlat=0.01&minlat=0.0&westernlon=0.0&easternlon=0.01&channel=tffffffff
+  : unknown
+  https://oderest.rsl.wustl.edu/livegds?query=lolardr&results=vsi&maxlat=0.01&minlat=0.0&westernlon=0.0&easternlon=0.01: unknown
 
 ```
 
