@@ -35,9 +35,7 @@ class GenericScript(BaseScript):
             node_name=node_name,
         )
 
-    def run(
-        self,
-    ) -> bool:
+    def run(self) -> bool:
         if not super().run():
             return False
 
