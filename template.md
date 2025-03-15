@@ -11,14 +11,14 @@ graph LR
     assistant_script_list["@assistant script list"]
     assistant_script_run["@assistant script run~~- <script> <object-name>"]
 
-    web_crawl["@web crawl~~- <url-1>+<url-2>+<url-3> <object-name>"]
+    web_crawl["@web crawl~~- <url-1>+<url-2> <object-name>"]
 
     web_fetch["@web fetch~~- <url> <object-name>"]
 
     script["📜 script"]:::folder
     url["🔗 url"]:::folder
-    url2["🔗 url"]:::folder
-    url3["🔗 url"]:::folder
+    url2["🔗 url 2"]:::folder
+    url3["🔗 url 3"]:::folder
     object["📂 object"]:::folder
 
 
@@ -30,7 +30,7 @@ graph LR
 
     url --> web_crawl
     url2 --> web_crawl
-    url3 --> web_crawl
+    web_crawl --> url3
     web_crawl --> object
 
     url --> web_fetch

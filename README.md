@@ -11,14 +11,14 @@ graph LR
     assistant_script_list["@assistant<br>script<br>list"]
     assistant_script_run["@assistant<br>script<br>run -<br>&lt;script&gt;<br>&lt;object-name&gt;"]
 
-    web_crawl["@web<br>crawl -<br>&lt;url-1&gt;+&lt;url-2&gt;+&lt;url-3&gt;<br>&lt;object-name&gt;"]
+    web_crawl["@web<br>crawl -<br>&lt;url-1&gt;+&lt;url-2&gt;<br>&lt;object-name&gt;"]
 
     web_fetch["@web<br>fetch -<br>&lt;url&gt;<br>&lt;object-name&gt;"]
 
     script["📜 script"]:::folder
     url["🔗 url"]:::folder
-    url2["🔗 url"]:::folder
-    url3["🔗 url"]:::folder
+    url2["🔗 url 2"]:::folder
+    url3["🔗 url 3"]:::folder
     object["📂 object"]:::folder
 
 
@@ -30,7 +30,7 @@ graph LR
 
     url --> web_crawl
     url2 --> web_crawl
-    url3 --> web_crawl
+    web_crawl --> url3
     web_crawl --> object
 
     url --> web_fetch
@@ -75,4 +75,4 @@ graph LR
 
 [![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.235.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.235.1`](https://github.com/kamangir/blue-assistant).
+built by 🌀 [`blue_options-4.235.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.236.1`](https://github.com/kamangir/blue-assistant).
