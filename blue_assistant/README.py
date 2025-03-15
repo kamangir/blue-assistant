@@ -8,18 +8,6 @@ from blue_assistant import NAME, VERSION, ICON, REPO_NAME
 items = README.Items(
     [
         {
-            "name": "@hue",
-            "url": "./blue_assistant/script/repository/hue",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
-            "description": '"send a color command to the Hue LED lights in my apartment."',
-        },
-        {
-            "name": "blue-amo",
-            "url": "./blue_assistant/script/repository/blue_amo/README.md",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
-            "description": "Story development and visualization.",
-        },
-        {
             "name": "orbital-data-explorer",
             "url": "./blue_assistant/script/repository/orbital_data_explorer",
             "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
@@ -30,6 +18,18 @@ items = README.Items(
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
             "description": "An AI scripting language.",
             "url": "./blue_assistant/script/",
+        },
+        {
+            "name": "@hue",
+            "url": "./blue_assistant/script/repository/hue",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
+            "description": '"send a color command to the Hue LED lights in my apartment."',
+        },
+        {
+            "name": "blue-amo",
+            "url": "./blue_assistant/script/repository/blue_amo/README.md",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
+            "description": "Story development and visualization.",
         },
     ]
 )
