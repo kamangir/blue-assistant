@@ -1,4 +1,5 @@
 from typing import List
+import cv2
 
 from blue_options.terminal import show_usage, xtra
 
@@ -62,7 +63,7 @@ def help_set(
         f"[--username <{env.HUE_BRIDGE_USERNAME}>]",
         "[--light_id <light_id>]",
         "[--hue <65535>]",
-        "[--saturation <254>]",
+        f"[--saturation <{env.HUE_MAX_SATURATION}>]",
         "[--verbose 1]",
     ]
 
@@ -88,8 +89,8 @@ def help_test(
         f"[--bridge_ip <{env.HUE_BRIDGE_IP_ADDRESS}>]",
         f"[--username <{env.HUE_BRIDGE_USERNAME}>]",
         "[--light_id all | <light_id>]",
-        "[--interval <1>]",
-        "[--hue <65535>]",
+        f"[--interval <{env.HUE_TEST_DEFAULT_INTERVAL:.2f}>]",
+        f"[--colormap <{cv2.COLORMAP_HOT}>]",
         "[--verbose 1]",
     ]
 
@@ -101,6 +102,9 @@ def help_test(
         ]
         + args,
         "test hue.",
+        {
+            "colormap: https://docs.opencv.org/4.x/d3/d50/group__imgproc__colormap.html": [],
+        },
         mono=mono,
     )
 

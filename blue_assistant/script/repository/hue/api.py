@@ -2,11 +2,14 @@ from typing import Tuple, Dict, List
 import requests
 from time import sleep
 from tqdm import tqdm
+import cv2
+import random
 
 from blueness import module
 
 from blue_assistant import NAME
 from blue_assistant import env
+from blue_assistant.script.repository.hue.colors import get_hue_values
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -118,9 +121,9 @@ def set_light_color(
 
 
 def test(
-    hue: int,
+    colormap: int = cv2.COLORMAP_HOT,
     light_id: str = "all",
-    interval: float = 0.1,
+    interval: float = env.HUE_TEST_DEFAULT_INTERVAL,
     bridge_ip: str = env.HUE_BRIDGE_IP_ADDRESS,
     username: str = env.HUE_BRIDGE_USERNAME,
     verbose: bool = False,
@@ -129,12 +132,12 @@ def test(
         light_id = "all"
 
     logger.info(
-        "{}.test({}@{}:{}) @ hue=0x{:x}, interval={} s".format(
+        "{}.test({}@{}:{}) @ colormap #{}, interval={} s".format(
             NAME,
             username,
             bridge_ip,
             light_id,
-            hue,
+            colormap,
             interval,
         )
     )
@@ -152,20 +155,32 @@ def test(
     else:
         list_of_lights = [light_id]
 
-    saturation = 0
-    while True:
-        for light_id_ in tqdm(list_of_lights):
-            set_light_color(
-                light_id=light_id_,
-                hue=hue,
-                saturation=saturation,
-                bridge_ip=bridge_ip,
-                username=username,
-                verbose=verbose,
-            )
+    list_of_hue_values = get_hue_values(
+        colormap=colormap,
+        length=len(list_of_lights),
+    )
+    list_of_hue_values = list_of_hue_values + list_of_hue_values
 
-            sleep(interval)
+    hue_offset: int = 0
+    try:
+        while True:
+            logger.info(f"hue_offset={hue_offset}")
 
-        saturation = 254 - saturation
+            for light_index in tqdm(range(len(list_of_lights))):
+                set_light_color(
+                    light_id=list_of_lights[light_index],
+                    hue=list_of_hue_values[hue_offset + light_index],
+                    saturation=random.randint(1, env.HUE_MAX_SATURATION),
+                    bridge_ip=bridge_ip,
+                    username=username,
+                    verbose=verbose,
+                )
+
+                sleep(interval)
+
+            hue_offset = (hue_offset + 1) % len(list_of_lights)
+
+    except KeyboardInterrupt:
+        logger.info("Ctrl+C detected.")
 
     return True

@@ -1,11 +1,12 @@
 import argparse
+import cv2
 
 from blueness import module
 from blueness.argparse.generic import sys_exit
 
 from blue_assistant import NAME
 from blue_assistant import env
-from blue_assistant.script.repository.hue.functions import (
+from blue_assistant.script.repository.hue.api import (
     create_user,
     list_lights,
     set_light_color,
@@ -47,8 +48,8 @@ parser.add_argument(
 parser.add_argument(
     "--saturation",
     type=int,
-    default=254,
-    help="0 to 254",
+    default=env.HUE_MAX_SATURATION,
+    help=f"0 to {env.HUE_MAX_SATURATION}",
 )
 parser.add_argument(
     "--verbose",
@@ -59,8 +60,14 @@ parser.add_argument(
 parser.add_argument(
     "--interval",
     type=float,
-    default=0.1,
+    default=env.HUE_TEST_DEFAULT_INTERVAL,
     help="in seconds",
+)
+parser.add_argument(
+    "--colormap",
+    type=int,
+    default=cv2.COLORMAP_HOT,
+    help="//docs.opencv.org/4.x/d3/d50/group__imgproc__colormap.html",
 )
 args = parser.parse_args()
 
@@ -92,7 +99,7 @@ elif args.task == "test":
         username=args.username,
         light_id=args.light_id,
         interval=args.interval,
-        hue=args.hue,
+        colormap=args.colormap,
         verbose=args.verbose == 1,
     )
 else:
