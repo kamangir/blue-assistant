@@ -25,6 +25,12 @@ items = README.Items(
             "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
             "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/). 🔥",
         },
+        {
+            "name": "Blue Script",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
+            "description": "An AI scripting language.",
+            "url": "./blue_assistant/script/",
+        },
     ]
 )
 
