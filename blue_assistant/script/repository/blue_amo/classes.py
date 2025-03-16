@@ -44,18 +44,15 @@ class BlueAmoScript(BaseScript):
             )
         )
 
-        holder_node = self.nodes[map_node_name]
+        map_node = self.nodes[map_node_name]
         del self.nodes[map_node_name]
         self.G.remove_node(map_node_name)
 
         reduce_node_name = "stitching_the_frames"
-        self.G.add_node(reduce_node_name)
-        self.nodes[reduce_node_name] = {"action": "stitching_the_frames"}
-
         for index in range(self.vars["frame_count"]):
             node_name = f"generating_frame_{index+1:03d}"
 
-            self.nodes[node_name] = copy.deepcopy(holder_node)
+            self.nodes[node_name] = copy.deepcopy(map_node)
 
             self.G.add_node(node_name)
             self.G.add_edge(

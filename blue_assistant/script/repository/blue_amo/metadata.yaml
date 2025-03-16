@@ -54,3 +54,6 @@ script:
       prompt: >
         :::story_so_far
         Generate an image to demonstrate :::story_of_this_frame
+
+    stitching_the_frames:
+      action: stitching_the_frames
