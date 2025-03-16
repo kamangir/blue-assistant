@@ -7,7 +7,7 @@ from blue_assistant.env import (
     BLUE_ASSISTANT_IMAGE_DEFAULT_SIZE,
     BLUE_ASSISTANT_IMAGE_DEFAULT_QUALITY,
 )
-from blue_assistant.script.repository.base.classes import BaseScript
+from blue_assistant.script.repository.base.root import RootScript
 from blue_assistant.logger import logger
 
 NAME = module.name(__file__, NAME)
@@ -15,7 +15,7 @@ NAME = module.name(__file__, NAME)
 
 # https://platform.openai.com/docs/guides/images
 def generate_image(
-    script: BaseScript,
+    script: RootScript,
     node_name: str,
 ) -> bool:
     logger.info(f"{NAME}: {script} @ {node_name} ...")

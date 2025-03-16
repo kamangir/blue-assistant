@@ -61,7 +61,7 @@ script:
 	[--test_mode 1] \
 	[--verbose 1]
  . run <object-name>.
-   script: generic | blue_amo | hue | orbital_data_explorer
+   script: base | blue_amo | hue | orbital_data_explorer
 ```
 
 ---

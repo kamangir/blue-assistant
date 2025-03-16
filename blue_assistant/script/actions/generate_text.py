@@ -4,7 +4,7 @@ from blueness import module
 from openai_commands.text_generation import api
 
 from blue_assistant import NAME
-from blue_assistant.script.repository.base.classes import BaseScript
+from blue_assistant.script.repository.base.root import RootScript
 from blue_assistant.env import (
     BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
     BLUE_ASSISTANT_TEXT_MAX_TOKENS,
@@ -16,7 +16,7 @@ NAME = module.name(__file__, NAME)
 
 # https://platform.openai.com/docs/guides/text-generation
 def generate_text(
-    script: BaseScript,
+    script: RootScript,
     node_name: str,
 ) -> bool:
     logger.info(f"{NAME}: {script} @ {node_name} ...")

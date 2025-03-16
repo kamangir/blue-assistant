@@ -2,21 +2,24 @@ from typing import Dict, List
 import os
 import networkx as nx
 from functools import reduce
+from tqdm import tqdm
 
 from blueness import module
-from blue_objects import file, objects
+from blue_objects import file, objects, path
 from blue_objects.metadata import post_to_object
 from blueflow.workflow import dot_file
 
 from blue_assistant import NAME
+from blue_assistant.script.repository.base.root import RootScript
+from blue_assistant.script.actions import dict_of_actions
 from blue_assistant.logger import logger
 
 
 NAME = module.name(__file__, NAME)
 
 
-class BaseScript:
-    name = "base"
+class BaseScript(RootScript):
+    name = path.name(file.path(__file__))
 
     def __init__(
         self,
@@ -145,23 +148,68 @@ class BaseScript:
             [node_name],
         )
 
-    def run(
+    def perform_action(
         self,
+        node_name: str,
     ) -> bool:
-        logger.info(
-            "{}.run: {}:{} -> {}".format(
-                NAME,
-                self.__class__.__name__,
-                self.name,
-                self.object_name,
-            )
+        action_name = self.nodes[node_name].get("action", "unknown")
+        logger.info(f"---- node: {node_name} ---- ")
+
+        if action_name not in dict_of_actions:
+            logger.error(f"{action_name}: action not found.")
+            return False
+
+        return dict_of_actions[action_name](
+            script=self,
+            node_name=node_name,
         )
 
-        return post_to_object(
+    def run(self) -> bool:
+        logger.info(f"{self.name}.run -> {self.object_name}")
+
+        success: bool = True
+        while (
+            not all(self.nodes[node].get("completed", False) for node in self.nodes)
+            and success
+        ):
+            for node_name in tqdm(self.nodes):
+                if self.nodes[node_name].get("completed", False):
+                    continue
+
+                if not self.nodes[node_name].get("runnable", True):
+                    logger.info(f"Not runnable, skipped: {node_name}.")
+                    self.nodes[node_name]["completed"] = True
+                    continue
+
+                pending_dependencies = [
+                    node_name_
+                    for node_name_ in self.G.successors(node_name)
+                    if not self.nodes[node_name_].get("completed", False)
+                ]
+                if pending_dependencies:
+                    logger.info(
+                        'node "{}": {} pending dependenci(es): {}'.format(
+                            node_name,
+                            len(pending_dependencies),
+                            ", ".join(pending_dependencies),
+                        )
+                    )
+                    continue
+
+                if not self.perform_action(node_name=node_name):
+                    success = False
+                    break
+
+                self.nodes[node_name]["completed"] = True
+
+        if not post_to_object(
             self.object_name,
-            "script",
-            self.script,
-        )
+            "output",
+            self.metadata,
+        ):
+            success = False
+
+        return success
 
     def save_graph(self) -> bool:
         return dot_file.save_to_file(
