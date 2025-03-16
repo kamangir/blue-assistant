@@ -41,9 +41,9 @@ def web_crawl(
         object_name=script.object_name,
         max_iterations=script.nodes[node_name]["max_iterations"],
         use_cache=use_cache,
+        cache_prefix=node_name,
     )
 
-    script.nodes[node_name]["crawl_cache"] = crawl_cache
-    script.nodes[node_name]["output"] = "TBA"
+    script.nodes[node_name]["output"] = crawl_cache
 
     return True

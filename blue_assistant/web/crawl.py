@@ -20,6 +20,7 @@ def crawl_list_of_urls(
     max_iterations: int = 10,
     use_cache: bool = False,
     verbose: bool = False,
+    cache_prefix: str = "",
 ) -> Dict[str, str]:
     logger.info(
         "{}.crawl_list_of_urls({}): {} -{}> {}".format(
@@ -76,7 +77,10 @@ def crawl_list_of_urls(
             file.save_yaml(
                 filename=objects.path_of(
                     object_name=object_name,
-                    filename="crawl_summary_cache/{}.yaml".format(url_to_filename(url)),
+                    filename="{}-crawl_cache/{}.yaml".format(
+                        cache_prefix,
+                        url_to_filename(url),
+                    ),
                 ),
                 data=url_summary,
             )
