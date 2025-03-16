@@ -32,10 +32,12 @@ script:
 
   nodes:
     generating_the_story:
+      runnable: false
       action: generate_text
       prompt: :::premise
 
     slicing_into_frames:
+      runnable: false
       action: generate_text
       depends-on: generating_the_story
       prompt: |
@@ -45,10 +47,12 @@ script:
         and return the slices separated by ---.
 
     setting_frame_prompts:
+      runnable: false
       action: setting_frame_prompts
       depends-on: slicing_into_frames
 
     generating_the_frames:
+      runnable: false
       action: generate_image
       depends-on: setting_frame_prompts
       prompt: >
@@ -56,4 +60,5 @@ script:
         Generate an image to demonstrate :::story_of_this_frame
 
     stitching_the_frames:
+      runnable: false
       action: stitching_the_frames
