@@ -50,7 +50,7 @@ class BlueAmoScript(BaseScript):
 
         reduce_node_name = "stitching_the_frames"
         self.G.add_node(reduce_node_name)
-        self.nodes[reduce_node_name] = {"action": "generic"}
+        self.nodes[reduce_node_name] = {"action": "stitching_the_frames"}
 
         for index in range(self.vars["frame_count"]):
             node_name = f"generating_frame_{index+1:03d}"
@@ -60,7 +60,7 @@ class BlueAmoScript(BaseScript):
             self.G.add_node(node_name)
             self.G.add_edge(
                 node_name,
-                "slicing_into_frames",
+                "setting_frame_prompts",
             )
             self.G.add_edge(
                 reduce_node_name,

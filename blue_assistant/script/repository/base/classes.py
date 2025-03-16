@@ -114,6 +114,9 @@ class BaseScript(RootScript):
         for var_name, var_value in self.vars.items():
             text = text.replace(f":::{var_name}", str(var_value))
 
+        for node_name, node in self.nodes.items():
+            text = text.replace(f":::{node_name}", node.get("output", ""))
+
         return text
 
     def generate_graph(

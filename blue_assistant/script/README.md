@@ -33,6 +33,7 @@ script:
 
         story:
             action: generate_text
+            use_context: false
             depends-on: research
             prompt: >
                 :::context

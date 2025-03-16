@@ -21,8 +21,12 @@ def generate_text(
 ) -> bool:
     logger.info(f"{NAME}: @ {node_name} ...")
 
+    list_of_context_nodes = [node_name]
+    if script.nodes[node_name].get("use_context", False):
+        logger.info("📜 using context.")
+        list_of_context_nodes = script.get_context(node_name)
+
     messages: List = []
-    list_of_context_nodes = script.get_context(node_name)
     logger.info("node context: {}".format(" <- ".join(list_of_context_nodes)))
     for context_node in reversed(list_of_context_nodes):
         messages += [
