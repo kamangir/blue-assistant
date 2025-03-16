@@ -36,7 +36,7 @@ def web_crawl(
     seed_urls = script.vars[seed_url_var_name]
     log_list(logger, "using", seed_urls, "seed url(s)")
 
-    crawl_cache = crawl_list_of_urls(
+    crawl_list_of_urls(
         seed_urls=seed_urls,
         object_name=script.object_name,
         max_iterations=script.nodes[node_name]["max_iterations"],
