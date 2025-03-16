@@ -88,9 +88,9 @@ class BaseScript(RootScript):
         )
 
         logger.info(
-            "loaded {} var(s){}".format(
+            "loaded {} var(s): {}".format(
                 len(self.vars),
-                "" if verbose else ": {}".format(", ".join(self.vars.keys())),
+                ", ".join(self.vars.keys()),
             )
         )
         if verbose:
@@ -113,7 +113,10 @@ class BaseScript(RootScript):
 
         return text
 
-    def generate_graph(self) -> bool:
+    def generate_graph(
+        self,
+        verbose: bool = False,
+    ) -> bool:
         self.G: nx.DiGraph = nx.DiGraph()
 
         list_of_nodes = list(self.nodes.keys())
@@ -121,12 +124,13 @@ class BaseScript(RootScript):
             list_of_nodes += node.get("depends-on", "").split(",")
 
         list_of_nodes = list({node_name for node_name in list_of_nodes if node_name})
-        logger.info(
-            "{} node(s): {}".format(
-                len(list_of_nodes),
-                ", ".join(list_of_nodes),
+        if verbose:
+            logger.info(
+                "{} node(s): {}".format(
+                    len(list_of_nodes),
+                    ", ".join(list_of_nodes),
+                )
             )
-        )
 
         for node_name in list_of_nodes:
             self.G.add_node(node_name)
