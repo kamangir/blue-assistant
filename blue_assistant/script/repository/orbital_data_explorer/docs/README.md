@@ -5,7 +5,7 @@ Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
 ```yaml
 script:
   vars:
-    collection_seeds:
+    crawl_seeds:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
       - https://pds-geosciences.wustl.edu/dataserv/default.htm
@@ -23,13 +23,19 @@ script:
       Summarize the following information in the context of this objective.
 
   nodes:
-    collection:
-      runnable: true
+    web_crawl:
       action: web_crawl
       max_iterations: 100
-      seed_urls: :::collection_seeds
+      seed_urls: :::crawl_seeds
       test_mode:
         max_iterations: 1
+
+    expanding_the_extractions:
+      action: expanding_the_extractions
+      max_nodes: 100
+      test_mode:
+        max_iterations: 1
+      depends-on: web_crawl
 
     extraction:
       runnable: false
@@ -37,7 +43,7 @@ script:
       prompt: >
         :::context_prompt
         :::extraction_prompt
-      depends-on: collection
+      depends-on: expanding_the_extractions
 
     generating_summary:
       runnable: false
