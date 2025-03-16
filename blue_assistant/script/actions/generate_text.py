@@ -19,7 +19,7 @@ def generate_text(
     script: RootScript,
     node_name: str,
 ) -> bool:
-    logger.info(f"{NAME}: {script} @ {node_name} ...")
+    logger.info(f"{NAME}: @ {node_name} ...")
 
     messages: List = []
     list_of_context_nodes = script.get_context(node_name)

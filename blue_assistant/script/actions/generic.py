@@ -11,5 +11,5 @@ def generic_action(
     script: RootScript,
     node_name: str,
 ) -> bool:
-    logger.info(f"{NAME}: {script} @ {node_name} ...")
+    logger.info(f"{NAME}: @ {node_name} ...")
     return True

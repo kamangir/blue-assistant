@@ -18,7 +18,7 @@ def generate_image(
     script: RootScript,
     node_name: str,
 ) -> bool:
-    logger.info(f"{NAME}: {script} @ {node_name} ...")
+    logger.info(f"{NAME}: @ {node_name} ...")
 
     filename = f"{node_name}.png"
 

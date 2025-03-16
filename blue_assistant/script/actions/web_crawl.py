@@ -15,7 +15,7 @@ def web_crawl(
     script: RootScript,
     node_name: str,
 ) -> bool:
-    logger.info(f"{NAME}: {script} @ {node_name} ...")
+    logger.info(f"{NAME}: @ {node_name} ...")
 
     seed_url_var_name = script.nodes[node_name].get("seed_urls", "")
     if not isinstance(seed_url_var_name, str):

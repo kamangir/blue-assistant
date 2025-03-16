@@ -2,6 +2,7 @@ script:
   vars:
     set_light_color_prompt: |
       Complete this Python function to send a color command to a Hue light.
+
     set_light_color_signature: |
       def set_light_color(
           bridge_ip: str,
@@ -25,34 +26,33 @@ script:
           ...
 
           return True
+
     bridge_ip_prompt: |
       Generate instructions for finding my Hue bridge IP address.
+
     create_user_prompt: |
       Write Python code to create a developer username on my Philips Hue Bridge.
+
     list_lights_prompt: |
       Write Python code to list the lights available on my Philips Hue Bridge.
 
   nodes:
     generating_set_light_color:
-      completed: true
       action: generate_text
       prompt: >
         :::set_light_color_prompt
         :::set_light_color_signature
 
     acquiring_bridge_ip:
-      completed: true
       action: generate_text
       prompt: :::bridge_ip_prompt
 
     generating_create_user:
-      completed: true
       action: generate_text
       prompt: :::create_user_prompt
       depends-on: acquiring_bridge_ip
 
     list_lights:
-      completed: true
       action: generate_text
       prompt: :::list_lights_prompt
       depends-on: generating_create_user
