@@ -20,6 +20,8 @@ class RootScript:
         test_mode: bool = False,
         verbose: bool = False,
     ):
+        self.nodes_changed = False
+
         self.object_name = object_name
 
         self.test_mode = test_mode
@@ -174,6 +176,8 @@ class RootScript:
             not all(self.nodes[node].get("completed", False) for node in self.nodes)
             and success
         ):
+            self.nodes_changed = False
+
             for node_name in tqdm(self.nodes):
                 if self.nodes[node_name].get("completed", False):
                     continue
@@ -203,6 +207,10 @@ class RootScript:
                     break
 
                 self.nodes[node_name]["completed"] = True
+
+                if self.nodes_changed:
+                    logger.info("🪄  nodes changed.")
+                    break
 
         if not post_to_object(
             self.object_name,
