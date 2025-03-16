@@ -40,26 +40,18 @@ parser.add_argument(
     "--object_name",
     type=str,
 )
-parser.add_argument(
-    "--use_cache",
-    type=int,
-    default=0,
-    help="0 | 1",
-)
 args = parser.parse_args()
 
 success = False
 if args.task == "crawl":
-    success = True
-    dict_of_urls = crawl_list_of_urls(
+    success, crawl_cache = crawl_list_of_urls(
         seed_urls=args.seed_urls.split("+"),
         object_name=args.object_name,
         max_iterations=args.max_iterations,
-        use_cache=args.use_cache == 1,
     )
 
     if args.verbose == 1:
-        log_dict(logger, "crawled", dict_of_urls, "url(s)")
+        log_dict(logger, "crawled", crawl_cache, "url(s)")
 elif args.task == "fetch":
     summary = fetch_links_and_text(
         url=args.url,

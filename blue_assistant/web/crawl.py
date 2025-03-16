@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List, Dict, Tuple
 
 from blueness import module
 from blue_options.logger import log_dict, log_list
@@ -18,38 +18,36 @@ def crawl_list_of_urls(
     seed_urls: List[str],
     object_name: str,
     max_iterations: int = 10,
-    use_cache: bool = False,
     verbose: bool = False,
     cache_prefix: str = "",
-) -> Dict[str, str]:
+) -> Tuple[bool, Dict[str, str]]:
     logger.info(
-        "{}.crawl_list_of_urls({}): {} -{}> {}".format(
+        "{}.crawl_list_of_urls({}): {} -> {}".format(
             NAME,
             len(seed_urls),
             ", ".join(seed_urls),
-            "use-cache-" if use_cache else "",
             object_name,
         )
     )
 
-    crawl_cache: Dict[str, str] = {}
-    queue: List[str] = [url for url in seed_urls]
-
-    if use_cache:
-        crawl_cache = get_from_object(
-            object_name,
-            "crawl_cache",
-            {},
+    queue: List[str] = list(
+        set(
+            seed_urls
+            + get_from_object(
+                object_name,
+                f"{cache_prefix}_crawl_queue",
+                [],
+            )
         )
-        log_dict(logger, "loaded cache:", crawl_cache, "url(s)")
-
-        queue += get_from_object(
-            object_name,
-            "crawl_queue",
-            [],
-        )
-
+    )
     log_list(logger, "queue:", queue, "url(s)")
+
+    crawl_cache: Dict[str, str] = get_from_object(
+        object_name,
+        f"{cache_prefix}_crawl_cache",
+        {},
+    )
+    log_dict(logger, "loaded cache:", crawl_cache, "url(s)")
 
     iteration: int = 0
     while queue:
@@ -73,17 +71,18 @@ def crawl_list_of_urls(
         )
         content_type = url_summary.get("content_type", "unknown")
 
-        if use_cache and "html" in content_type:
-            file.save_yaml(
+        if "html" in content_type:
+            if not file.save_yaml(
                 filename=objects.path_of(
                     object_name=object_name,
-                    filename="{}-crawl_cache/{}.yaml".format(
+                    filename="{}_crawl_cache/{}.yaml".format(
                         cache_prefix,
                         url_to_filename(url),
                     ),
                 ),
                 data=url_summary,
-            )
+            ):
+                return False, {}
 
         crawl_cache[url] = content_type
 
@@ -106,20 +105,21 @@ def crawl_list_of_urls(
     if queue:
         logger.warning(f"queue: {len(queue)}")
 
-    if use_cache:
+    if not (
         post_to_object(
             object_name,
-            "crawl_cache",
+            f"{cache_prefix}_crawl_cache",
             crawl_cache,
         )
-
-        post_to_object(
+        and post_to_object(
             object_name,
-            "crawl_queue",
+            f"{cache_prefix}_crawl_queue",
             queue,
         )
+    ):
+        return False, {}
 
     log_dict(logger, "crawled", crawl_cache, "url(s)")
     log_list(logger, "queue:", queue, "url(s)")
 
-    return crawl_cache
+    return True, crawl_cache

@@ -26,11 +26,12 @@ def test_web_crawl(
 ):
     object_name = objects.unique_object("test_web_crawl")
 
-    output = crawl_list_of_urls(
+    success, crawl_cache = crawl_list_of_urls(
         seed_urls=seed_urls,
         object_name=object_name,
         max_iterations=max_iterations,
     )
 
-    assert isinstance(output, dict)
-    assert len(output)
+    assert success
+    assert isinstance(crawl_cache, dict)
+    assert len(crawl_cache)

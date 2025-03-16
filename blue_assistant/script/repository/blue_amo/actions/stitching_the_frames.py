@@ -18,7 +18,6 @@ NAME = module.name(__file__, NAME)
 def stitching_the_frames(
     script: BaseScript,
     node_name: str,
-    use_cache: bool,
 ) -> bool:
     list_of_frames_filenames: List[str] = [
         filename
