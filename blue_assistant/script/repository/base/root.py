@@ -221,6 +221,18 @@ class RootScript:
 
                 self.nodes[node_name]["completed"] = True
 
+                cache_filename = self.nodes[node_name].get("cache", "")
+                if cache_filename:
+                    if not file.save_text(
+                        objects.path_of(
+                            object_name=self.object_name,
+                            filename=cache_filename,
+                        ),
+                        [self.nodes[node_name].get("output", "")],
+                    ):
+                        success = False
+                        break
+
                 if self.nodes_changed:
                     logger.info("🪄  nodes changed.")
                     break

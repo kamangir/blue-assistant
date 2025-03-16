@@ -33,12 +33,11 @@ script:
       depends-on: web_crawl
 
     extraction:
-      runnable: false
       action: generate_text
       prompt: >
         :::context_prompt
         :::extraction_prompt
-        :::page_content
+        :::url_content
       depends-on: expanding_the_extractions
 
     generating_summary:
