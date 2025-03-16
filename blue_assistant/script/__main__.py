@@ -48,6 +48,13 @@ parser.add_argument(
     default=1,
     help="0 | 1",
 )
+parser.add_argument(
+    "--runnable",
+    type=str,
+    default="",
+    help="~node_1,~node_2",
+)
+
 args = parser.parse_args()
 
 delim = " " if args.delim == "space" else args.delim
@@ -70,7 +77,9 @@ elif args.task == "run":
     )
 
     if success:
-        success = script.run()
+        success = script.run(
+            runnable=args.runnable,
+        )
 else:
     success = None
 

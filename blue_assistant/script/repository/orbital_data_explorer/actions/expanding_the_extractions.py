@@ -1,6 +1,9 @@
 import copy
+from typing import Dict
 
 from blueness import module
+from blue_options.logger import log_dict
+from blue_objects.metadata import get_from_object
 
 from blue_assistant import NAME
 from blue_assistant.script.repository.base.classes import BaseScript
@@ -22,6 +25,17 @@ def expanding_the_extractions(
             max_nodes,
         )
     )
+
+    # import ipdb
+
+    # ipdb.set_trace()
+
+    crawl_cache: Dict[str, str] = get_from_object(
+        script.object_name,
+        "web_crawl_cache",
+        {},
+    )
+    log_dict(logger, "using", crawl_cache, "url(s)")
 
     map_node = script.nodes[map_node_name]
     del script.nodes[map_node_name]

@@ -23,7 +23,7 @@ script:
       max_iterations: 100
       seed_urls: :::crawl_seeds
       test_mode:
-        max_iterations: 5
+        max_iterations: 2
 
     expanding_the_extractions:
       action: expanding_the_extractions

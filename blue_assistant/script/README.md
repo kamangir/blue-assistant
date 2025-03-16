@@ -60,7 +60,8 @@ script:
 	[script=<script>] \
 	[-|<object-name>] \
 	[--test_mode 1] \
-	[--verbose 1]
+	[--verbose 1] \
+	[--runnable <~node_1,~node_2>]
  . run <object-name>.
    script: base | blue_amo | hue | orbital_data_explorer
 ```

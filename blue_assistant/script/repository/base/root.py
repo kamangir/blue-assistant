@@ -4,6 +4,7 @@ from functools import reduce
 import networkx as nx
 from tqdm import tqdm
 
+from blue_options.options import Options
 from blue_objects import file, path, objects
 from blue_objects.metadata import post_to_object
 from blueflow.workflow import dot_file
@@ -170,8 +171,23 @@ class RootScript:
         logger.error(f"{action_name}: action not found.")
         return False
 
-    def run(self) -> bool:
+    def run(
+        self,
+        runnable: str = "",
+    ) -> bool:
         logger.info(f"{self.name}.run -> {self.object_name}")
+
+        if runnable:
+            logger.info(f"applying runnables: {runnable}")
+            runnable_options = Options(runnable)
+            for node_name, node_is_runnable in runnable_options.items():
+                logger.info(
+                    "{} is{} runnable.".format(
+                        node_name,
+                        "" if node_is_runnable else " not",
+                    )
+                )
+                self.nodes[node_name]["runnable"] = node_is_runnable
 
         success: bool = True
         while (

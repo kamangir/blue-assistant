@@ -37,6 +37,7 @@ def help_run(
     args = [
         "[--test_mode 1]",
         "[--verbose 1]",
+        "[--runnable <~node_1,~node_2>]",
     ]
 
     return show_usage(
