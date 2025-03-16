@@ -49,6 +49,9 @@ def fetch_links_and_text(
         for a_tag in soup.find_all("a", href=True):
             a_url = urljoin(url, a_tag["href"])
 
+            if "#" in a_url:
+                a_url = a_url.split("#", 1)[0]
+
             if a_url.startswith(url):
                 if url not in list_of_urls:
                     logger.info(f"+= {a_url}")
