@@ -7,7 +7,7 @@ function blue_assistant_script_run() {
     local do_upload=$(abcli_option_int "$options" upload $(abcli_not $do_dryrun))
 
     local script_options=$2
-    local script_name=$(abcli_option "$script_options" script generic)
+    local script_name=$(abcli_option "$script_options" script base)
 
     local object_name=$(abcli_clarify_object $3 $script_name-$(abcli_string_timestamp_short))
     [[ "$do_download" == 1 ]] &&

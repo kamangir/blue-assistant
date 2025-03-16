@@ -2,14 +2,14 @@ from blue_assistant.script.repository import (
     list_of_script_classes,
     list_of_script_names,
 )
-from blue_assistant.script.repository.generic.classes import GenericScript
+from blue_assistant.script.repository.base.classes import BaseScript
 
 
 def test_script_list_of_script_classes():
     assert list_of_script_classes
 
     for script_class in list_of_script_classes:
-        assert issubclass(script_class, GenericScript)
+        assert issubclass(script_class, BaseScript)
 
 
 def test_script_list_of_script_names():

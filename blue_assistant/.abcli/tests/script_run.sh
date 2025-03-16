@@ -18,9 +18,9 @@ function test_blue_assistant_script_run() {
             ~upload,$options \
             script=$script_name \
             $object_name \
-            "${@:2}" \
             --test_mode 1 \
-            --verbose 1
+            --verbose 1 \
+            "${@:2}"
 
         [[ $? -ne 0 ]] && return 1
 

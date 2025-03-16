@@ -31,3 +31,7 @@ object:::get:::object_name
 ---
 
 assets:::blue-amo-2025-02-04-nwb6nc/stitching_the_frames-2.png
+
+assets:::test_blue_assistant_script_run-2025-03-15-06pbpf/stitching_the_frames-2.png
+
+assets:::test_blue_assistant_script_run-2025-03-15-qe3c7o/stitching_the_frames-2.png

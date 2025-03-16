@@ -27,24 +27,33 @@ script:
 
     frame_count: 12
 
+  test_mode:
+    frame_count: 2
+
   nodes:
     generating_the_story:
       action: generate_text
       prompt: :::premise
-      completed: true
 
     slicing_into_frames:
       action: generate_text
       depends-on: generating_the_story
       prompt: |
+        :::generating_the_story
+
         Slice this story into :::frame_count pieces, each appropriate for generating an image from,
         and return the slices separated by ---.
-      completed: true
+
+    setting_frame_prompts:
+      action: setting_frame_prompts
+      depends-on: slicing_into_frames
 
     generating_the_frames:
       action: generate_image
-      depends-on: slicing_into_frames
+      depends-on: setting_frame_prompts
       prompt: >
-        :::story
-        Generate an image to demonstrate :::input
-      completed: true
+        :::story_so_far
+        Generate an image to demonstrate :::story_of_this_frame
+
+    stitching_the_frames:
+      action: stitching_the_frames

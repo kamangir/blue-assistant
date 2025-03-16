@@ -4,7 +4,7 @@ from blueness import module
 from openai_commands.text_generation import api
 
 from blue_assistant import NAME
-from blue_assistant.script.repository.base.classes import BaseScript
+from blue_assistant.script.repository.base.root import RootScript
 from blue_assistant.env import (
     BLUE_ASSISTANT_TEXT_DEFAULT_MODEL,
     BLUE_ASSISTANT_TEXT_MAX_TOKENS,
@@ -16,13 +16,17 @@ NAME = module.name(__file__, NAME)
 
 # https://platform.openai.com/docs/guides/text-generation
 def generate_text(
-    script: BaseScript,
+    script: RootScript,
     node_name: str,
 ) -> bool:
-    logger.info(f"{NAME}: {script} @ {node_name} ...")
+    logger.info(f"{NAME}: @ {node_name} ...")
+
+    list_of_context_nodes = [node_name]
+    if script.nodes[node_name].get("use_context", False):
+        logger.info("📜 using context.")
+        list_of_context_nodes = script.get_context(node_name)
 
     messages: List = []
-    list_of_context_nodes = script.get_context(node_name)
     logger.info("node context: {}".format(" <- ".join(list_of_context_nodes)))
     for context_node in reversed(list_of_context_nodes):
         messages += [

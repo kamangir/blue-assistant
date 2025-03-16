@@ -4,7 +4,7 @@ from blue_options.logger import log_list
 
 from blue_assistant import NAME
 from blue_assistant.web.crawl import crawl_list_of_urls
-from blue_assistant.script.repository.base.classes import BaseScript
+from blue_assistant.script.repository.base.root import RootScript
 from blue_assistant.logger import logger
 
 
@@ -12,10 +12,10 @@ NAME = module.name(__file__, NAME)
 
 
 def web_crawl(
-    script: BaseScript,
+    script: RootScript,
     node_name: str,
 ) -> bool:
-    logger.info(f"{NAME}: {script} @ {node_name} ...")
+    logger.info(f"{NAME}: @ {node_name} ...")
 
     seed_url_var_name = script.nodes[node_name].get("seed_urls", "")
     if not isinstance(seed_url_var_name, str):
