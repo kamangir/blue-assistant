@@ -44,6 +44,6 @@ def web_crawl(
         cache_prefix=node_name,
     )
 
-    script.nodes[node_name]["output"] = crawl_cache
+    script.nodes[node_name]["output"] = True
 
     return True
