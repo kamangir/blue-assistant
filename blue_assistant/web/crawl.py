@@ -56,8 +56,10 @@ def crawl_list_of_urls(
         queue = queue[1:]
 
         logger.info(
-            "{} {} ...".format(
+            "{} [#{:,}/{:,}]: {} ".format(
                 "✅ " if url in crawl_cache else "🔗 ",
+                iteration,
+                len(queue),
                 url,
             )
         )
@@ -80,17 +82,17 @@ def crawl_list_of_urls(
             )
 
         crawl_cache[url] = content_type
-        if "list_of_urls" in url_summary:
-            queue = list(
-                set(
-                    queue
-                    + [
-                        url
-                        for url in url_summary["list_of_urls"]
-                        if url not in crawl_cache.keys()
-                    ]
-                )
-            )
+
+        queue = (
+            queue
+            + url_summary.get("list_of_urls", [])
+            + [
+                url
+                for url in url_summary.get("list_of_ignored_urls", [])
+                if any(url.startswith(url_prefix) for url_prefix in seed_urls)
+            ]
+        )
+        queue = list(set([url for url in queue if url not in crawl_cache.keys()]))
 
         iteration += 1
         if max_iterations != -1 and iteration >= max_iterations:

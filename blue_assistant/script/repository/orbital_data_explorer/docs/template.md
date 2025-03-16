@@ -2,14 +2,10 @@
 
 Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
 
-🔥
-
 ```yaml
 include:::noref ../metadata.yaml
 ```
 [metadata.yaml](../metadata.yaml)
-
-🔥
 
 ```bash
 @select orbital-data-explorer-$(@@timestamp)
@@ -20,7 +16,7 @@ include:::noref ../metadata.yaml
 @publish tar .
 ```
 
-set:::object_name orbital-data-explorer-2025-03-15-sxjbbf
+set:::object_name orbital-data-explorer-2025-03-15-urf78l
 
 details:::metadata
 metadata:::get:::object_name
