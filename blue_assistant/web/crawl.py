@@ -105,14 +105,17 @@ def crawl_list_of_urls(
     if queue:
         logger.warning(f"queue: {len(queue)}")
 
-    if not post_to_object(
-        object_name,
-        f"{cache_prefix}_crawl_cache",
-        crawl_cache,
-    ) or post_to_object(
-        object_name,
-        f"{cache_prefix}_crawl_queue",
-        queue,
+    if not (
+        post_to_object(
+            object_name,
+            f"{cache_prefix}_crawl_cache",
+            crawl_cache,
+        )
+        and post_to_object(
+            object_name,
+            f"{cache_prefix}_crawl_queue",
+            queue,
+        )
     ):
         return False, {}
 
