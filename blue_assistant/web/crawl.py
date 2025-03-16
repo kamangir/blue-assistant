@@ -35,7 +35,7 @@ def crawl_list_of_urls(
             seed_urls
             + get_from_object(
                 object_name,
-                f"{cache_prefix}_crawl_queue",
+                f"{cache_prefix}_queue",
                 [],
             )
         )
@@ -44,7 +44,7 @@ def crawl_list_of_urls(
 
     crawl_cache: Dict[str, str] = get_from_object(
         object_name,
-        f"{cache_prefix}_crawl_cache",
+        f"{cache_prefix}_cache",
         {},
     )
     log_dict(logger, "loaded cache:", crawl_cache, "url(s)")
@@ -75,7 +75,7 @@ def crawl_list_of_urls(
             if not file.save_yaml(
                 filename=objects.path_of(
                     object_name=object_name,
-                    filename="{}_crawl_cache/{}.yaml".format(
+                    filename="{}_cache/{}.yaml".format(
                         cache_prefix,
                         url_to_filename(url),
                     ),
@@ -108,12 +108,12 @@ def crawl_list_of_urls(
     if not (
         post_to_object(
             object_name,
-            f"{cache_prefix}_crawl_cache",
+            f"{cache_prefix}_cache",
             crawl_cache,
         )
         and post_to_object(
             object_name,
-            f"{cache_prefix}_crawl_queue",
+            f"{cache_prefix}_queue",
             queue,
         )
     ):
