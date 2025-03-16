@@ -1,43 +1,48 @@
 script:
   vars:
-    context_prompt: |
-      Our objective is to access the Orbital Data Explorer, ODE for short, using STAC 
-      terminology. For this purpose, we consider ODE as a catalog and each separate dataset 
-      in ODE as a collection that contains items. We call these items objects or datacubes.
-
-    research_prompt: |
-      Read the following text and extract information relevant to this objective.
-
-    research_seed_urls:
+    collection_seeds:
       - https://ode.rsl.wustl.edu/
       - https://oderest.rsl.wustl.edu/
       - https://pds-geosciences.wustl.edu/dataserv/default.htm
       - https://github.com/samiriff/mars-ode-data-access
 
+    context_prompt: |
+      Our objective is to access the Orbital Data Explorer, ODE for short, using STAC 
+      terminology. For this purpose, we consider ODE as a catalog and each separate dataset 
+      in ODE as a collection that contains items. We call these items objects or datacubes.
+
+    extraction_prompt: |
+      Extract the information relevant to this objective from the following text.
+
     summarize_prompt: |
-      Summarize the following.
+      Summarize the following information in the context of this objective.
 
   nodes:
-    researching_the_questions:
+    collection:
       runnable: true
       action: web_crawl
-      prompt: >
-        :::context_prompt
-        :::research_prompt
       max_iterations: 100
-      seed_urls: :::research_seed_urls
+      seed_urls: :::collection_seeds
       test_mode:
         max_iterations: 1
 
-    summarize_research:
+    extraction:
+      runnable: false
+      action: generate_text
+      prompt: >
+        :::context_prompt
+        :::extraction_prompt
+      depends-on: collection
+
+    generating_summary:
       runnable: false
       action: generate_text
       prompt: >
         :::context_prompt
         :::summarize_prompt
-      depends-on: researching_the_questions
+      depends-on: extraction
 
     writing_code:
       runnable: false
       action: generate_text
-      depends-on: summarize_research
+      depends-on: generating_summary

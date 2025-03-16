@@ -16,7 +16,7 @@ include:::noref ../metadata.yaml
 @publish tar .
 ```
 
-set:::object_name orbital-data-explorer-2025-03-15-e7lbc9
+set:::object_name orbital-data-explorer-2025-03-15-uawmml
 
 details:::metadata
 metadata:::get:::object_name
