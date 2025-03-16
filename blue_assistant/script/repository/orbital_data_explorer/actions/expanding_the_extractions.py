@@ -2,7 +2,7 @@ import copy
 from typing import Dict
 
 from blueness import module
-from blue_options.logger import log_dict
+from blue_options.logger import log_dict, log_list
 from blue_objects.metadata import get_from_object
 
 from blue_assistant import NAME
@@ -26,16 +26,21 @@ def expanding_the_extractions(
         )
     )
 
-    # import ipdb
-
-    # ipdb.set_trace()
-
     crawl_cache: Dict[str, str] = get_from_object(
         script.object_name,
         "web_crawl_cache",
         {},
     )
-    log_dict(logger, "using", crawl_cache, "url(s)")
+    log_dict(logger, "using", crawl_cache, "crawled url(s)")
+
+    list_of_urls = [
+        url for url, content_type in crawl_cache.items() if "html" in content_type
+    ]
+    log_list(logger, "using", list_of_urls, "crawled html(s)")
+
+    # import ipdb
+
+    # ipdb.set_trace()
 
     map_node = script.nodes[map_node_name]
     del script.nodes[map_node_name]

@@ -181,12 +181,7 @@ class RootScript:
             logger.info(f"applying runnables: {runnable}")
             runnable_options = Options(runnable)
             for node_name, node_is_runnable in runnable_options.items():
-                logger.info(
-                    "{} is{} runnable.".format(
-                        node_name,
-                        "" if node_is_runnable else " not",
-                    )
-                )
+                logger.info(f"{node_name}.runnable={node_is_runnable}")
                 self.nodes[node_name]["runnable"] = node_is_runnable
 
         success: bool = True
