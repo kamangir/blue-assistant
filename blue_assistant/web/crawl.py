@@ -92,7 +92,7 @@ def crawl_list_of_urls(
                 if any(url.startswith(url_prefix) for url_prefix in seed_urls)
             ]
         )
-        queue = list(set([url for url in queue if url not in crawl_cache.keys()]))
+        queue = list({url for url in queue if url not in crawl_cache.keys()})
 
         iteration += 1
         if max_iterations != -1 and iteration >= max_iterations:
