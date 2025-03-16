@@ -27,6 +27,9 @@ script:
 
     frame_count: 12
 
+  test_mode:
+    frame_count: 2
+
   nodes:
     generating_the_story:
       action: generate_text

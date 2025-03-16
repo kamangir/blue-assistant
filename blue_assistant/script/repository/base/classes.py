@@ -1,8 +1,9 @@
-from typing import Dict, List
+from typing import Dict, List, Callable
 import os
 import networkx as nx
 from functools import reduce
 from tqdm import tqdm
+import copy
 
 from blueness import module
 from blue_objects import file, objects, path
@@ -32,6 +33,8 @@ class BaseScript(RootScript):
         self.test_mode = test_mode
 
         self.verbose = verbose
+
+        self.dict_of_actions = copy.deepcopy(dict_of_actions)
 
         metadata_filename = os.path.join(
             file.path(__file__),
@@ -69,12 +72,12 @@ class BaseScript(RootScript):
         if self.test_mode:
             logger.info("🧪  test mode is on.")
 
-            for node_name, node in self.nodes.items():
-                if "test_mode" in self.script:
-                    updates = self.script["test_mode"]
-                    logger.info(f"🧪  vars.update({updates})")
-                    self.vars.update(updates)
+            if "test_mode" in self.script:
+                updates = self.script["test_mode"]
+                logger.info(f"🧪  vars.update({updates})")
+                self.vars.update(updates)
 
+            for node_name, node in self.nodes.items():
                 if "test_mode" in node:
                     updates = node["test_mode"]
                     logger.info(f"🧪  {node_name}.update({updates})")
@@ -159,14 +162,14 @@ class BaseScript(RootScript):
         action_name = self.nodes[node_name].get("action", "unknown")
         logger.info(f"---- node: {node_name} ---- ")
 
-        if action_name not in dict_of_actions:
-            logger.error(f"{action_name}: action not found.")
-            return False
+        if action_name in self.dict_of_actions:
+            return self.dict_of_actions[action_name](
+                script=self,
+                node_name=node_name,
+            )
 
-        return dict_of_actions[action_name](
-            script=self,
-            node_name=node_name,
-        )
+        logger.error(f"{action_name}: action not found.")
+        return False
 
     def run(self) -> bool:
         logger.info(f"{self.name}.run -> {self.object_name}")
