@@ -19,7 +19,7 @@ include:::noref ../metadata.yaml
 set:::object_name orbital-data-explorer-2025-03-16-bj8ghf
 
 details:::metadata
-metadata:::get:::object_name
+metadata:::get:::object_name:::output
 details:::
 
 object:::get:::object_name

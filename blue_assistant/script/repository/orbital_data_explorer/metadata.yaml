@@ -23,21 +23,21 @@ script:
       max_iterations: 100
       seed_urls: :::crawl_seeds
       test_mode:
-        max_iterations: 2
+        max_iterations: 5
 
     expanding_the_extractions:
       action: expanding_the_extractions
       max_nodes: 100
       test_mode:
-        max_nodes: 2
+        max_nodes: 5
       depends-on: web_crawl
 
     extraction:
-      runnable: false
       action: generate_text
       prompt: >
         :::context_prompt
         :::extraction_prompt
+        :::page_content
       depends-on: expanding_the_extractions
 
     generating_summary:

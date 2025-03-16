@@ -33,6 +33,11 @@ def expanding_the_extractions(
 
         script.nodes[index_node_name] = copy.deepcopy(map_node)
 
+        script.nodes[index_node_name]["prompt"] = map_node["prompt"].replace(
+            ":::page_content",
+            "wip",
+        )
+
         script.G.add_node(index_node_name)
         script.G.add_edge(
             index_node_name,
