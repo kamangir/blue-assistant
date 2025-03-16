@@ -68,12 +68,14 @@ script:
     script=orbital_data_explorer .
 
 @publish tar .
+
+@assets publish extensions=png,push .
 ```
 
 
 
 <details>
-<summary>metadata</summary>
+<summary>output</summary>
 
 ```yaml
 script:
@@ -674,6 +676,8 @@ script:
 
 </details>
 
+
+![image](https://github.com/kamangir/assets/blob/main/orbital-data-explorer-2025-03-16-bj8ghf/thumbnail-workflow.png?raw=true)
 
 [orbital-data-explorer-2025-03-16-bj8ghf](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-bj8ghf.tar.gz)
 
