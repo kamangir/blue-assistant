@@ -109,7 +109,9 @@ class RootScript:
             text = text.replace(f":::{var_name}", str(var_value))
 
         for node_name, node in self.nodes.items():
-            text = text.replace(f":::{node_name}", node.get("output", ""))
+            node_output = node.get("output", "")
+            if isinstance(node_output, str):
+                text = text.replace(f":::{node_name}", node_output)
 
         return text
 
