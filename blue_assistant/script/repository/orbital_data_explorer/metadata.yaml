@@ -24,7 +24,7 @@ script:
       prompt: >
         :::context_prompt
         :::research_prompt
-      max_iterations: 20
+      max_iterations: 100
       seed_urls: :::research_seed_urls
       test_mode:
         max_iterations: 1

@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Dict, Any, List
 import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 from urllib.parse import urljoin
@@ -33,7 +33,8 @@ def fetch_links_and_text(
     content_type = response.headers.get("Content-Type", "")
     logger.info(f"content-type: {content_type}")
 
-    links = set()
+    list_of_urls: List[str] = []
+    list_of_ignored_urls: List[str] = []
     text = ""
 
     if not any(
@@ -49,11 +50,15 @@ def fetch_links_and_text(
             a_url = urljoin(url, a_tag["href"])
 
             if a_url.startswith(url):
-                logger.info(f"+= {a_url}")
-                links.add(a_url)
+                if url not in list_of_urls:
+                    logger.info(f"+= {a_url}")
+                    list_of_urls += [a_url]
                 continue
 
-            logger.info(f"ignored: {a_url}")
+            if a_url not in list_of_ignored_urls:
+                list_of_ignored_urls += [a_url]
+                if verbose:
+                    logger.info(f"ignored: {a_url}")
 
         text = soup.get_text(separator=" ", strip=True)
 
@@ -64,12 +69,22 @@ def fetch_links_and_text(
     text = re.sub(r"\s+", " ", text).strip()
 
     if verbose:
-        log_list(logger, list(links), "link(s)")
+        log_list(logger, "fetched", list_of_urls, "url(s)")
+        log_list(logger, "ignored", list_of_ignored_urls, "url(s)")
         log_long_text(logger, text)
+    else:
+        logger.info(
+            "{} url(s) collected, {} url(s) ignored, text: {:,} char(s).".format(
+                len(list_of_urls),
+                len(list_of_ignored_urls),
+                len(text),
+            )
+        )
 
     return {
         "url": url,
         "content_type": content_type,
-        "links": links,
+        "list_of_ignored_urls": list_of_ignored_urls,
+        "list_of_urls": list_of_urls,
         "text": text,
     }

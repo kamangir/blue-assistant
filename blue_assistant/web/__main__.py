@@ -59,7 +59,7 @@ if args.task == "crawl":
     )
 
     if args.verbose == 1:
-        log_dict(logger, dict_of_urls, "url(s)")
+        log_dict(logger, "crawled", dict_of_urls, "url(s)")
 elif args.task == "fetch":
     summary = fetch_links_and_text(
         url=args.url,
