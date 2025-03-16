@@ -48,12 +48,6 @@ parser.add_argument(
     default=1,
     help="0 | 1",
 )
-parser.add_argument(
-    "--use_cache",
-    type=int,
-    default=1,
-    help="0 | 1",
-)
 args = parser.parse_args()
 
 delim = " " if args.delim == "space" else args.delim
@@ -76,9 +70,7 @@ elif args.task == "run":
     )
 
     if success:
-        success = script.run(
-            use_cache=args.use_cache == 1,
-        )
+        success = script.run()
 else:
     success = None
 

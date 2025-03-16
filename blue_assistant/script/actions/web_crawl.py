@@ -14,7 +14,6 @@ NAME = module.name(__file__, NAME)
 def web_crawl(
     script: BaseScript,
     node_name: str,
-    use_cache: bool,
 ) -> bool:
     logger.info(f"{NAME}: {script} @ {node_name} ...")
 
@@ -36,14 +35,13 @@ def web_crawl(
     seed_urls = script.vars[seed_url_var_name]
     log_list(logger, "using", seed_urls, "seed url(s)")
 
-    crawl_list_of_urls(
+    success, _ = crawl_list_of_urls(
         seed_urls=seed_urls,
         object_name=script.object_name,
         max_iterations=script.nodes[node_name]["max_iterations"],
-        use_cache=use_cache,
         cache_prefix=node_name,
     )
 
-    script.nodes[node_name]["output"] = True
+    script.nodes[node_name]["output"] = success
 
-    return True
+    return success

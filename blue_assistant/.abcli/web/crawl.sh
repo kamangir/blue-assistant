@@ -3,8 +3,7 @@
 function blue_assistant_web_crawl() {
     local options=$1
     local do_dryrun=$(abcli_option_int "$options" dryrun 0)
-    local use_cache=$(abcli_option_int "$options" cache 0)
-    local do_download=$(abcli_option_int "$options" download $use_cache)
+    local do_download=$(abcli_option_int "$options" download $(abcli_not $do_dryrun))
     local do_upload=$(abcli_option_int "$options" upload $(abcli_not $do_dryrun))
 
     local seed_urls=${2:-void}
@@ -20,7 +19,6 @@ function blue_assistant_web_crawl() {
         crawl \
         --seed_urls $seed_urls \
         --object_name $object_name \
-        --use_cache $use_cache \
         "${@:4}"
     [[ $? -ne 0 ]] && return 1
 

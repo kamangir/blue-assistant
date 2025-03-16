@@ -7,7 +7,7 @@ def help_crawl(
     tokens: List[str],
     mono: bool,
 ) -> str:
-    options = xtra("cache,~download,dryrun,~upload", mono=mono)
+    options = xtra("~download,dryrun,~upload", mono=mono)
 
     args = [
         "[--max_iterations <100000>]",
