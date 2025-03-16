@@ -34,7 +34,6 @@ script:
     generating_the_story:
       action: generate_text
       prompt: :::premise
-      completed: true
 
     slicing_into_frames:
       action: generate_text
@@ -42,7 +41,6 @@ script:
       prompt: |
         Slice this story into :::frame_count pieces, each appropriate for generating an image from,
         and return the slices separated by ---.
-      completed: true
 
     generating_the_frames:
       action: generate_image
@@ -50,4 +48,3 @@ script:
       prompt: >
         :::story
         Generate an image to demonstrate :::input
-      completed: true
