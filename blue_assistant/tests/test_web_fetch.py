@@ -15,7 +15,7 @@ def test_web_fetch(
     summary = fetch_links_and_text(url=url)
 
     for key, type_ in {
-        "links": set,
+        "list_of_urls": list,
         "text": str,
     }.items():
         assert key in summary

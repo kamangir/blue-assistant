@@ -34,7 +34,7 @@ def web_crawl(
         logger.error(f"{node_name}: {seed_url_var_name}: seed_urls not found in vars.")
         return False
     seed_urls = script.vars[seed_url_var_name]
-    log_list(logger, seed_urls, "seed url(s)")
+    log_list(logger, "using", seed_urls, "seed url(s)")
 
     visited_urls = crawl_list_of_urls(
         seed_urls=seed_urls,

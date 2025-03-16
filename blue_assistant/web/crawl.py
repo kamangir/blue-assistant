@@ -1,6 +1,7 @@
-from typing import List, Dict, Set
+from typing import List, Dict
 
 from blueness import module
+from blue_options.logger import log_dict, log_list
 from blue_objects import file
 from blue_objects import objects
 from blue_objects.metadata import get_from_object, post_to_object
@@ -30,24 +31,33 @@ def crawl_list_of_urls(
         )
     )
 
-    crawl_cache: Dict[str, str] = (
-        get_from_object(
+    crawl_cache: Dict[str, str] = {}
+    queue: List[str] = [url for url in seed_urls]
+
+    if use_cache:
+        crawl_cache = get_from_object(
             object_name,
             "crawl_cache",
             {},
         )
-        if use_cache
-        else {}
-    )
+        log_dict(logger, "loaded cache:", crawl_cache, "url(s)")
 
-    queue: Set[str] = set(seed_urls)
+        queue += get_from_object(
+            object_name,
+            "crawl_queue",
+            [],
+        )
+
+    log_list(logger, "queue:", queue, "url(s)")
 
     iteration: int = 0
     while queue:
-        url = queue.pop()
+        url = queue[0]
+        queue = queue[1:]
+
         logger.info(
             "{} {} ...".format(
-                "✅" if url in crawl_cache else "🔗",
+                "✅ " if url in crawl_cache else "🔗 ",
                 url,
             )
         )
@@ -70,8 +80,17 @@ def crawl_list_of_urls(
             )
 
         crawl_cache[url] = content_type
-        if "links" in url_summary:
-            queue.update(url_summary["links"] - crawl_cache.keys())
+        if "list_of_urls" in url_summary:
+            queue = list(
+                set(
+                    queue
+                    + [
+                        url
+                        for url in url_summary["list_of_urls"]
+                        if url not in crawl_cache.keys()
+                    ]
+                )
+            )
 
         iteration += 1
         if max_iterations != -1 and iteration >= max_iterations:
@@ -87,5 +106,14 @@ def crawl_list_of_urls(
             "crawl_cache",
             crawl_cache,
         )
+
+        post_to_object(
+            object_name,
+            "crawl_queue",
+            queue,
+        )
+
+    log_dict(logger, "crawled", crawl_cache, "url(s)")
+    log_list(logger, "queue:", queue, "url(s)")
 
     return crawl_cache

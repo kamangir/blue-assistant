@@ -50,6 +50,7 @@ args = parser.parse_args()
 
 success = False
 if args.task == "crawl":
+    success = True
     dict_of_urls = crawl_list_of_urls(
         seed_urls=args.seed_urls.split("+"),
         object_name=args.object_name,
@@ -58,13 +59,7 @@ if args.task == "crawl":
     )
 
     if args.verbose == 1:
-        log_dict(logger, dict_of_urls, "url(s)")
-
-    success = post_to_object(
-        args.object_name,
-        NAME.replace(".", "-"),
-        dict_of_urls,
-    )
+        log_dict(logger, "crawled", dict_of_urls, "url(s)")
 elif args.task == "fetch":
     summary = fetch_links_and_text(
         url=args.url,

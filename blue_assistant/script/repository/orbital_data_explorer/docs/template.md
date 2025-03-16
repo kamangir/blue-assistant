@@ -17,10 +17,16 @@ include:::noref ../metadata.yaml
 @assistant script run - \
     script=orbital_data_explorer .
 
-@assets publish push .
+@publish tar .
 ```
 
-set:::object_name orbital-data-explorer-2025-03-14-bp6m01
+set:::object_name orbital-data-explorer-2025-03-15-sxjbbf
+
+details:::metadata
+metadata:::get:::object_name
+details:::
+
+object:::get:::object_name
 
 🔥
 

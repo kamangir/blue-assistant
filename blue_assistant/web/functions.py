@@ -1,19 +1,4 @@
-from typing import List, Dict, Set, Tuple
-import requests
-from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
-from urllib.parse import urljoin
 import re
-import warnings
-
-from blueness import module
-from blue_options.logger import log_long_text, log_list
-
-from blue_assistant import NAME
-from blue_assistant.logger import logger
-
-warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
-
-NAME = module.name(__file__, NAME)
 
 
 def url_to_filename(
