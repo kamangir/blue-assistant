@@ -18,6 +18,7 @@ setup(
         f"{NAME}.script.repository.blue_amo.actions",
         f"{NAME}.script.repository.hue",
         f"{NAME}.script.repository.orbital_data_explorer",
+        f"{NAME}.script.repository.orbital_data_explorer.actions",
         f"{NAME}.web",
     ],
     include_package_data=True,

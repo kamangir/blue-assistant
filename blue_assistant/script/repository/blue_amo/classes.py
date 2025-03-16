@@ -14,17 +14,8 @@ NAME = module.name(__file__, NAME)
 class BlueAmoScript(BaseScript):
     name = path.name(file.path(__file__))
 
-    def __init__(
-        self,
-        object_name: str,
-        test_mode: bool = False,
-        verbose: bool = False,
-    ):
-        super().__init__(
-            object_name=object_name,
-            test_mode=test_mode,
-            verbose=verbose,
-        )
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self.dict_of_actions.update(dict_of_actions)
 

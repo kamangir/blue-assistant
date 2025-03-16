@@ -19,7 +19,7 @@ from blue_assistant.web.functions import url_to_filename
         ["https://github.com/samiriff/mars-ode-data-access"],
     ],
 )
-def test_url_to_filename(
+def test_web_url_to_filename(
     url: str,
     max_length: int,
 ):

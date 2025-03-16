@@ -14,13 +14,17 @@ include:::noref ../metadata.yaml
     script=orbital_data_explorer .
 
 @publish tar .
+
+@assets publish extensions=png,push .
 ```
 
-set:::object_name orbital-data-explorer-2025-03-15-uawmml
+set:::object_name orbital-data-explorer-2025-03-16-cajjx2
 
-details:::metadata
-metadata:::get:::object_name
+details:::output
+metadata:::get:::object_name:::output
 details:::
+
+assets:::get:::object_name/thumbnail-workflow.png
 
 object:::get:::object_name
 

@@ -9,6 +9,7 @@ from blueness import module
 from blue_options.logger import log_long_text, log_list
 
 from blue_assistant import NAME
+from blue_assistant.web.functions import normalize_url
 from blue_assistant.logger import logger
 
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
@@ -49,8 +50,7 @@ def fetch_links_and_text(
         for a_tag in soup.find_all("a", href=True):
             a_url = urljoin(url, a_tag["href"])
 
-            if "#" in a_url:
-                a_url = a_url.split("#", 1)[0]
+            a_url = normalize_url(a_url)
 
             if a_url.startswith(url):
                 if url not in list_of_urls:
