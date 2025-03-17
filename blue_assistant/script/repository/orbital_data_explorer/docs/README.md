@@ -1,6 +1,6 @@
-# orbital-data-explorer 🔥
+# orbital-data-explorer ⏸️
 
-Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
+Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](../metadata.yaml).
 
 ```yaml
 script:
@@ -64,7 +64,14 @@ script:
       nodes: {}
 
 ```
-[metadata.yaml](../metadata.yaml)
+
+## TLDR
+
+- https://www.uahirise.org/catalog/
+- https://pds.mcp.nasa.gov/portal/
+- https://pds.nasa.gov/
+
+## a run
 
 ```bash
 @select orbital-data-explorer-$(@@timestamp)
@@ -9976,11 +9983,13 @@ script:
 </details>
 
 
-![image](https://github.com/kamangir/assets/blob/main/orbital-data-explorer-2025-03-16-xoo5vc/thumbnail-workflow.png?raw=true)
 
-[orbital-data-explorer-2025-03-16-xoo5vc](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-xoo5vc.tar.gz)
+| | |
+|-|-|
+| ![image](https://github.com/kamangir/assets/blob/main/orbital-data-explorer-2025-03-16-xoo5vc/thumbnail-workflow.png?raw=true) | ![image](https://github.com/kamangir/assets/blob/main/blue-assistant/PDS/uahirise-ESP_086795_1970.png?raw=true) |
+| [orbital-data-explorer-2025-03-16-xoo5vc](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-xoo5vc.tar.gz) | [uahirise-ESP_086795_1970](https://kamangir-public.s3.ca-central-1.amazonaws.com/uahirise-ESP_086795_1970.tar.gz) |
 
-🔥
+⏸️
 
 ---
 

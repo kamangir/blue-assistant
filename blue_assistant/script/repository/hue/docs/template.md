@@ -14,7 +14,6 @@ include:::noref ../metadata.yaml
 @assets publish \
   extensions=png,push .
 ```
-
 set:::object_name hue-2025-03-14-hpow92
 
 ---
@@ -35,9 +34,13 @@ set:::object_name hue-2025-03-14-hpow92
 @hue test
 ```
 
+details:::output
+metadata:::get:::object_name:::output
+details:::
+
 | | |
 |-|-|
-| assets:::blue-assistant/20250314_143702.jpg | assets:::get:::object_name/thumbnail-workflow.png |
+| assets:::get:::object_name/thumbnail-workflow.png | assets:::blue-assistant/20250314_143702.jpg |
 
 ---
 

@@ -1,6 +1,6 @@
 # 🧠 blue-assistant
 
-🧠 `@assistant` runs AI scripts; DAGs that combine deterministic and AI operations.
+🧠 `@assistant` runs [AI](https://github.com/kamangir/openai-commands) [DAG](https://networkx.org/)s that combine deterministic and AI operations.
 
 ```bash
 pip install blue-assistant
@@ -66,10 +66,6 @@ graph LR
 ```
 
 items:::
-
----
-
-Also home to [`@web`](./blue_assistant/web/)
 
 ---
 

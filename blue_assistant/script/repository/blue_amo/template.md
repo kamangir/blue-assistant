@@ -1,10 +1,10 @@
 # blue-amo
 
-set:::object_name blue-amo-2025-02-03-nswnx6
+Story development and visualization, with an [AI DAG](./metadata.yaml)
 
-metadata:::get:::object_name:::output.script.nodes.generating_the_story.output
-
-A story developed and visualized by AI.
+```yaml
+include:::noref ./metadata.yaml
+```
 
 ```bash
 @select blue-amo-$(@@timestamp)
@@ -16,15 +16,18 @@ A story developed and visualized by AI.
 @assistant build_README
 ```
 
+set:::object_name blue-amo-2025-02-03-nswnx6
+
+metadata:::get:::object_name:::output.script.nodes.generating_the_story.output
+
 details:::output
-metadata:::get:::object_name:::output.script.nodes
+metadata:::get:::object_name:::output
 details:::
 
-details:::workflow
-assets:::get:::object_name/thumbnail-workflow.png
-details:::
 
-assets:::get:::object_name/stitching_the_frames-2.png
+| | |
+|-|-|
+| assets:::get:::object_name/thumbnail-workflow.png | assets:::get:::object_name/stitching_the_frames-2.png |
 
 object:::get:::object_name
 

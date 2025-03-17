@@ -1,5 +1,7 @@
 # Blue Script
 
+A minimal [AI](https://github.com/kamangir/openai-commands) [DAG](https://networkx.org/) interface ([examples](./repository/)).
+
 ```yaml
 script:
     vars:
@@ -44,10 +46,11 @@ script:
             depends-on: story
             prompt: Generate an image to visualize :::story
 
+    versions:
+        different_ending:
+            vars: {}
+            nodes: {}
+
 ```
 
 help::: blue_assistant script
-
----
-
-[repository](./repository/)

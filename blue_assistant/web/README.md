@@ -1,5 +1,7 @@
 # @web
 
+A minimal web interface for an [AI](https://github.com/kamangir/openai-commands) agent.
+
 ## @web fetch
 
 ```bash

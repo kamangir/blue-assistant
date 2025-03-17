@@ -1,5 +1,7 @@
 # Blue Script
 
+A minimal [AI](https://github.com/kamangir/openai-commands) [DAG](https://networkx.org/) interface ([examples](./repository/)).
+
 ```yaml
 script:
     vars:
@@ -44,6 +46,11 @@ script:
             depends-on: story
             prompt: Generate an image to visualize :::story
 
+    versions:
+        different_ending:
+            vars: {}
+            nodes: {}
+
 ```
 
 ```bash
@@ -66,8 +73,4 @@ script:
    name: base | blue_amo | hue | orbital_data_explorer
       orbital_data_explorer: downloading_a_datacube
 ```
-
----
-
-[repository](./repository/)
 

@@ -12,8 +12,20 @@ items = README.Items(
         {
             "name": "orbital-data-explorer",
             "url": "./blue_assistant/script/repository/orbital_data_explorer",
-            "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
-            "description": "Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/). 🔥",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/PDS/uahirise-ESP_086795_1970.png?raw=true",
+            "description": "Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](./blue_assistant/script/repository/orbital_data_explorer/metadata.yaml). ⏸️",
+        },
+        {
+            "name": "@hue",
+            "url": "./blue_assistant/script/repository/hue",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
+            "description": '"[Hey AI](./blue_assistant/script/repository/hue/metadata.yaml), help me write code to send color commands to the [Hue LED lights](https://www.philips-hue.com/en-ca) in my apartment."',
+        },
+        {
+            "name": "blue-amo",
+            "url": "./blue_assistant/script/repository/blue_amo/README.md",
+            "marquee": "https://github.com/kamangir/assets/blob/main/test_blue_assistant_script_run-2025-03-15-06pbpf/generating_frame_007.png?raw=true",
+            "description": "Story development and visualization, with an [AI DAG](./blue_assistant/script/repository/blue_amo/metadata.yaml).",
         },
         {
             "name": "🌀 blue script",
@@ -21,17 +33,12 @@ items = README.Items(
             "description": "A minimal AI DAG interface.",
             "url": "./blue_assistant/script/",
         },
+        {},
         {
-            "name": "@hue",
-            "url": "./blue_assistant/script/repository/hue",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
-            "description": '"send a color command to the Hue LED lights in my apartment."',
-        },
-        {
-            "name": "blue-amo",
-            "url": "./blue_assistant/script/repository/blue_amo/README.md",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
-            "description": "Story development and visualization.",
+            "name": "`@web`",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
+            "description": "A minimal web interface for an AI agent.",
+            "url": "./blue_assistant/web/",
         },
     ]
 )
@@ -56,7 +63,7 @@ def build():
         for readme in [
             {
                 "items": items,
-                "cols": 2,
+                "cols": 3,
                 "path": "..",
             },
             {"path": "script/repository/blue_amo"},
