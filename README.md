@@ -65,10 +65,10 @@ graph LR
     classDef folder fill:#999,stroke:#333,stroke-width:2px;
 ```
 
-|   |   |
-| --- | --- |
-| [`orbital-data-explorer`](./blue_assistant/script/repository/orbital_data_explorer) [![image](https://github.com/kamangir/assets/raw/main/blue-assistant/PDS/uahirise-ESP_086795_1970.png?raw=true)](./blue_assistant/script/repository/orbital_data_explorer) Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](./blue_assistant/script/repository/orbital_data_explorer/metadata.yaml). ⏸️ | [`@hue`](./blue_assistant/script/repository/hue) [![image](https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true)](./blue_assistant/script/repository/hue) "[Hey AI](./blue_assistant/script/repository/hue/metadata.yaml), help me write code to send color commands to the [Hue LED lights](https://www.philips-hue.com/en-ca) in my apartment." |
-| [`blue-amo`](./blue_assistant/script/repository/blue_amo/README.md) [![image](https://github.com/kamangir/assets/blob/main/test_blue_assistant_script_run-2025-03-15-06pbpf/generating_frame_007.png?raw=true)](./blue_assistant/script/repository/blue_amo/README.md) Story development and visualization, with an [AI DAG](./blue_assistant/script/repository/blue_amo/metadata.yaml). | [`🌀 blue script`](./blue_assistant/script/) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](./blue_assistant/script/) A minimal AI DAG interface. |
+|   |   |   |
+| --- | --- | --- |
+| [`orbital-data-explorer`](./blue_assistant/script/repository/orbital_data_explorer) [![image](https://github.com/kamangir/assets/raw/main/blue-assistant/PDS/uahirise-ESP_086795_1970.png?raw=true)](./blue_assistant/script/repository/orbital_data_explorer) Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](./blue_assistant/script/repository/orbital_data_explorer/metadata.yaml). ⏸️ | [`@hue`](./blue_assistant/script/repository/hue) [![image](https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true)](./blue_assistant/script/repository/hue) "[Hey AI](./blue_assistant/script/repository/hue/metadata.yaml), help me write code to send color commands to the [Hue LED lights](https://www.philips-hue.com/en-ca) in my apartment." | [`blue-amo`](./blue_assistant/script/repository/blue_amo/README.md) [![image](https://github.com/kamangir/assets/blob/main/test_blue_assistant_script_run-2025-03-15-06pbpf/generating_frame_007.png?raw=true)](./blue_assistant/script/repository/blue_amo/README.md) Story development and visualization, with an [AI DAG](./blue_assistant/script/repository/blue_amo/metadata.yaml). |
+| [`🌀 blue script`](./blue_assistant/script/) [![image](https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true)](./blue_assistant/script/) A minimal AI DAG interface. |  |  |
 
 ---
 
@@ -79,4 +79,4 @@ Also home to [`@web`](./blue_assistant/web/)
 
 [![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.240.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.361.1`](https://github.com/kamangir/blue-assistant).
+built by 🌀 [`blue_options-4.240.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.362.1`](https://github.com/kamangir/blue-assistant).
