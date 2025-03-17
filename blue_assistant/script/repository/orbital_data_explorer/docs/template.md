@@ -18,7 +18,7 @@ include:::noref ../metadata.yaml
 @assets publish extensions=png,push .
 ```
 
-set:::object_name orbital-data-explorer-2025-03-16-wryjqi
+set:::object_name orbital-data-explorer-2025-03-16-xoo5vc
 
 details:::output
 metadata:::get:::object_name:::output

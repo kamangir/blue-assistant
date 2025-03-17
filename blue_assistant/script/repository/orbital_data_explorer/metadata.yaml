@@ -6,13 +6,15 @@ script:
       - https://pds-geosciences.wustl.edu/dataserv/default.htm
       - https://github.com/samiriff/mars-ode-data-access
 
-    context_prompt: |
-      Our objective is to write Python code to access the Orbital Data Explorer, ODE for short,
-      using STAC terminology. For this purpose, we consider ODE as a catalog and each separate
-      dataset in ODE as a collection that contains items.
-
     extraction_prompt: |
-      Extract the information relevant to this objective from the following text.
+      We want to write Python code to download data from the Orbital Data Explorer, ODE
+      for short. We are not looking for scraping or browser interaction, but for programmatic
+      download that can be scaled up. Extract information relevant to this objective from the 
+      following paragraph.
+
+      Extract the information relevant to this objective from the following text. Generate a minimal
+      answer that contains sample code if possible. If it is not possible to generate sample code 
+      return an empty string. Do not discuss background topics and methods and generate a minimal answer.
 
     summarize_prompt: |
       Summarize the following information in the context of this objective.
@@ -27,7 +29,7 @@ script:
 
     expanding_the_extractions:
       action: expanding_the_extractions
-      max_nodes: 10
+      max_nodes: 100
       test_mode:
         max_nodes: 2
       depends-on: web_crawl
@@ -35,7 +37,6 @@ script:
     extraction:
       action: generate_text
       prompt: >
-        :::context_prompt
         :::extraction_prompt
         :::url_content
       depends-on: expanding_the_extractions
@@ -44,7 +45,6 @@ script:
       runnable: false
       action: generate_text
       prompt: >
-        :::context_prompt
         :::summarize_prompt
       depends-on: extraction
 
@@ -55,8 +55,5 @@ script:
 
   versions:
     downloading_a_datacube:
-      vars:
-        context_prompt: |
-          We want to write Python code to download data from the Orbital Data Explorer, ODE
-          for short, using STAC terminology.
+      vars: {}
       nodes: {}
