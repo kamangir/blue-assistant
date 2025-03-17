@@ -14,7 +14,6 @@ include:::noref ../metadata.yaml
 @assets publish \
   extensions=png,push .
 ```
-
 set:::object_name hue-2025-03-14-hpow92
 
 ---
@@ -34,6 +33,10 @@ set:::object_name hue-2025-03-14-hpow92
 ```bash
 @hue test
 ```
+
+details:::output
+metadata:::get:::object_name:::output
+details:::
 
 | | |
 |-|-|
