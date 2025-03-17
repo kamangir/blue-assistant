@@ -1,6 +1,6 @@
 # 🧠 blue-assistant
 
-🧠 `@assistant` runs AI scripts; DAGs that combine deterministic and AI operations.
+🧠 `@assistant` runs AI DAGs that combine deterministic and AI operations.
 
 ```bash
 pip install blue-assistant
@@ -79,4 +79,4 @@ Also home to [`@web`](./blue_assistant/web/)
 
 [![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.240.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.335.1`](https://github.com/kamangir/blue-assistant).
+built by 🌀 [`blue_options-4.240.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.336.1`](https://github.com/kamangir/blue-assistant).

@@ -1,6 +1,6 @@
 # 🧠 blue-assistant
 
-🧠 `@assistant` runs AI scripts; DAGs that combine deterministic and AI operations.
+🧠 `@assistant` runs AI DAGs that combine deterministic and AI operations.
 
 ```bash
 pip install blue-assistant
