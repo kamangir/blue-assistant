@@ -12,7 +12,7 @@ items = README.Items(
         {
             "name": "orbital-data-explorer",
             "url": "./blue_assistant/script/repository/orbital_data_explorer",
-            "marquee": "https://github.com/kamangir/assets/blob/main/blue-assistant/orbital-data-explorer.png?raw=true",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/PDS/uahirise-ESP_086795_1970.png?raw=true",
             "description": "Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](./blue_assistant/script/repository/orbital_data_explorer/metadata.yaml). ⏸️",
         },
         {
