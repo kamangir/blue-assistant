@@ -33,6 +33,7 @@ items = README.Items(
             "description": "A minimal AI DAG interface.",
             "url": "./blue_assistant/script/",
         },
+        {},
         {
             "name": "`@web`",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
