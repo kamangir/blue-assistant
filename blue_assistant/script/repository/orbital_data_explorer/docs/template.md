@@ -8,7 +8,9 @@ include:::noref ../metadata.yaml
 
 ## TLDR
 
-🔥 key urls
+- https://www.uahirise.org/catalog/
+- https://pds.mcp.nasa.gov/portal/
+- https://pds.nasa.gov/
 
 ## a run
 
@@ -34,6 +36,12 @@ assets:::get:::object_name/thumbnail-workflow.png
 object:::get:::object_name
 
 ## sample object
+
+set:::PDS_object_name uahirise-ESP_086795_1970
+
+assets:::blue-assistant/PDS/get:::object_name.png
+
+object:::get:::object_name
 
 🔥
 

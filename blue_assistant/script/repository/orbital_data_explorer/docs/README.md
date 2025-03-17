@@ -67,7 +67,9 @@ script:
 
 ## TLDR
 
-🔥 key urls
+- https://www.uahirise.org/catalog/
+- https://pds.mcp.nasa.gov/portal/
+- https://pds.nasa.gov/
 
 ## a run
 
@@ -9986,6 +9988,11 @@ script:
 [orbital-data-explorer-2025-03-16-xoo5vc](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-xoo5vc.tar.gz)
 
 ## sample object
+
+
+![image](https://github.com/kamangir/assets/blob/main/blue-assistant/PDS/orbital-data-explorer-2025-03-16-xoo5vc.png?raw=true)
+
+[orbital-data-explorer-2025-03-16-xoo5vc](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-xoo5vc.tar.gz)
 
 🔥
 
