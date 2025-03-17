@@ -12,9 +12,9 @@ script:
       - https://github.com/samiriff/mars-ode-data-access
 
     context_prompt: |
-      Our objective is to access the Orbital Data Explorer, ODE for short, using STAC 
-      terminology. For this purpose, we consider ODE as a catalog and each separate dataset 
-      in ODE as a collection that contains items. We call these items objects or datacubes.
+      Our objective is to write Python code to access the Orbital Data Explorer, ODE for short,
+      using STAC terminology. For this purpose, we consider ODE as a catalog and each separate
+      dataset in ODE as a collection that contains items.
 
     extraction_prompt: |
       Extract the information relevant to this objective from the following text.
@@ -34,7 +34,7 @@ script:
       action: expanding_the_extractions
       max_nodes: 10
       test_mode:
-        max_nodes: 5
+        max_nodes: 2
       depends-on: web_crawl
 
     extraction:
@@ -58,6 +58,14 @@ script:
       action: generate_text
       depends-on: generating_summary
 
+  versions:
+    downloading_a_datacube:
+      vars:
+        context_prompt: |
+          We want to write Python code to download data from the Orbital Data Explorer, ODE
+          for short, using STAC terminology.
+      nodes: {}
+
 ```
 [metadata.yaml](../metadata.yaml)
 
@@ -65,7 +73,7 @@ script:
 @select orbital-data-explorer-$(@@timestamp)
 
 @assistant script run - \
-    script=orbital_data_explorer .
+    script=orbital_data_explorer,version=downloading_a_datacube .
 
 @publish tar .
 
@@ -84,46 +92,53 @@ script:
       action: expanding_the_extractions
       completed: true
       depends-on: web_crawl
-      max_nodes: 5
+      max_nodes: 2
       test_mode:
-        max_nodes: 5
+        max_nodes: 2
     extraction_001:
       action: generate_text
-      cache: extraction_cache/ode_rsl_wustl_edu_mars_pagehelp_Content_Web_Interface_User_Account_sign_in_htm.txt
+      cache: extraction_cache/ode_rsl_wustl_edu_mercury_pagehelp_Content_Web_Interface_User_Account_sign_in_htm.txt
       completed: true
       depends-on: expanding_the_extractions
-      output: 'To achieve the objective of accessing the Orbital Data Explorer (ODE)
-        using STAC terminology:
-
-
-        1. **ODE as a Catalog**: Consider the entire ODE platform as a catalog.
-
-
-        2. **Collections**: Treat each separate dataset in the ODE as a collection.
-        These collections contain individual items.
-
-
-        3. **Items**: Refer to the individual items within each collection as objects
-        or datacubes.
-
-
-        There are no specific steps in the provided text regarding interacting with
-        ODE using STAC terminology. However, the text provides instructions for signing
-        into the ODE:
-
-
-        - Click the user icon to access the sign-in menu.
-
-        - Click "Sign in" and fill in your email address and password.
-
-        - Click the "Sign in" button.
-
-        - In case of a forgotten password, a "Forgot password" option is available,
-        which will send a password reset link to your email.
-
-
-        This information is essential for gaining access to the ODE platform, where
-        STAC terminology can then be applied to interact with datasets.'
+      output: "To download data from the Orbital Data Explorer (ODE) using STAC terminology\
+        \ via Python, you need to focus on accessing and retrieving data. While the\
+        \ provided text is largely about signing into the ODE system, it doesn't contain\
+        \ specific STAC-related information or API endpoints directly associated with\
+        \ data retrieval.\n\nHowever, here\u2019s a general approach based on standard\
+        \ practices for accessing datasets using STAC and APIs:\n\n1. **Authentication:**\
+        \ First, authenticate the user using the login information. The text provides\
+        \ instructions on signing into the ODE:\n\n    ```python\n    import requests\n\
+        \n    # Assuming ODE provides an API for authentication\n    login_url = \"\
+        https://ode-website.com/api/login\"  # Replace this with the actual URL\n\
+        \    \n    payload = {\n        'email': 'your_email@example.com',\n     \
+        \   'password': 'your_password'\n    }\n    \n    session = requests.Session()\n\
+        \    response = session.post(login_url, data=payload)\n    \n    if response.ok:\n\
+        \        print(\"Successfully signed in!\")\n    else:\n        print(\"Sign\
+        \ in failed!\")\n    ```\n\n2. **Access STAC API:** Once signed in, navigate\
+        \ to the STAC API endpoint for ODE to search and download data. You might\
+        \ need to use specific URLs or endpoints that relate to STAC item searches.\n\
+        \n    ```python\n    stac_search_url = \"https://ode-website.com/api/stac/search\"\
+        \  # Replace this with the actual STAC search endpoint\n\n    # A generic\
+        \ STAC search payload\n    headers = {\n        'Content-Type': 'application/json'\n\
+        \    }\n    \n    search_payload = {\n        \"collections\": [\"collection-id\"\
+        ],\n        \"bbox\": [-180.0, -90.0, 180.0, 90.0],\n        \"datetime\"\
+        : \"2022-01-01T00:00:00Z/2023-01-01T00:00:00Z\",\n        \"limit\": 10\n\
+        \    }\n    \n    search_response = session.post(stac_search_url, headers=headers,\
+        \ json=search_payload)\n    \n    if search_response.ok:\n        items =\
+        \ search_response.json()\n        print(\"Retrieved STAC items:\", items)\n\
+        \    else:\n        print(\"Failed to retrieve items!\")\n    ```\n\n3. **Downloading\
+        \ Data:** Iterate over the results and download the needed data assets:\n\n\
+        \    ```python\n    for item in items.get('features', []):\n        for asset_key,\
+        \ asset in item['assets'].items():\n            download_url = asset['href']\n\
+        \            print(f\"Downloading asset from {download_url}\")\n         \
+        \   asset_response = session.get(download_url)\n            \n           \
+        \ if asset_response.ok:\n                with open(f\"assets/{asset_key}.dat\"\
+        , 'wb') as f:\n                    f.write(asset_response.content)\n     \
+        \           print(f\"Downloaded {asset_key} successfully!\")\n           \
+        \ else:\n                print(f\"Failed to download {asset_key}\")\n    ```\n\
+        \nPlease note that the actual API endpoints, collections, and authentication\
+        \ mechanisms must be replaced with the real URLs and parameters used by the\
+        \ ODE system. Always refer to the official ODE documentation for correct details."
       prompt: ':::context_prompt :::extraction_prompt Sign In Skip To Main Content
         Account Settings Logout placeholder Account Settings Logout Filter: All Files
         Submit Search Sign In Signing into ODE with a user account is simple. Click
@@ -137,185 +152,62 @@ script:
         password.
 
         '
-      url: https://ode.rsl.wustl.edu/mars/pagehelp/Content/Web_Interface/User_Account/sign_in.htm
+      url: https://ode.rsl.wustl.edu/mercury/pagehelp/Content/Web_Interface/User_Account/sign_in.htm
     extraction_002:
       action: generate_text
-      cache: extraction_cache/ode_rsl_wustl_edu_mars_productsearch.txt
+      cache: extraction_cache/ode_rsl_wustl_edu_mercury_pagehelp_Content_Web_Interface_User_Account_user_access_links_htm.txt
       completed: true
       depends-on: expanding_the_extractions
-      output: 'To access the Orbital Data Explorer (ODE) using STAC terminology, consider
-        the following relevant information:
-
-
-        1. **Catalog**: ODE can be considered as the main catalog in the STAC framework.
-
-        2. **Collections**: Each separate dataset within ODE is considered a collection.
-        These collections encompass various datasets available in the ODE.
-
-        3. **Items**: Within each collection, specific items are referred to as objects
-        or datacubes.
-
-
-        This setup aligns with the STAC structure where:
-
-        - The catalog contains collections.
-
-        - Each collection contains items (referred to as objects or datacubes in this
-        context).'
-      prompt: ':::context_prompt :::extraction_prompt Mars Orbital Data Explorer -
-        Product Search You are an anonymous user. Sign in Create a free account Read
-        account help Your cart contents Your cart is empty. Show cart Home Data Product
-        Search Map Search Tools Data Set Browser Download Help & Resources
-
-        '
-      url: https://ode.rsl.wustl.edu/mars/productsearch
-    extraction_003:
-      action: generate_text
-      cache: extraction_cache/ode_rsl_wustl_edu_mars_tools.txt
-      completed: true
-      depends-on: expanding_the_extractions
-      output: "Based on the information provided, the objective is to access the Orbital\
-        \ Data Explorer (ODE) using STAC (SpatioTemporal Asset Catalog) terminology.\
-        \ Here\u2019s the relevant information extracted:\n\n1. **Catalog**: ODE itself\
-        \ is considered the catalog in this context.\n2. **Collections**: Each separate\
-        \ dataset within ODE is considered a collection.\n3. **Items**: The datasets\
-        \ within each collection are referred to as items, which can be objects or\
-        \ datacubes.\n\nNo additional specific details about how to implement this\
-        \ was provided in the text."
-      prompt: ':::context_prompt :::extraction_prompt Mars Orbital Data Explorer -
-        Tools You are an anonymous user. Sign in Create a free account Read account
-        help Your cart contents Your cart is empty. Show cart Home Data Product Search
-        Map Search Tools Data Set Browser Download Help & Resources
-
-        '
-      url: https://ode.rsl.wustl.edu/mars/tools
-    extraction_004:
-      action: generate_text
-      cache: extraction_cache/ode_rsl_wustl_edu_mercury_.txt
-      completed: true
-      depends-on: expanding_the_extractions
-      output: 'To access the Orbital Data Explorer (ODE) using STAC terminology, consider
-        the following information:
-
-
-        1. **Catalog**: The entire ODE system is viewed as a catalog. In this case,
-        ODE refers specifically to the Mercury Orbital Data Explorer.
-
-
-        2. **Collections**: Within ODE, each dataset is treated as a collection. These
-        collections correspond to the various datasets associated with the Mercury
-        mission.
-
-
-        3. **Items (Objects or Datacubes)**: Within each collection, the specific
-        data products can be considered as items. These items could include various
-        data files and datacubes that are part of the datasets within ODE.
-
-
-        4. **Data Product Search**: Utilize the Data Product Search to locate specific
-        orbital science products using parameters such as missions, instruments, data
-        sets, time, location, and product IDs.
-
-
-        5. **Data Set Browser**: Use the Data Set Browser to navigate through the
-        available orbital data set files stored in the Planetary Data System (PDS)
-        archives.
-
-
-        6. **Download Cart**: Items or data products can be added to a download cart,
-        from which they can be downloaded after search.
-
-
-        This approach allows you to interact with and retrieve data from the Mercury
-        Orbital Data Explorer using a structured and organized methodology consistent
-        with STAC terminology.'
-      prompt: ':::context_prompt :::extraction_prompt Mercury Orbital Data Explorer
-        - Home Page You are an anonymous user. Sign in Create a free account Read
-        account help Your cart contents Your cart is empty. Show cart Home Data Product
-        Search Map Search Tools Data Set Browser Download Help & Resources Welcome
-        to The Mercury Orbital Data Explorer The PDS Geosciences Node Mercury Orbital
-        Data Explorer (ODE) provides search, display, and download tools for the PDS
-        science data archives of the Messenger mission. Choose one of the above tabs
-        to start using ODE. JavaScript must be enabled for the ODE website to function
-        properly Browser Frames must be enabled for the ODE website to function properly
-        Important Note: ODE has detected that JavaScript is not currently enabled
-        in your browser. Please enable JavaScript to allow the website to function
-        properly. Data Product Search Search for orbital science products across missions,
-        instruments, and data sets via time, location, and product ids. What''s New
-        See what''s new with ODE Additional Tools Product Type Coverage Help & Resources
-        Access the ODE help, find additional resources, and see what''s coming Data
-        Set Browser Browse through the orbital data set files stored in the PDS archives
-        Available Data Sets A full list of mission, instrument, and product types
-        available in Mercury ODE Download Cart Download products added to the cart
-        from the product search Mars ODE Lunar ODE Mercury ODE Venus ODE The Mercury
-        Orbital Data Explorer is produced by the PDS Geosciences Node at Washington
-        University in St. Louis. Send comments and questions to ode@wunder.wustl.edu
-        .
+      output: "To achieve the objective of downloading data from the Orbital Data\
+        \ Explorer (ODE) using STAC (SpatioTemporal Asset Catalog) terminology, the\
+        \ following steps and considerations are relevant:\n\n1. **Logging In**: \n\
+        \   - Users need to sign into ODE to access features such as bookmarks, history,\
+        \ and cart orders, which are used to organize and retrieve data.\n   - Once\
+        \ signed in, users can utilize the dropdown menu in the website banner to\
+        \ navigate different sections of the ODE.\n\n2. **Accessing Data for Different\
+        \ Targets**:\n   - ODE provides access to data for different planetary targets,\
+        \ including Mars, Mercury, Lunar, and Venus. \n   - Users can switch between\
+        \ these targets using a dropdown menu, which allows navigation to different\
+        \ versions of the ODE website corresponding to each target.\n\n3. **STAC Terminology\
+        \ Utilization**:\n   - Use the navigational elements provided (Bookmarks,\
+        \ History, and Cart Orders) to organize and retrieve data in a way that aligns\
+        \ with STAC practices. STAC typically involves organizing data as collections,\
+        \ items with metadata, and assets that can be accessed or downloaded.\n\n\
+        4. **Navigational Features**:\n   - Utilize the navigational menu on the left\
+        \ side of the page to select specific actions like viewing Bookmarks, History,\
+        \ and Cart Orders.\n   - These features might be used to manage datasets and\
+        \ download relevant data, similar to using STAC catalogs, collections, and\
+        \ assets.\n\n5. **Data Retrieval**:\n   - Follow the links provided in the\
+        \ user interface to access lists of bookmarks, history, and cart orders. These\
+        \ lists are essential for managing and retrieving data efficiently.\n   -\
+        \ Extract data using these organizational tools, potentially by automated\
+        \ scripts written in Python to interact with these elements via web requests\
+        \ if APIs are available.\n\nIn summary, understanding and leveraging the account,\
+        \ navigational features, and organization of data (using Bookmarks, History,\
+        \ Cart Orders) in ODE will facilitate downloading data adhering to STAC terminology\
+        \ and practices. If APIs are available, you can automate interactions and\
+        \ data management using Python."
+      prompt: ':::context_prompt :::extraction_prompt User Access Links Skip To Main
+        Content Account Settings Logout placeholder Account Settings Logout Filter:
+        All Files Submit Search User Access Links Once a user is signed into ODE,
+        the logged in icon will display, as well as a dropdown menu in the website
+        banner. This dropdown menu includes a greeting based on user email address,
+        links to bookmarks, history, cart orders, sign out, and a link to this help.
+        The links to bookmarks , history , and cart orders will navigate to the same
+        shared page for accessing the listed resources. The page also allows users
+        to navigate to the same page in different versions of ODE ( Mars , Mercury
+        , Lunar , and Venus ). It is necessary to view the corresponding ODEtarget
+        website to access associated bookmarks, history, and cart orders. The left
+        side of the page includes the navigational menu for selecting the page to
+        view ( Bookmarks , History , and Cart Orders ). Follow these links for further
+        details on each page: Bookmarks list History list Cart orders list In addition,
+        a dropdown menu allows users to navigate to the same options of the other
+        ODE targets. This drop down menu will take the user to the corresponding ODE
+        version. From there, the corresponding bookmarks, history, and cart orders
+        can be viewed
 
         '
-      url: https://ode.rsl.wustl.edu/mercury/
-    extraction_005:
-      action: generate_text
-      cache: extraction_cache/ode_rsl_wustl_edu_mercury_account_acctCreate_aspx.txt
-      completed: true
-      depends-on: expanding_the_extractions
-      output: 'To achieve the objective of accessing the Orbital Data Explorer (ODE)
-        using SpatioTemporal Asset Catalog (STAC) terminology, the relevant information
-        extracted from the provided text is as follows:
-
-
-        1. **ODE as a Catalog**: The Orbital Data Explorer can be considered the catalog
-        in STAC terminology.
-
-
-        2. **Collections**: Each separate dataset within ODE can be identified as
-        a collection. These collections contain various data relevant to different
-        space missions or agencies, such as those from PDS, ESA, and JAXA.
-
-
-        3. **Items (Objects or Datacubes)**: The individual observations or sets of
-        data within these collections are considered items. These are referred to
-        as objects or datacubes.
-
-
-        4. **Access**: You can access ODE data without any charge. However, creating
-        a free account provides additional benefits like tracking search history,
-        bookmarking searches and observations, and reviewing cart history.
-
-
-        5. **Account Creation**: To create an account, users need a valid email address
-        and a password that is 8 to 32 characters long. Supported password characters
-        include letters, numbers, and a specified set of symbols.
-
-
-        6. **Technical Requirements**: JavaScript must be enabled in your browser
-        to use the ODE website effectively.
-
-
-        7. **Contact for Assistance**: For issues or assistance with ODE, users can
-        contact ode@wunder.wustl.edu.
-
-
-        By organizing the ODE using these STAC-related terms, users can systematically
-        access and interact with the data available in the Orbital Data Explorer.'
-      prompt: ':::context_prompt :::extraction_prompt Mercury Orbital Data Explorer
-        - Home Page {1} ##LOC[OK]## {1} ##LOC[OK]## ##LOC[Cancel]## {1} ##LOC[OK]##
-        ##LOC[Cancel]## You are an anonymous user. Sign in Create a free account Read
-        account help Your cart contents Your cart is empty. Show cart Welcome to the
-        Orbital Data Explorer. All data are available at no charge. We offer a free
-        login option, which allows users to track search history, bookmark searches
-        and individual observations (PDS, ESA, and JAXA products), and review cart
-        history. More information can be found in the ODE help. To report problems
-        or request assistance, contact us at ode@wunder.wustl.edu Create Account Email
-        address* Enter valid email address first. Password* Password must be 8 to
-        32 characters long. You can use letters, numbers, and these symbols: ! @ #
-        $ % ^ & * ? _ ~ - ( ) [ ] { } + = | ; : < > . / Remember my email address
-        in this browser BotDetect CAPTCHA ASP.NET Form Validation Create account Important
-        Note: ODE has detected that JavaScript is not currently enabled in your browser.
-        Please enable JavaScript to allow the website to function properly.
-
-        '
-      url: https://ode.rsl.wustl.edu/mercury/account/acctCreate.aspx
+      url: https://ode.rsl.wustl.edu/mercury/pagehelp/Content/Web_Interface/User_Account/user_access_links.htm
     generating_summary:
       action: generate_text
       completed: true
@@ -338,10 +230,12 @@ script:
       depends-on: generating_summary
       runnable: false
   vars:
-    context_prompt: "Our objective is to access the Orbital Data Explorer, ODE for\
-      \ short, using STAC \nterminology. For this purpose, we consider ODE as a catalog\
-      \ and each separate dataset \nin ODE as a collection that contains items. We\
-      \ call these items objects or datacubes.\n"
+    context_prompt: 'We want to write Python code to download data from the Orbital
+      Data Explorer, ODE
+
+      for short, using STAC terminology.
+
+      '
     crawl_seeds:
     - https://ode.rsl.wustl.edu/
     - https://oderest.rsl.wustl.edu/
@@ -355,15 +249,25 @@ script:
       objective.
 
       '
+  versions:
+    downloading_a_datacube:
+      nodes: {}
+      vars:
+        context_prompt: 'We want to write Python code to download data from the Orbital
+          Data Explorer, ODE
+
+          for short, using STAC terminology.
+
+          '
 
 ```
 
 </details>
 
 
-![image](https://github.com/kamangir/assets/blob/main/orbital-data-explorer-2025-03-16-cajjx2/thumbnail-workflow.png?raw=true)
+![image](https://github.com/kamangir/assets/blob/main/orbital-data-explorer-2025-03-16-wryjqi/thumbnail-workflow.png?raw=true)
 
-[orbital-data-explorer-2025-03-16-cajjx2](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-cajjx2.tar.gz)
+[orbital-data-explorer-2025-03-16-wryjqi](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-wryjqi.tar.gz)
 
 🔥
 

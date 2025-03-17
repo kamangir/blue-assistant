@@ -8,8 +8,9 @@ function blue_assistant_script_run() {
 
     local script_options=$2
     local script_name=$(abcli_option "$script_options" script base)
+    local script_version=$(abcli_option "$script_options" version base)
 
-    local object_name=$(abcli_clarify_object $3 $script_name-$(abcli_string_timestamp_short))
+    local object_name=$(abcli_clarify_object $3 $script_name-$script_version-$(abcli_string_timestamp_short))
     [[ "$do_download" == 1 ]] &&
         abcli_download - $object_name
 
@@ -19,6 +20,7 @@ function blue_assistant_script_run() {
         python3 -m blue_assistant.script \
         run \
         --script_name $script_name \
+        --script_version $script_version \
         --object_name $object_name \
         "${@:4}"
     [[ $? -ne 0 ]] && return 1

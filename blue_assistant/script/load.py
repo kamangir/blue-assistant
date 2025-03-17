@@ -8,8 +8,11 @@ from blue_assistant.logger import logger
 def load_script(
     script_name: str,
     object_name: str,
+    script_version: str = "base",
     test_mode: bool = False,
+    log: bool = True,
     verbose: bool = False,
+    save_graph: bool = True,
 ) -> Tuple[bool, BaseScript]:
     found: bool = False
     script_class: Type[BaseScript] = BaseScript
@@ -22,8 +25,13 @@ def load_script(
     if not found:
         logger.error(f"{script_name}: script not found.")
 
-    return found, script_class(
+    script = script_class(
+        script_version=script_version,
         object_name=object_name,
         test_mode=test_mode,
+        log=log,
         verbose=verbose,
+        save_graph=save_graph,
     )
+
+    return found and script.valid, script

@@ -21,19 +21,26 @@ class BlueAmoScript(BaseScript):
 
     def generate_graph(
         self,
+        log: bool = True,
         verbose: bool = False,
+        save_graph: bool = True,
     ) -> bool:
-        if not super().generate_graph(verbose=verbose):
+        if not super().generate_graph(
+            log=log,
+            verbose=verbose,
+            save_graph=save_graph,
+        ):
             return False
 
         map_node_name = "generating_the_frames"
-        logger.info(
-            "{}: expanding {} X {}...".format(
-                NAME,
-                map_node_name,
-                self.vars["frame_count"],
+        if log:
+            logger.info(
+                "{}: expanding {} X {}...".format(
+                    NAME,
+                    map_node_name,
+                    self.vars["frame_count"],
+                )
             )
-        )
 
         map_node = self.nodes[map_node_name]
         del self.nodes[map_node_name]
@@ -55,4 +62,4 @@ class BlueAmoScript(BaseScript):
                 node_name,
             )
 
-        return self.save_graph()
+        return self.save_graph(log=log) if save_graph else True
