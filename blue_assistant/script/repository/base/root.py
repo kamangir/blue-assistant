@@ -121,9 +121,6 @@ class RootScript:
                 logger.error(f"{script_version}: script version not found.")
                 return
 
-            if log:
-                logger.info(f"script_version: {script_version}")
-
             for thing in ["vars", "nodes"]:
                 updates = self.versions[script_version].get(thing, {})
                 if len(updates) and log:
