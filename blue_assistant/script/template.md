@@ -46,6 +46,11 @@ script:
             depends-on: story
             prompt: Generate an image to visualize :::story
 
+    versions:
+        downloading_a_datacube:
+            vars: {}
+            nodes: {}
+
 ```
 
 help::: blue_assistant script
