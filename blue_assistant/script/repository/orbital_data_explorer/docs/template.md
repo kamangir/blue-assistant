@@ -11,14 +11,14 @@ include:::noref ../metadata.yaml
 @select orbital-data-explorer-$(@@timestamp)
 
 @assistant script run - \
-    script=orbital_data_explorer .
+    script=orbital_data_explorer,version=downloading_a_datacube .
 
 @publish tar .
 
 @assets publish extensions=png,push .
 ```
 
-set:::object_name orbital-data-explorer-2025-03-16-4p0amd
+set:::object_name orbital-data-explorer-2025-03-16-wryjqi
 
 details:::output
 metadata:::get:::object_name:::output

@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 from blue_options.options import Options
 from blue_objects import file, path, objects
-from blue_objects.metadata import post_to_object
+from blue_objects.metadata import post_to_object, get_from_object
 from blueflow.workflow import dot_file
 
 from blue_assistant.logger import logger
@@ -18,9 +18,14 @@ class RootScript:
     def __init__(
         self,
         object_name: str,
+        script_version: str = "base",
         test_mode: bool = False,
+        log: bool = True,
         verbose: bool = False,
+        save_graph: bool = True,
     ):
+        self.valid = False
+
         self.nodes_changed = False
 
         self.object_name = object_name
@@ -38,64 +43,136 @@ class RootScript:
         )
         self.metadata: Dict
         success, self.metadata = file.load_yaml(metadata_filename)
-        assert success, f"cannot load {self.name}/metadata.yaml"
+        if not success:
+            logger.error(f"cannot load {self.name}/metadata.yaml")
+            return
+
+        # validate and set
+        last_script_version = get_from_object(
+            object_name,
+            "script_version",
+            script_version,
+        )
+        if script_version != last_script_version:
+            logger.error(
+                "script version in {} is {} != {}".format(
+                    object_name,
+                    last_script_version,
+                    script_version,
+                )
+            )
+            return
+        if not post_to_object(
+            object_name,
+            "script_version",
+            script_version,
+        ):
+            return
+        if log:
+            logger.info(f"script version: {script_version}")
 
         self.metadata.setdefault("script", {})
-        assert isinstance(
-            self.script,
-            dict,
-        ), "script: expected dict, received {}.".format(
-            self.script.__class__.__name__,
-        )
+        if not isinstance(self.script, dict):
+            logger.error(
+                "script: expected dict, received {}.".format(
+                    self.script.__class__.__name__,
+                )
+            )
+            return
 
         self.script.setdefault("nodes", {})
-        assert isinstance(
+        if not isinstance(
             self.nodes,
             dict,
-        ), "nodes: expected dict, received {}.".format(
-            self.nodes.__class__.__name__,
-        )
+        ):
+            logger.error(
+                "nodes: expected dict, received {}.".format(
+                    self.nodes.__class__.__name__,
+                )
+            )
+            return
 
         self.script.setdefault("vars", {})
-        assert isinstance(
+        if not isinstance(
             self.vars,
             dict,
-        ), "vars: expected dict, received {}.".format(
-            self.vars.__class__.__name__,
-        )
+        ):
+            logger.error(
+                "vars: expected dict, received {}.".format(
+                    self.vars.__class__.__name__,
+                )
+            )
+            return
+
+        self.script.setdefault("versions", {})
+        if not isinstance(
+            self.versions,
+            dict,
+        ):
+            logger.error(
+                "versions: expected dict, received {}.".format(
+                    self.versions.__class__.__name__,
+                )
+            )
+            return
+
+        if script_version != "base":
+            if script_version not in self.versions:
+                logger.error(f"{script_version}: script version not found.")
+                return
+
+            if log:
+                logger.info(f"script_version: {script_version}")
+
+            for thing in ["vars", "nodes"]:
+                updates = self.versions[script_version].get(thing, {})
+                if len(updates) and log:
+                    logger.info(f"{thing}.update({updates})")
+                self.metadata["script"][thing].update(updates)
 
         if self.test_mode:
-            logger.info("🧪  test mode is on.")
+            if log:
+                logger.info("🧪  test mode is on.")
 
             if "test_mode" in self.script:
                 updates = self.script["test_mode"]
-                logger.info(f"🧪  vars.update({updates})")
+                if log:
+                    logger.info(f"🧪  vars.update({updates})")
                 self.vars.update(updates)
 
             for node_name, node in self.nodes.items():
                 if "test_mode" in node:
                     updates = node["test_mode"]
-                    logger.info(f"🧪  {node_name}.update({updates})")
+                    if log:
+                        logger.info(f"🧪  {node_name}.update({updates})")
                     node.update(updates)
 
-        logger.info(
-            "loaded {} node(s): {}".format(
-                len(self.nodes),
-                ", ".join(self.nodes.keys()),
+        if log:
+            logger.info(
+                "loaded {} node(s): {}".format(
+                    len(self.nodes),
+                    ", ".join(self.nodes.keys()),
+                )
             )
-        )
 
-        logger.info(
-            "loaded {} var(s): {}".format(
-                len(self.vars),
-                ", ".join(self.vars.keys()),
+            logger.info(
+                "loaded {} var(s): {}".format(
+                    len(self.vars),
+                    ", ".join(self.vars.keys()),
+                )
             )
-        )
         if verbose:
             for var_name, var_value in self.vars.items():
                 logger.info("{}: {}".format(var_name, var_value))
 
-        assert self.generate_graph(), "cannot generate graph."
+        if not self.generate_graph(
+            log=log,
+            verbose=verbose,
+            save_graph=save_graph,
+        ):
+            return
+
+        self.valid = True
 
     def __str__(self) -> str:
         return "{}[{} var(s), {} node(s) -> {}]".format(
@@ -118,7 +195,9 @@ class RootScript:
 
     def generate_graph(
         self,
+        log: bool = True,
         verbose: bool = False,
+        save_graph: bool = True,
     ) -> bool:
         self.G: nx.DiGraph = nx.DiGraph()
 
@@ -143,7 +222,7 @@ class RootScript:
                 if dependency:
                     self.G.add_edge(node_name, dependency)
 
-        return self.save_graph()
+        return self.save_graph(log=log) if save_graph else True
 
     def get_context(
         self,
@@ -246,7 +325,10 @@ class RootScript:
 
         return success
 
-    def save_graph(self) -> bool:
+    def save_graph(
+        self,
+        log: bool = True,
+    ) -> bool:
         return dot_file.save_to_file(
             objects.path_of(
                 filename="workflow.dot",
@@ -260,6 +342,7 @@ class RootScript:
                 ]
             ),
             add_legend=False,
+            log=log,
         )
 
     # Aliases
@@ -274,3 +357,7 @@ class RootScript:
     @property
     def vars(self) -> Dict:
         return self.metadata["script"]["vars"]
+
+    @property
+    def versions(self) -> Dict:
+        return self.metadata["script"]["versions"]

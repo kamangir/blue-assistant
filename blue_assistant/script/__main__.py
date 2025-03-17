@@ -22,6 +22,11 @@ parser.add_argument(
     help=" | ".join(list_of_script_names),
 )
 parser.add_argument(
+    "--script_version",
+    type=str,
+    default="base",
+)
+parser.add_argument(
     "--object_name",
     type=str,
 )
@@ -71,6 +76,7 @@ if args.task == "list":
 elif args.task == "run":
     success, script = load_script(
         script_name=args.script_name,
+        script_version=args.script_version,
         object_name=args.object_name,
         test_mode=args.test_mode == 1,
         verbose=args.verbose == 1,

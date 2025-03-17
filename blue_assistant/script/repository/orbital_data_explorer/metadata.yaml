@@ -7,8 +7,8 @@ script:
       - https://github.com/samiriff/mars-ode-data-access
 
     context_prompt: |
-      Our objective is to write Python code to access the Orbital Data Explorer, ODE for short, 
-      using STAC terminology. For this purpose, we consider ODE as a catalog and each separate 
+      Our objective is to write Python code to access the Orbital Data Explorer, ODE for short,
+      using STAC terminology. For this purpose, we consider ODE as a catalog and each separate
       dataset in ODE as a collection that contains items.
 
     extraction_prompt: |
@@ -52,3 +52,11 @@ script:
       runnable: false
       action: generate_text
       depends-on: generating_summary
+
+  versions:
+    downloading_a_datacube:
+      vars:
+        context_prompt: |
+          We want to write Python code to download data from the Orbital Data Explorer, ODE
+          for short, using STAC terminology.
+      nodes: {}

@@ -57,13 +57,14 @@ script:
 	script \
 	run \
 	[~download,dryrun,~upload] \
-	[script=<script>] \
+	[script=<name>,version=<version>] \
 	[-|<object-name>] \
 	[--test_mode 1] \
 	[--verbose 1] \
 	[--runnable <~node_1,~node_2>]
- . run <object-name>.
-   script: base | blue_amo | hue | orbital_data_explorer
+ . run <script-name>/<script-version> in <object-name>.
+   name: base | blue_amo | hue | orbital_data_explorer
+      orbital_data_explorer: downloading_a_datacube
 ```
 
 ---

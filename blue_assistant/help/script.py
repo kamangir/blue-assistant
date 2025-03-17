@@ -1,8 +1,10 @@
 from typing import List
+from functools import reduce
 
 from blue_options.terminal import show_usage, xtra
 
 from blue_assistant.script.repository import list_of_script_names
+from blue_assistant.script.repository.functions import get_script_versions
 
 
 def help_list(
@@ -32,13 +34,27 @@ def help_run(
 ) -> str:
     options = xtra("~download,dryrun,~upload", mono=mono)
 
-    script_options = "script=<script>"
+    script_options = "script=<name>,version=<version>"
 
     args = [
         "[--test_mode 1]",
         "[--verbose 1]",
         "[--runnable <~node_1,~node_2>]",
     ]
+
+    def script_version_details(script_name: str) -> List[str]:
+        list_of_script_versions = get_script_versions(script_name)
+
+        return (
+            [
+                "{}: {}".format(
+                    script_name,
+                    " | ".join(list_of_script_versions),
+                )
+            ]
+            if list_of_script_versions
+            else []
+        )
 
     return show_usage(
         [
@@ -50,9 +66,16 @@ def help_run(
             "[-|<object-name>]",
         ]
         + args,
-        "run <object-name>.",
+        "run <script-name>/<script-version> in <object-name>.",
         {
-            "script: {}".format(" | ".join(list_of_script_names)): [],
+            "name: {}".format(" | ".join(list_of_script_names)): reduce(
+                lambda x, y: x + y,
+                [
+                    script_version_details(script_name)
+                    for script_name in list_of_script_names
+                ],
+                [],
+            )
         },
         mono=mono,
     )
