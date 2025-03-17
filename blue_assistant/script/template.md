@@ -1,5 +1,7 @@
 # Blue Script
 
+A minimal [AI](https://github.com/kamangir/openai-commands) [DAG](https://networkx.org/) interface.
+
 ```yaml
 script:
     vars:
