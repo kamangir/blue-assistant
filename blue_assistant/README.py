@@ -24,7 +24,7 @@ items = README.Items(
         {
             "name": "blue-amo",
             "url": "./blue_assistant/script/repository/blue_amo/README.md",
-            "marquee": "https://github.com/kamangir/assets/raw/main/test_blue_assistant_script_run-2025-03-15-06pbpf/stitching_the_frames-2.png?raw=true",
+            "marquee": "https://github.com/kamangir/assets/blob/main/test_blue_assistant_script_run-2025-03-15-06pbpf/generating_frame_007.png?raw=true",
             "description": "Story development and visualization.",
         },
         {
