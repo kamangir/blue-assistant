@@ -19,7 +19,7 @@ items = README.Items(
             "name": "@hue",
             "url": "./blue_assistant/script/repository/hue",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
-            "description": '"send a color command to the Hue LED lights in my apartment."',
+            "description": '"[Hey AI]((./blue_assistant/script/repository/hue/metadata.yaml)), help me send color commands to the Hue LED lights in my apartment."',
         },
         {
             "name": "blue-amo",
