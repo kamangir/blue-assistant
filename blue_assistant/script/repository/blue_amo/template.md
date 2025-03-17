@@ -1,5 +1,12 @@
 # blue-amo
 
+```yaml
+include:::noref ./metadata.yaml
+```
+[metadata.yaml](../metadata.yaml)
+
+🔥
+
 set:::object_name blue-amo-2025-02-03-nswnx6
 
 metadata:::get:::object_name:::output.script.nodes.generating_the_story.output

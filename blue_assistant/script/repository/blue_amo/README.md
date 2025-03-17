@@ -1,5 +1,76 @@
 # blue-amo
 
+```yaml
+script:
+  vars:
+    premise: |
+      Generate a story in a few paragraphs about when the US attempts to take over Canada
+      and Greenland first through diplomatic and economic pressure and then direct military
+      action.
+
+      To defend themselves, the Canadians take use of the geography and urban layout of
+      many North American cities close to bodies of water  and design spherical AI-enabled
+      amphibious loitering ammunition robots named blue-amo the size of basketball.
+
+      The robots are carried to American targets by small narco submarines provided by the
+      Mexican cartels. These small autonomous submarines can swim in shallow waters undetected.
+      They used to deliver Cocaine to US.
+
+      At the target, the submarine opens a hatch and the robots roll off their container in
+      the submarine and swim towards the shore. From there they roll into hiding places to
+      act when and how their DeepSeek onboard Raspberry Pis determine appropriate.
+
+      The robots find and connect to open WiFi connections and scan the news to determine where
+      and when to attack. Their surface is covered in durable photocells, thus they charge their
+      batteries by lying on the ground. They each carry a pound of high explosives.
+
+      When in danger, the robots roll towards the closest body of water and hide under water.
+
+      The robots recognize when manipulated by children or animals and avoid any harmful action.
+
+    frame_count: 12
+
+  test_mode:
+    frame_count: 2
+
+  nodes:
+    generating_the_story:
+      runnable: false
+      action: generate_text
+      prompt: :::premise
+
+    slicing_into_frames:
+      runnable: false
+      action: generate_text
+      depends-on: generating_the_story
+      prompt: |
+        :::generating_the_story
+
+        Slice this story into :::frame_count pieces, each appropriate for generating an image from,
+        and return the slices separated by ---.
+
+    setting_frame_prompts:
+      runnable: false
+      action: setting_frame_prompts
+      depends-on: slicing_into_frames
+
+    generating_the_frames:
+      runnable: false
+      action: generate_image
+      depends-on: setting_frame_prompts
+      prompt: >
+        :::story_so_far
+        Generate an image to demonstrate :::story_of_this_frame
+
+    stitching_the_frames:
+      runnable: false
+      action: stitching_the_frames
+
+```
+[metadata.yaml](../metadata.yaml)
+
+🔥
+
 
 ```yaml
 "In a world where ambition and power struggles echoed across the northern hemisphere,\
