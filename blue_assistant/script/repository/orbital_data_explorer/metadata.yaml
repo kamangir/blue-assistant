@@ -29,7 +29,7 @@ script:
 
     expanding_the_extractions:
       action: expanding_the_extractions
-      max_nodes: 10
+      max_nodes: 100
       test_mode:
         max_nodes: 2
       depends-on: web_crawl
