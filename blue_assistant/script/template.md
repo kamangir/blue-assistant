@@ -47,7 +47,7 @@ script:
             prompt: Generate an image to visualize :::story
 
     versions:
-        downloading_a_datacube:
+        different_ending:
             vars: {}
             nodes: {}
 
