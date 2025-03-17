@@ -1,5 +1,7 @@
 # blue-amo
 
+Story development and visualization, with an [AI DAG](./metadata.yaml)
+
 ```yaml
 script:
   vars:
@@ -67,9 +69,6 @@ script:
       action: stitching_the_frames
 
 ```
-[metadata.yaml](./metadata.yaml)
-
-🔥
 
 
 ```yaml
@@ -108,8 +107,6 @@ script:
   \ all coaxed from necessity against the encroaching American Goliath."
 
 ```
-
-A story developed and visualized by AI.
 
 ```bash
 @select blue-amo-$(@@timestamp)

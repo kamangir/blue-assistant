@@ -1,17 +1,14 @@
 # blue-amo
 
+Story development and visualization, with an [AI DAG](./metadata.yaml)
+
 ```yaml
 include:::noref ./metadata.yaml
 ```
-[metadata.yaml](./metadata.yaml)
-
-🔥
 
 set:::object_name blue-amo-2025-02-03-nswnx6
 
 metadata:::get:::object_name:::output.script.nodes.generating_the_story.output
-
-A story developed and visualized by AI.
 
 ```bash
 @select blue-amo-$(@@timestamp)
