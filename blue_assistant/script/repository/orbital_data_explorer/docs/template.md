@@ -31,19 +31,12 @@ details:::output
 metadata:::get:::object_name:::output
 details:::
 
-assets:::get:::object_name/thumbnail-workflow.png
-
-object:::get:::object_name
-
-## sample object
-
 set:::PDS_object_name uahirise-ESP_086795_1970
 
-assets:::blue-assistant/PDS/get:::PDS_object_name.png
-
-object:::get:::object_name
-
-🔥
+| | |
+|-|-|
+| assets:::get:::object_name/thumbnail-workflow.png | assets:::blue-assistant/PDS/get:::PDS_object_name.png |
+| object:::get:::object_name | object:::get:::PDS_object_name |
 
 ⏸️
 
