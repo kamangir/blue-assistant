@@ -70,6 +70,16 @@ script:
 
 ```
 
+```bash
+@select blue-amo-$(@@timestamp)
+@assistant script run - \
+    script=blue_amo .
+
+@assets publish push .
+
+@assistant build_README
+```
+
 
 ```yaml
 "In a world where ambition and power struggles echoed across the northern hemisphere,\
@@ -106,16 +116,6 @@ script:
   \ with astute design and strategic improvisation, could withstand the tides of dominion,\
   \ all coaxed from necessity against the encroaching American Goliath."
 
-```
-
-```bash
-@select blue-amo-$(@@timestamp)
-@assistant script run - \
-    script=blue_amo .
-
-@assets publish push .
-
-@assistant build_README
 ```
 
 
