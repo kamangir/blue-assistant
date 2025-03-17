@@ -3,7 +3,7 @@
 ```yaml
 include:::noref ./metadata.yaml
 ```
-[metadata.yaml](../metadata.yaml)
+[metadata.yaml](./metadata.yaml)
 
 🔥
 

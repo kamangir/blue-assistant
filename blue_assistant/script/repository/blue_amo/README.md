@@ -67,7 +67,7 @@ script:
       action: stitching_the_frames
 
 ```
-[metadata.yaml](../metadata.yaml)
+[metadata.yaml](./metadata.yaml)
 
 🔥
 
