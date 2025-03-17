@@ -1,6 +1,6 @@
 # Blue Script
 
-A minimal [AI](https://github.com/kamangir/openai-commands) [DAG](https://networkx.org/) interface.
+A minimal [AI](https://github.com/kamangir/openai-commands) [DAG](https://networkx.org/) interface ([examples](./repository/)).
 
 ```yaml
 script:
@@ -54,7 +54,3 @@ script:
 ```
 
 help::: blue_assistant script
-
----
-
-[repository](./repository/)
