@@ -1,6 +1,6 @@
-# orbital-data-explorer 🔥
+# orbital-data-explorer ⏸️
 
-Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
+Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](../metadata.yaml).
 
 ```yaml
 script:
@@ -64,7 +64,12 @@ script:
       nodes: {}
 
 ```
-[metadata.yaml](../metadata.yaml)
+
+## TLDR
+
+🔥 key urls
+
+## a run
 
 ```bash
 @select orbital-data-explorer-$(@@timestamp)
@@ -9980,7 +9985,11 @@ script:
 
 [orbital-data-explorer-2025-03-16-xoo5vc](https://kamangir-public.s3.ca-central-1.amazonaws.com/orbital-data-explorer-2025-03-16-xoo5vc.tar.gz)
 
+## sample object
+
 🔥
+
+⏸️
 
 ---
 

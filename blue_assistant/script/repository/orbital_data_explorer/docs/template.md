@@ -1,11 +1,16 @@
-# orbital-data-explorer 🔥
+# orbital-data-explorer ⏸️
 
-Access to the [Orbital Data Explorer](https://ode.rsl.wustl.edu/).
+Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](../metadata.yaml).
 
 ```yaml
 include:::noref ../metadata.yaml
 ```
-[metadata.yaml](../metadata.yaml)
+
+## TLDR
+
+🔥 key urls
+
+## a run
 
 ```bash
 @select orbital-data-explorer-$(@@timestamp)
@@ -28,7 +33,11 @@ assets:::get:::object_name/thumbnail-workflow.png
 
 object:::get:::object_name
 
+## sample object
+
 🔥
+
+⏸️
 
 ---
 
