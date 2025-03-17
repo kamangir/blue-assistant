@@ -39,7 +39,7 @@ object:::get:::object_name
 
 set:::PDS_object_name uahirise-ESP_086795_1970
 
-assets:::blue-assistant/PDS/get:::object_name.png
+assets:::blue-assistant/PDS/get:::PDS_object_name.png
 
 object:::get:::object_name
 
