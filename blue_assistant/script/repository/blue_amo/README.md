@@ -558,15 +558,10 @@ stitching_the_frames:
 
 
 
-<details>
-<summary>workflow</summary>
-
-![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-nswnx6/thumbnail-workflow.png?raw=true)
-
-</details>
-
-
-![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true)
+| | |
+|-|-|
+| ![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-nswnx6/thumbnail-workflow.png?raw=true)
+ | ![image](https://github.com/kamangir/assets/blob/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true) |
 
 [blue-amo-2025-02-03-nswnx6](https://kamangir-public.s3.ca-central-1.amazonaws.com/blue-amo-2025-02-03-nswnx6.tar.gz)
 

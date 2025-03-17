@@ -24,11 +24,11 @@ details:::output
 metadata:::get:::object_name:::output.script.nodes
 details:::
 
-details:::workflow
-assets:::get:::object_name/thumbnail-workflow.png
-details:::
 
-assets:::get:::object_name/stitching_the_frames-2.png
+| | |
+|-|-|
+| assets:::get:::object_name/thumbnail-workflow.png
+ | assets:::get:::object_name/stitching_the_frames-2.png |
 
 object:::get:::object_name
 
