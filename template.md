@@ -9,7 +9,7 @@ pip install blue-assistant
 ```mermaid
 graph LR
     assistant_script_list["@assistant script list"]
-    assistant_script_run["@assistant script run~~- <script> <object-name>"]
+    assistant_script_run["@assistant script run~~- script=<name>,version=<version> <object-name>"]
 
     web_crawl["@web crawl~~- <url-1>+<url-2> <object-name>"]
 

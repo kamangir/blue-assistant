@@ -9,7 +9,7 @@ pip install blue-assistant
 ```mermaid
 graph LR
     assistant_script_list["@assistant<br>script<br>list"]
-    assistant_script_run["@assistant<br>script<br>run -<br>&lt;script&gt;<br>&lt;object-name&gt;"]
+    assistant_script_run["@assistant<br>script<br>run -<br>script=&lt;name&gt;,version=&lt;version&gt;<br>&lt;object-name&gt;"]
 
     web_crawl["@web<br>crawl -<br>&lt;url-1&gt;+&lt;url-2&gt;<br>&lt;object-name&gt;"]
 
@@ -75,4 +75,4 @@ graph LR
 
 [![pylint](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pylint.yml) [![pytest](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/pytest.yml) [![bashtest](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml/badge.svg)](https://github.com/kamangir/blue-assistant/actions/workflows/bashtest.yml) [![PyPI version](https://img.shields.io/pypi/v/blue-assistant.svg)](https://pypi.org/project/blue-assistant/) [![PyPI - Downloads](https://img.shields.io/pypi/dd/blue-assistant)](https://pypistats.org/packages/blue-assistant)
 
-built by 🌀 [`blue_options-4.240.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.368.1`](https://github.com/kamangir/blue-assistant).
+built by 🌀 [`blue_options-4.240.1`](https://github.com/kamangir/awesome-bash-cli), based on 🧠 [`blue_assistant-4.369.1`](https://github.com/kamangir/blue-assistant).
