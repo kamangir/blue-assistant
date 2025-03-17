@@ -16,12 +16,6 @@ items = README.Items(
             "description": "Poking around [Orbital Data Explorer](https://ode.rsl.wustl.edu/) with an [AI DAG](./blue_assistant/script/repository/orbital_data_explorer/metadata.yaml). ⏸️",
         },
         {
-            "name": "🌀 blue script",
-            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
-            "description": "A minimal AI DAG interface.",
-            "url": "./blue_assistant/script/",
-        },
-        {
             "name": "@hue",
             "url": "./blue_assistant/script/repository/hue",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-assistant/20250314_143702.jpg?raw=true",
@@ -32,6 +26,12 @@ items = README.Items(
             "url": "./blue_assistant/script/repository/blue_amo/README.md",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-amo-2025-02-03-nswnx6/stitching_the_frames-2.png?raw=true",
             "description": "Story development and visualization.",
+        },
+        {
+            "name": "🌀 blue script",
+            "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
+            "description": "A minimal AI DAG interface.",
+            "url": "./blue_assistant/script/",
         },
     ]
 )
