@@ -21,3 +21,8 @@ beautifulsoup4
 
 networkx
 pydot
+
+# for RAG
+transformers
+torch
+faiss-cpu

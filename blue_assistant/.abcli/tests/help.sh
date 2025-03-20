@@ -29,6 +29,10 @@ function test_blue_assistant_help() {
         "@hue set" \
         "@hue test" \
         \
+        "@RAG" \
+        "@RAG create_index" \
+        "@RAG query" \
+        \
         "@web" \
         "@web crawl" \
         "@web fetch" \
