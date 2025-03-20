@@ -33,7 +33,7 @@ details:::
 
 set:::PDS_object_name uahirise-ESP_086795_1970
 
-assets:::get:::set:::PDS_object_name
+assets:::get:::PDS_object_name
 
 | | |
 |-|-|
