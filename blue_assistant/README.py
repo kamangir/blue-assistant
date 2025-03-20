@@ -36,7 +36,7 @@ items = README.Items(
         {
             "name": "`@RAG`",
             "marquee": "https://github.com/kamangir/assets/raw/main/orbital-data-explorer-2025-03-16-xoo5vc/thumbnail-workflow.png?raw=true",
-            "description": "An AI DAG RAG.",
+            "description": " RAG on a DAG.",
             "url": "./blue_assistant/RAG/",
         },
         {
@@ -78,6 +78,8 @@ def build():
             #
             {"path": "script/repository/hue/docs/round-1.md"},
             {"path": "script/repository/hue/docs"},
+            #
+            {"path": "RAG/docs"},
             #
             {"path": "script/"},
             {"path": "web/"},
