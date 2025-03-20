@@ -14,10 +14,10 @@ def help_create_index(
             "@RAG",
             "create_index",
             f"[{options}]",
-            "[.|<documents-object-name>]",
-            "[-|<faiss-index-object-name>]",
+            "[.|<docs-object-name>]",
+            "[-|<index-object-name>]",
         ],
-        "<documents-object-name> -create-index-> <faiss-index-object-name>.",
+        "<docs-object-name> -create-index-> <faiss-index-object-name>.",
         mono=mono,
     )
 
@@ -34,10 +34,10 @@ def help_query(
             "query",
             f"[{options}]",
             "<prompt>",
-            "[.|<faiss-index-object-name>]",
+            "[.|<index-object-name>]",
             "[-|<response-object-name>]",
         ],
-        "query on <prompt> using <faiss-index-object-name> -> <response-object-name>.",
+        "query on <prompt> using <index-object-name> -> <response-object-name>.",
         mono=mono,
     )
 

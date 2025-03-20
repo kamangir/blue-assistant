@@ -33,7 +33,12 @@ items = README.Items(
             "description": "A minimal AI DAG interface.",
             "url": "./blue_assistant/script/",
         },
-        {},
+        {
+            "name": "`@RAG`",
+            "marquee": "https://github.com/kamangir/assets/raw/main/orbital-data-explorer-2025-03-16-xoo5vc/thumbnail-workflow.png?raw=true",
+            "description": "An AI DAG RAG.",
+            "url": "./blue_assistant/RAG/",
+        },
         {
             "name": "`@web`",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
