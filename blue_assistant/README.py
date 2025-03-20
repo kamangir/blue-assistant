@@ -36,7 +36,7 @@ items = README.Items(
         {
             "name": "`@RAG`",
             "marquee": "https://github.com/kamangir/assets/raw/main/orbital-data-explorer-2025-03-16-xoo5vc/thumbnail-workflow.png?raw=true",
-            "description": " RAG on a DAG.",
+            "description": " RAG on a DAG. 🔥",
             "url": "./blue_assistant/RAG/",
         },
         {
