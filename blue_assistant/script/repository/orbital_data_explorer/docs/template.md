@@ -33,6 +33,8 @@ details:::
 
 set:::PDS_object_name uahirise-ESP_086795_1970
 
+assets:::get:::PDS_object_name
+
 | | |
 |-|-|
 | assets:::get:::object_name/thumbnail-workflow.png | assets:::blue-assistant/PDS/get:::PDS_object_name.png |

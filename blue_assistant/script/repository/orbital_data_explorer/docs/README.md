@@ -9984,6 +9984,8 @@ script:
 
 
 
+[uahirise-ESP_086795_1970](https://github.com/kamangir/assets/blob/main/uahirise-ESP_086795_1970)
+
 | | |
 |-|-|
 | ![image](https://github.com/kamangir/assets/blob/main/orbital-data-explorer-2025-03-16-xoo5vc/thumbnail-workflow.png?raw=true) | ![image](https://github.com/kamangir/assets/blob/main/blue-assistant/PDS/uahirise-ESP_086795_1970.png?raw=true) |

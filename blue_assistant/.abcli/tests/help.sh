@@ -29,6 +29,9 @@ function test_blue_assistant_help() {
         "@hue set" \
         "@hue test" \
         \
+        "@RAG" \
+        "@RAG query_pdf" \
+        \
         "@web" \
         "@web crawl" \
         "@web fetch" \

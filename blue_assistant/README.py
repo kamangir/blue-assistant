@@ -33,7 +33,12 @@ items = README.Items(
             "description": "A minimal AI DAG interface.",
             "url": "./blue_assistant/script/",
         },
-        {},
+        {
+            "name": "`@RAG`",
+            "marquee": "https://github.com/kamangir/assets/raw/main/orbital-data-explorer-2025-03-16-xoo5vc/thumbnail-workflow.png?raw=true",
+            "description": " RAG on a DAG. 🔥",
+            "url": "./blue_assistant/RAG/",
+        },
         {
             "name": "`@web`",
             "marquee": "https://github.com/kamangir/assets/raw/main/blue-plugin/marquee.png?raw=true",
@@ -73,6 +78,11 @@ def build():
             #
             {"path": "script/repository/hue/docs/round-1.md"},
             {"path": "script/repository/hue/docs"},
+            #
+            {"path": "RAG/docs/round-1.md"},
+            {"path": "RAG/docs/round-2.md"},
+            {"path": "RAG/docs/round-3.md"},
+            {"path": "RAG/docs"},
             #
             {"path": "script/"},
             {"path": "web/"},

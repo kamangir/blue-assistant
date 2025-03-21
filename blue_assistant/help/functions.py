@@ -5,6 +5,7 @@ from abcli.help.generic import help_functions as generic_help_functions
 
 from blue_assistant import ALIAS
 from blue_assistant.help.hue import help_functions as help_hue
+from blue_assistant.help.RAG import help_functions as help_RAG
 from blue_assistant.help.script import help_functions as help_script
 from blue_assistant.help.web import help_functions as help_web
 
@@ -32,6 +33,7 @@ help_functions.update(
     {
         "browse": help_browse,
         "hue": help_hue,
+        "RAG": help_RAG,
         "script": help_script,
         "web": help_web,
     }
