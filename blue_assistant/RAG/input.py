@@ -12,7 +12,7 @@ def pdf_to_faiss(
     pdf = pypdf.PdfReader(pdf_location)
 
     full_text = ""
-    for i, content in enumerate(pdf.pages):
+    for content in pdf.pages:
         raw_text = content.extract_text()
         full_text += raw_text
 
