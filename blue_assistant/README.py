@@ -80,6 +80,8 @@ def build():
             {"path": "script/repository/hue/docs"},
             #
             {"path": "RAG/docs/round-1.md"},
+            {"path": "RAG/docs/round-2.md"},
+            {"path": "RAG/docs/round-3.md"},
             {"path": "RAG/docs"},
             #
             {"path": "script/"},

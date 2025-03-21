@@ -30,8 +30,7 @@ function test_blue_assistant_help() {
         "@hue test" \
         \
         "@RAG" \
-        "@RAG create_index" \
-        "@RAG query" \
+        "@RAG query_pdf" \
         \
         "@web" \
         "@web crawl" \
