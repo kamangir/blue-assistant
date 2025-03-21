@@ -22,3 +22,5 @@ def test_blue_assistant_env():
     assert env.HUE_MAX_SATURATION
 
     assert env.RAG_DEFAULT_DOCUMENTS_OBJECT_NAME
+
+    assert env.HUGGINGFACEHUB_API_TOKEN

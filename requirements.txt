@@ -23,6 +23,10 @@ networkx
 pydot
 
 # for RAG
-transformers
-torch
+openai
 faiss-cpu
+langchain
+pypdf2
+langchain_openai
+sentence-transformers
+langchain_community
