@@ -2,6 +2,8 @@ from langchain_community.llms import HuggingFaceHub
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
+from blue_assistant.logger import logger
+
 
 def answer(db, question):
     repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"  # "google/flan-t5-base"
@@ -35,11 +37,14 @@ def answer(db, question):
         prompt=prompt_template,
     )
 
+    response = chain.run(
+        context=docs,
+        question=question,
+    )
+    response = [thing for thing in response.split("\n") if thing][-1]
+
     return (
         prompt,
         docs,
-        chain.run(
-            context=docs,
-            question=question,
-        ),
+        response,
     )
