@@ -8,12 +8,12 @@ Using [giza.pdf](https://kamangir-public.s3.ca-central-1.amazonaws.com/giza-v1/g
 
 ```bash
 @RAG query_pdf \
-	filename=giza \
-	$(@mlflow tags search \
+    filename=giza \
+    $(@mlflow tags search \
         contains=latest-giza \
         --log 0 \
         --count 1) \
-	"What is the importance of Bash in AI? in less than 20 words."
+    "What is the importance of Bash in AI? in less than 20 words."
 ```
 
 set:::object_name giza-v1
